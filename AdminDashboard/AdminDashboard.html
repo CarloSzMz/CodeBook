@@ -16,6 +16,8 @@
 
 <body>
 
+    <!-- APARTADO DE USUARIOS-->
+
     <div class="container mt-3" id="Usuarios">
         <table class="table table-dark table-hover">
             <thead>
@@ -27,33 +29,13 @@
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
-            <tbody id="info">
+            <tbody id="infoUsers">
             </tbody>
 
         </table>
 
         <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
     </div>
-
-    <div class="container mt-3 d-none" id="Libros">
-        <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Opciones</th>
-                </tr>
-            </thead>
-            <tbody id="info">
-            </tbody>
-
-        </table>
-
-        <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
-    </div>
-
 
     <!-- Modal para editar user-->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
@@ -89,6 +71,50 @@
             </div>
         </div>
     </div>
+
+    <!-- APARTADO DE LIBROS-->
+
+    <div class="container mt-3 d-none" id="Libros">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="infoLibros">
+            </tbody>
+
+        </table>
+
+        <button class="btn btn-info"><a href="./Libros/crear/crearLibros.html">Crear Libro</a></button>
+    </div>
+
+
+    <!-- APARTADO DE CATEGORIAS-->
+
+
+    <div class="container mt-3 " id="Categorias">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Lenguaje</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody id="infoCategorias">
+            </tbody>
+
+        </table>
+
+        <button class="btn btn-info"><a href="./Categorias/crear/crearCategorias.html">Crear Categoría</a></button>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
     <script src="AdminDashboard.js"></script>
