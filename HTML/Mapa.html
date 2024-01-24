@@ -41,7 +41,8 @@
                             map: map,
                             title: usuario.Nombre 
                         });
-                    });
+                    });  
+                    setTimeout(clicarIconos, 1000);    
                 })
                 .catch(error => {
                     console.error("Error: ", error)
@@ -92,26 +93,10 @@
                 //../PHP/chat.php
                 element.addEventListener("click",()=>{
                     let nombre = element.getAttribute("aria-label")
-                    console.log(nombre)
-                    let xhr = new XMLHttpRequest();
-                    xhr.open("POST", "../PHP/chat.php", true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-                    xhr.onreadystatechange = function() {
-                        if (xhr.readyState === 4 && xhr.status === 200) {
-                           
-                         // window.location.href = "../PHP/chat.php";
-                        }
-                    };
-
-                    let data = "nombreRemitente=" + nombre;
-                    console.log(data)
-                    xhr.send(data);
-                    console.log("enviado")
-
-                        })
-                    });
-                }
+                    window.location.href = "../PHP/chat.php?usuario=" + nombre;
+                })
+            });
+        }
 
     </script>
 </body>

@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
     // Verificar si el parámetro 'nombreRemitente' está presente en la solicitud POST
-    if (isset($_POST["nombreRemitente"])) {
+    if (isset($_GET["usuario"])) {
         // Recuperar el valor de 'nombreRemitente'
-        $nombreRemitente = $_POST["nombreRemitente"];
+        $nombreRemitente = $_GET["usuario"];
         // Ahora puedes utilizar la variable $nombreRemitente como desees
         // Por ejemplo, podrías almacenarlo en una base de datos, realizar alguna lógica de negocios, etc.
 
@@ -33,7 +33,8 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$nombre2 = $_SESSION["nombreUsuario"]; 
+//$nombre2 = $_SESSION["nombreUsuario"]; 
+$nombre2 = "david";
 
 
 $query = "SELECT * FROM mensajes WHERE (nombreRemitente = '$nombre1' AND nombreDestinatario = '$nombre2') OR (nombreRemitente = '$nombre2' AND nombreDestinatario = '$nombre1')";
