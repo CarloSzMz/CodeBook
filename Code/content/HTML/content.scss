@@ -62,7 +62,7 @@ main {
   min-height: 80%;
   background-color: #1e1e1e;
 }
-#cursos {
+#cursos, #libros {
   @include medio;
   flex-wrap: wrap;
 }
