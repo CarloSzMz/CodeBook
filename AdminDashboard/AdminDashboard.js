@@ -1,12 +1,12 @@
-var div = document.getElementById("info");
-var info = [];
+var div = document.getElementById("infoUsers");
+var infoUsers = [];
 
-// Hacer la solicitud al archivo PHP
-fetch('./AdminDashboard.php')
+// Hacer la solicitud al archivo PHP de usuarios
+fetch('./Queries/GetUsers.php')
     .then(response => response.json()) // Parsear la respuesta como JSON
     .then((data) => {
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
-        info = JSON.parse(JSON.stringify(data));
+        infoUsers = JSON.parse(JSON.stringify(data));
         console.log(data);
         tabla();
     })
@@ -17,7 +17,7 @@ fetch('./AdminDashboard.php')
 
 function tabla() {
     var cad = ``;
-    info.forEach(element => {
+    infoUsers.forEach(element => {
         cad +=
             `<tr>
                 <th scope="row">${element.Id}</th>`;
@@ -60,7 +60,7 @@ function eliminarUsuario(id) {
                         .then(response => response.json())
                         .then(updatedData => {
                             // Actualizar la variable 'info' con los nuevos datos
-                            info = JSON.parse(JSON.stringify(updatedData));
+                            infoUsers = JSON.parse(JSON.stringify(updatedData));
                             console.log(data);
                             // Actualizar la tabla con los nuevos datos
                             tabla();
@@ -118,3 +118,41 @@ function editarUsuario(user, emailuser, admin) {
 }
 
 
+var divCategorias = document.getElementById("infoCategorias");
+var infoCategorias = [];
+
+// Hacer la solicitud al archivo PHP
+fetch('./Queries/GetCategorias.php')
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => {
+        // Manejar los datos obtenidos (en este caso, imprimir en la consola)
+        infoCategorias = JSON.parse(JSON.stringify(data));
+        console.log(infoCategorias);
+        tablaCategorias();
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });
+
+function tablaCategorias() {
+    var cad = ``;
+    console.log("estoy");
+    infoCategorias.forEach(element => {
+        cad +=
+            `<tr>
+                    <th scope="row">${element.Id}</th>
+                    <td>${element.Lenguaje}</td>
+                    <td>
+                        <button class='btn'>
+                            <i id="${element.Id}" onclick="" class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
+                        </button>
+                        <button class='btn'>
+                            <i id="${element.Id}" onclick="" class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
+                        </button>
+                    </td>
+            </tr> 
+                `;
+    });
+    console.log(cad);
+    divCategorias.innerHTML = cad;
+}
