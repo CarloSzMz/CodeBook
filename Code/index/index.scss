@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+$fuente: "Poppins";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+@mixin medio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 10%;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  color: white;
+  padding: 5px;
+  font-family: $fuente;
+  font-style: italic;
+}
+
+main {
+  @include medio;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+
+  h1 {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    width: 50%;
+    font-family: $fuente;
+  }
+
+  button {
+    @include medio;
+    margin-top: 20px;
+    width: 15%;
+    height: 50px;
+    background-color: greenyellow;
+    color: black;
+    font-family: $fuente;
+  }
+}
+
+footer {
+  min-height: 10%;
+  background-color: #1e1e1e;
+
+  & > div {
+    float: right;
+    width: 30%;
+    height: 30px;
+    background-color: #2d2d2d;
+    text-align: center;
+
+    & > p {
+      margin-right: 100%;
+    }
+  }
+}
