@@ -35,7 +35,7 @@ header {
   @include medio;
   text-align: center;
   position: relative;
-  left: 35%;
+  left: 30%;
   top: -15px;
   width: 40%;
   height: 30px;
@@ -52,29 +52,32 @@ main {
 }
 
 //FORMULARIO
-label {
-  color: white;
-  font-family: $fuente;
+#formulario {
+  @include medio();
 }
 form {
   width: 95%;
   margin-left: 10px;
+  @include medio();
   div {
     display: flex;
     flex-direction: column;
-  }
-}
-#GET-name {
-  border: 1px solid red;
-  border: none;
-  border-bottom: 1px solid white;
-  background-color: transparent;
-  &value {
-    color: white;
-    font-family: $fuente;
-  }
-
-  &:focus {
-    outline: none;
+    margin-top: 10px;
+    width: 80%;
+    input,
+    textarea {
+      border: 1px solid red;
+      border: none;
+      border-bottom: 1px solid white;
+      background-color: transparent;
+      color: white;
+      font-family: $fuente;
+      padding: 5px;
+      &:focus {
+        border: none;
+        border-bottom: 1px solid white;
+        outline: none;
+      }
+    }
   }
 }
