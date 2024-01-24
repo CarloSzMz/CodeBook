@@ -39,14 +39,34 @@ header {
   font-family: "Poppins";
 }
 
+.lineas {
+  width: 100%;
+}
+.lineas hr {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 95%;
+}
+.lineas p {
+  color: white;
+  font-family: "Poppins";
+  margin: 10px;
+}
+
 main {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+
+#cursos {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  flex-direction: column;
-  min-height: 80%;
-  background-color: #1e1e1e;
 }
 
 #select {
@@ -56,6 +76,7 @@ main {
 }
 
 #category {
+  text-align: center;
   color: white;
   background-color: transparent;
   border: none;
@@ -67,8 +88,8 @@ main {
 }
 
 .content {
-  margin-top: 5px;
-  width: 70%;
+  margin: 10px;
+  width: 300px;
   height: 320px;
   background-color: #2d2d2d;
   text-align: center;

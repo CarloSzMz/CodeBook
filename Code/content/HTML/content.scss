@@ -41,17 +41,36 @@ header {
   background-color: gold;
   font-family: $fuente;
 }
+.lineas {
+  width: 100%;
+  hr {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: 95%;
+  }
+  p {
+    color: white;
+    font-family: $fuente;
+    margin: 10px;
+  }
+}
 main {
-  @include medio;
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   flex-direction: column;
   min-height: 80%;
   background-color: #1e1e1e;
+}
+#cursos {
+  @include medio;
+  flex-wrap: wrap;
 }
 #select {
   @include medio;
 }
 #category {
+  text-align: center;
   color: white;
   background-color: transparent;
   border: none;
@@ -62,8 +81,8 @@ main {
   }
 }
 .content {
-  margin-top: 5px;
-  width: 70%;
+  margin: 10px;
+  width: 300px;
   height: 320px;
   background-color: #2d2d2d;
   text-align: center;
