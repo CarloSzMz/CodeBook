@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Usuarios</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button onclick="obtenerUbicacion()">Compartir Ubicación</button>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap">
+    </script>
+    <script>
+        let map;
+        function initMap() {    
+            fetch("../PHP/sacar_usuarios_con_ubi.php")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    let centroMapa = { lat: 39.469947814941406, lng: -0.3763095438480377 };
+                    map = new google.maps.Map(document.getElementById('map'), {
+                        center: centroMapa,
+                        zoom: 12
+                    });
+                    data.forEach(function(usuario) {
+                        let posicion = {
+                            lat: parseFloat(usuario.latitud),
+                            lng: parseFloat(usuario.longitud)
+                        };
+
+                        let marker = new google.maps.Marker({
+                            position: posicion,
+                            map: map,
+                            title: usuario.Nombre 
+                        });
+                    });
+                })
+                .catch(error => {
+                    console.error("Error: ", error)
+                });
+        }
+
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        let latitud = position.coords.latitude;
+                        let longitud = position.coords.longitude;
+                        console.log("Ubicación obtenida:", latitud, longitud);
+
+                    
+                        enviarUbicacionAlServidor(latitud, longitud);
+                    },
+                    function(error) {
+                        console.error("Error al obtener la ubicación:", error.message);
+                    }
+                );
+            } else {
+                alert("La geolocalización no está soportada por tu navegador.");
+            }
+        }
+
+
+        function enviarUbicacionAlServidor(latitud, longitud) {
+           
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "../PHP/almacenar_ubicacion.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("Ubicación almacenada en el servidor.");
+                }
+            };
+
+            let data = "latitud=" + latitud + "&longitud=" + longitud;
+            xhr.send(data);
+
+        }
+
+        function clicarIconos(){
+            let areas = document.querySelectorAll('div[aria-label]');
+            areas.forEach(element => {
+                //../PHP/chat.php
+                element.addEventListener("click",()=>{
+                    let nombre = element.getAttribute("aria-label")
+                    console.log(nombre)
+                    let xhr = new XMLHttpRequest();
+                    xhr.open("POST", "../PHP/chat.php", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                           
+                         // window.location.href = "../PHP/chat.php";
+                        }
+                    };
+
+                    let data = "nombreRemitente=" + nombre;
+                    console.log(data)
+                    xhr.send(data);
+                    console.log("enviado")
+
+                        })
+                    });
+                }
+
+    </script>
+</body>
+</html>
