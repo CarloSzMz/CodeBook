@@ -38,12 +38,13 @@ header {
   height: 30px;
   background-color: gold;
   font-family: "Poppins";
+  font-size: 20px;
 }
 
 main {
   display: flex;
-  justify-content: start;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   min-height: 80%;
   background-color: #1e1e1e;
@@ -65,22 +66,41 @@ form {
 form div {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 50px;
   width: 80%;
 }
 form div input,
 form div textarea {
-  border: 1px solid red;
   border: none;
   border-bottom: 1px solid white;
   background-color: transparent;
   color: white;
   font-family: "Poppins";
-  padding: 5px;
+  font-size: 20px;
+  padding: 10px;
 }
 form div input:focus,
 form div textarea:focus {
   border: none;
   border-bottom: 1px solid white;
   outline: none;
+}
+form div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background-color: greenyellow;
+  color: black;
+  border: none;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+
+#enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=support.css.map */

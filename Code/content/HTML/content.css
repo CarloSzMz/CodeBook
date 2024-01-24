@@ -62,7 +62,7 @@ main {
   background-color: #1e1e1e;
 }
 
-#cursos {
+#cursos, #libros {
   display: flex;
   justify-content: center;
   align-items: center;
