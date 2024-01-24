@@ -1,10 +1,6 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombreUsuario = $_POST["NombreUsuario"];
-    $contrasenya = $_POST["Contrasenya1"];
-    $correo = $_POST["Correo"];
-
 
     $servername = "localhost";
     $username = "root";
@@ -15,15 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Recibe los datos del formulario
-    $nombre = $_POST["nombre"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $tipo = $_POST["tipo"];
+    $nombre = $_POST[""];
+    $desc = $_POST[""];
+    $fichero = $_POST[""];
+    $categoria = $_POST[""];
 
+    /*
 
-    $hashContrasenya = password_hash($password, PASSWORD_DEFAULT);
-
-    $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombre', '$email', '$hashContrasenya', '$tipo')";
+    $query = "INSERT INTO libros (Nombre, Descripcion, Fichero, Categoria) VALUES ('$nombre', '$desc', '$fichero', '$categoria')";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos insertados correctamente.";
@@ -36,4 +31,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
     session_destroy();
+    */
 }
