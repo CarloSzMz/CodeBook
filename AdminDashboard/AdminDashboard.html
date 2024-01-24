@@ -18,8 +18,16 @@
 
     <!-- APARTADO DE USUARIOS-->
 
-    <div class="container mt-3" id="Usuarios"></div>
-    <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
+    <div class="container mt-3">
+        <div id="Usuarios"></div>
+        <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
+        <button class='btn' id="editusu" onclick=editarUsuario()>
+            <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
+        </button>
+        <button class='btn' id="deleteusu" onclick=eliminarUsuario()>
+            <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
+        </button>
+    </div>
 
 
     <!-- Modal para editar user-->
@@ -31,6 +39,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="id" class="col-form-label">Id: </label>
+                        <select name="id" class="form-control" id="select_id">
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="nombre" class="col-form-label">Nombre: </label>
                         <input type="text" id="nombre" class="form-control" placeholder="nombre" required />
@@ -59,30 +72,18 @@
 
     <!-- APARTADO DE LIBROS-->
 
-    <div class="container mt-3 d-none" id="Libros">
-        <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Tipo</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Opciones</th>
-                </tr>
-            </thead>
-            <tbody id="infoLibros">
-            </tbody>
-
-        </table>
-
+    <div class="container mt-3 d-none">
+        <div id="Libros"></div>
         <button class="btn btn-info"><a href="./Libros/crear/crearLibros.html">Crear Libro</a></button>
     </div>
 
 
     <!-- APARTADO DE CATEGORIAS-->
 
-    <div class="container mt-3" id="Categoria"></div>
-    <button class="btn btn-info"><a href="./Categorias/crear/crearCategorias.html">Crear Categoría</a></button>
+    <div class="container mt-3">
+        <div id="Categoria"></div>
+        <button class="btn btn-info"><a href="./Categorias/crear/crearCategorias.html">Crear Categoría</a></button>
+    </div>
 
 
 
