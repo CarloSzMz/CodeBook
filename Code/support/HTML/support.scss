@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+$fuente: "Poppins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+@mixin medio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 10%;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+}
+#logo {
+  color: white;
+  padding: 5px;
+  font-family: $fuente;
+  font-style: italic;
+}
+#sub_header {
+  @include medio;
+  text-align: center;
+  position: relative;
+  left: 35%;
+  top: -15px;
+  width: 40%;
+  height: 30px;
+  background-color: gold;
+  font-family: $fuente;
+}
+main {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+
+//FORMULARIO
+label {
+  color: white;
+  font-family: $fuente;
+}
+form {
+  width: 95%;
+  margin-left: 10px;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+#GET-name {
+  border: 1px solid red;
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  &value {
+    color: white;
+    font-family: $fuente;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
