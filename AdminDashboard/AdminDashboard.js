@@ -1,5 +1,6 @@
 var div = document.getElementById("infoUsers");
 var infoUsers = [];
+var divUsers = document.getElementById("Usuarios")
 
 // Hacer la solicitud al archivo PHP de usuarios
 fetch('./Queries/GetUsers.php')
@@ -7,15 +8,16 @@ fetch('./Queries/GetUsers.php')
     .then((data) => {
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
         infoUsers = JSON.parse(JSON.stringify(data));
-        console.log(data);
-        tabla();
+
+        //Llama a la funcion que crea la tabla
+        divUsers.innerHTML = tabla(infoUsers);
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
     });
 
 
-function tabla() {
+function tablas() {
     var cad = ``;
     infoUsers.forEach(element => {
         cad +=
@@ -117,8 +119,7 @@ function editarUsuario(user, emailuser, admin) {
     })
 }
 
-
-var divCategorias = document.getElementById("infoCategorias");
+var divCategorias = document.getElementById("Categoria");
 var infoCategorias = [];
 
 // Hacer la solicitud al archivo PHP
@@ -127,32 +128,65 @@ fetch('./Queries/GetCategorias.php')
     .then((data) => {
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
         infoCategorias = JSON.parse(JSON.stringify(data));
-        console.log(infoCategorias);
-        tablaCategorias();
+
+        //llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
+        divCategorias.innerHTML = tabla(infoCategorias);
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
     });
 
-function tablaCategorias() {
-    var cad = ``;
-    console.log("estoy");
-    infoCategorias.forEach(element => {
-        cad +=
-            `<tr>
-                    <th scope="row">${element.Id}</th>
-                    <td>${element.Lenguaje}</td>
-                    <td>
-                        <button class='btn'>
-                            <i id="${element.Id}" onclick="" class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
-                        </button>
-                        <button class='btn'>
-                            <i id="${element.Id}" onclick="" class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
-                        </button>
-                    </td>
-            </tr> 
-                `;
+function tabla(elements) {
+
+    var cadena = ``;
+
+    //Variable que cuenta los elementos que tiene un objeto json
+    var keyCount = Object.keys(elements[0]).length - 2;
+
+    //Variable que coge los nombres de los elementos
+    var names = Object.keys(elements[0]);
+
+    cadena = `
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>`;
+
+    for (let i = 0; i < keyCount; i++) {
+        cadena += `
+                <th scope="col">
+                    ${names[i]}
+                </th>
+        `;
+    }
+
+    cadena += `
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    elements.forEach(element => {
+        cadena += `<tr>`;
+
+        for (let i = 0; i < keyCount; i++) {
+            var temp = names[i];
+            if (i == 0) {
+                cadena += `
+                    <th scope="row">${element[temp]}</th>`;
+            } else {
+                cadena += `
+                <td>${element[temp]}</td>`;
+            }
+
+        }
+        cadena += `
+            </tr>
+        
+        `;
+
     });
-    console.log(cad);
-    divCategorias.innerHTML = cad;
+    cadena += `</tbody></table>`
+
+    return cadena;
+
 }
