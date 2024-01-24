@@ -83,7 +83,10 @@
           pNombre.textContent = curso.Nombre;
 
           const imgOtro = document.createElement("img");
-          imgOtro.src = "../img/1";
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px"
+          imgOtro.style.maxWidth = "30px"
+          imgOtro.setAttribute("id", "corazonImagen")
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -116,7 +119,10 @@
           pNombre.textContent = libro.Nombre;
 
           const imgOtro = document.createElement("img");
-          imgOtro.src = "../img/1";
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px"
+          imgOtro.style.maxWidth = "30px"
+          imgOtro.setAttribute("id", "corazonImagen")
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
