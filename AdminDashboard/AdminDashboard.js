@@ -73,43 +73,11 @@ fetch('./Queries/GetUsers.php')
     });
 
 
-function eliminarUsuario(id) {
-    var confirmar = confirm("¿Estás seguro de que deseas eliminar este usuario?");
-
-    if (confirmar) {
-        fetch("./Usuarios/eliminar/eliminarUsuarios.php?id=" + id)
-            .then(response => response.json())
-            .then(data => {
-
-                // Actualizar la tabla solo si la eliminación se llevó a cabo
-                if (data.success) {
-                    // Hacer la solicitud para obtener los datos actualizados después de la eliminación
-                    fetch('./AdminDashboard.php')
-                        .then(response => response.json())
-                        .then(updatedData => {
-                            // Actualizar la variable 'info' con los nuevos datos
-                            infoUsers = JSON.parse(JSON.stringify(updatedData));
-                            console.log(data);
-                            // Actualizar la tabla con los nuevos datos
-                            tabla();
-                        })
-                        .catch(error => {
-                            console.error('Error al obtener datos actualizados:', error);
-                        });
-                }
-            })
-            .catch(error => {
-                console.error('Error en la solicitud al servidor:', error);
-            });
-    }
-}
-
-function editarUsuario(user, emailuser, admin) {
+function editarUsuario() {
     var select_id = document.getElementById("select_id");
-    var modal = new bootstrap.Modal(document.getElementById('editModal'));
+    var modal = new bootstrap.Modal(document.getElementById('editModalUsers'));
     var btnEditar = document.getElementById("confirmarEdit");
     var cadOptions = ``;
-    var user = '';
     var selectedUser = '';
     var selectedId = 0;
 
@@ -164,6 +132,71 @@ function editarUsuario(user, emailuser, admin) {
         });
     })
 }
+
+function eliminarUsuario() {
+    var select_id = document.getElementById("selectDeleteUsers");
+    var modal = new bootstrap.Modal(document.getElementById('deleteModalUsers'));
+    var btnEliminar = document.getElementById("confirmarBorradoUsers");
+    var cadOptions = ``;
+    var selectedUser = '';
+    var selectedId = 'Selecciona un Id';
+
+    //hacer los selects de los id
+
+    infoUsers.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+    });
+
+    select_id.innerHTML = cadOptions;
+
+    select_id.addEventListener('change', () => {
+        selectedId = select_id.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedUser = infoUsers.find(user => user.Id === selectedId);
+        console.log(selectedUser.Nombre);
+    })
+
+    modal.show();
+
+    btnEliminar.addEventListener('click', () => {
+        //Hacer el fetch con los campos y update en la bbdd
+        var idUsuario = selectedId;
+
+        console.log("id " + idUsuario);
+
+        $.ajax({
+            type: "POST",
+            url: "./Usuarios/eliminar/eliminarUsuarios.php",
+            data: {
+                id: idUsuario,
+            },
+            success: function (response) {
+                console.log("exito");
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    })
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+/* APARTADO CATEGORIAS*/
+
 
 var divCategorias = document.getElementById("Categoria");
 var infoCategorias = [];
