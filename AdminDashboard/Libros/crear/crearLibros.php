@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $ruta = '../Ficheros/';
 
-    $ficheroFinal = $ruta + $fichero;
+    $ficheroFinal = $ruta.$fichero;
 
     $query = "INSERT INTO libros (Nombre, Descripcion, Fichero, Id_Categoria, Miniatura) VALUES ('$nombre', '$desc', '$ficheroFinal', '$categoria','$miniatura')";
 

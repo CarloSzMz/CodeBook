@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     for (var key in archivosObj) {
                         if (archivosObj.hasOwnProperty(key)) {
                             var option = document.createElement('option');
-                            option.value = key;
+                            option.value = archivosObj[key];
                             option.text = archivosObj[key];
                             selectElement.add(option);
                         }

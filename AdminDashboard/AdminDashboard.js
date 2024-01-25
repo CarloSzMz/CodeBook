@@ -2,7 +2,7 @@ var div = document.getElementById("infoUsers");
 var infoUsers = [];
 var divUsers = document.getElementById("Usuarios")
 
-//Función que generarña las tablas para visualizar el contenido de la bbdd
+//Función que generará las tablas para visualizar el contenido de la bbdd
 function tabla(elements) {
 
     var cadena = ``;
@@ -57,6 +57,78 @@ function tabla(elements) {
     return cadena;
 
 }
+
+//Función que generarña las tablas para visualizar el contenido de la bbdd
+function tablaLibros(elements) {
+
+    var cadena = ``;
+
+    //Variable que cuenta los elementos que tiene un objeto json
+    var keyCount = Object.keys(elements[0]).length - 2;
+
+    //Variable que coge los nombres de los elementos
+    var names = Object.keys(elements[0]);
+
+    cadena = `
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>`;
+
+    for (let i = 0; i < keyCount; i++) {
+        cadena += `
+                <th scope="col">
+                    ${names[i]}
+                </th>
+        `;
+    }
+
+    cadena += `
+            </tr>
+        </thead>
+        <tbody>
+    `;
+
+    elements.forEach(element => {
+        cadena += `<tr>`;
+
+        for (let i = 0; i < keyCount; i++) {
+            var temp = names[i];
+            if (i == 0) {
+                cadena += `
+                    <th scope="row">${element[temp]}</th>`;
+            } else {
+                if (temp == 'Miniatura') {
+                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro"></td>`
+                } else {
+                    cadena += `
+                <td>${element[temp]}</td>`;
+                }
+            }
+
+
+        }
+        cadena += `
+            </tr>
+        
+        `;
+
+    });
+    cadena += `</tbody></table>`
+
+    return cadena;
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 // Obtener todos los datos de la tabla usuarios
 fetch('./Queries/GetUsers.php')
@@ -233,7 +305,7 @@ fetch('./Queries/GetLibros.php')
         infoLibros = JSON.parse(JSON.stringify(data));
 
         //llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
-        divLibros.innerHTML = tabla(infoLibros);
+        divLibros.innerHTML = tablaLibros(infoLibros);
     })
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
