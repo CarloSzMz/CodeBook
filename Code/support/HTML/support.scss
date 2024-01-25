@@ -35,52 +35,62 @@ header {
   @include medio;
   text-align: center;
   position: relative;
-  left: 35%;
-  top: -20px;
+  left: 30%;
+  top: -15px;
   width: 40%;
-  height: 40px;
+  height: 30px;
   background-color: gold;
   font-family: $fuente;
-}
-.lineas {
-  width: 100%;
-  hr {
-    margin-left: 10px;
-    margin-bottom: 5px;
-    width: 95%;
-  }
-  p {
-    color: white;
-    font-family: $fuente;
-    margin: 10px;
-  }
+  font-size: 20px
 }
 main {
-  display: flex;
-  justify-content: start;
-  align-items: start;
+  @include medio();
   flex-direction: column;
   min-height: 80%;
   background-color: #1e1e1e;
 }
-#cursos {
-  @include medio;
-  flex-wrap: wrap;
-  min-height: 200px;
+
+//FORMULARIO
+#formulario {
+  @include medio();
 }
-.content {
-  margin: 10px;
-  width: 300px;
-  height: 320px;
-  background-color: #2d2d2d;
-  text-align: center;
+form {
+  width: 95%;
+  margin-left: 10px;
+  @include medio();
   div {
-    padding: 10px;
     display: flex;
-    justify-content: space-between;
-    p {
-      font-family: $fuente;
+    flex-direction: column;
+    margin-top:50px;
+    width: 80%;
+    input,
+    textarea {
+      border: none;
+      border-bottom: 1px solid white;
+      background-color: transparent;
       color: white;
+      font-family: $fuente;
+      font-size: 20px;
+      padding: 10px;
+      &:focus {
+        border: none;
+        border-bottom: 1px solid white;
+        outline: none;
+      }
+    }
+    button {
+      @include medio;
+      margin-top: 20px;
+      width: 20%;
+      height: 50px;
+      background-color: greenyellow;
+      color: black;
+      border: none;
+      font-family: $fuente;
+      font-size: 20px
     }
   }
+}
+#enviar{
+  @include medio();
 }
