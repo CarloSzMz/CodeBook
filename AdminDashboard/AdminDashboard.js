@@ -111,6 +111,7 @@ function editarUsuario(user, emailuser, admin) {
     var cadOptions = ``;
     var user = '';
     var selectedUser = '';
+    var selectedId = 0;
 
     //hacer los selects de los id
 
@@ -121,7 +122,7 @@ function editarUsuario(user, emailuser, admin) {
     select_id.innerHTML = cadOptions;
 
     select_id.addEventListener('change', () => {
-        var selectedId = select_id.value;
+        selectedId = select_id.value;
         console.log("Id seleccionado " + selectedId);
         selectedUser = infoUsers.find(user => user.Id === selectedId);
         console.log(selectedUser.Nombre);
@@ -137,10 +138,11 @@ function editarUsuario(user, emailuser, admin) {
 
     btnEditar.addEventListener('click', () => {
         //Hacer el fetch con los campos y update en la bbdd
-
+        var idUsuario = selectedId;
         var nombreEditado = document.getElementById('nombre').value;
         var tipoEditado = document.querySelector('#editModal select[name="tipo"]').value;
 
+        console.log("id " + idUsuario);
         console.log("Nombre " + nombreEditado);
         console.log("Tipo " + tipoEditado);
 
@@ -148,6 +150,7 @@ function editarUsuario(user, emailuser, admin) {
             type: "POST",
             url: "./Usuarios/editar/editarUsuarios.php",
             data: {
+                id: idUsuario,
                 nombre: nombreEditado,
                 email: emailuser,
                 tipo: tipoEditado
