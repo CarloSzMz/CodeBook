@@ -15,111 +15,270 @@
 </head>
 
 <body>
-
-    <!-- APARTADO DE USUARIOS-->
-
-    <div class="container mt-3">
-        <div id="Usuarios"></div>
-        <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
-        <button class='btn' id="editusu" onclick=editarUsuario()>
-            <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
-        </button>
-        <button class='btn' id="deleteusu" onclick=eliminarUsuario()>
-            <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
-        </button>
-    </div>
-
-
-    <!-- Modal para editar user-->
-    <div class="modal fade" id="editModalUsers" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="createModalLabel">Editar Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="id" class="col-form-label">Id: </label>
-                        <select name="id" class="form-control" id="select_id">
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="nombre" class="col-form-label">Nombre: </label>
-                        <input type="text" id="nombre" class="form-control" placeholder="nombre" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="col-form-label">Email: </label>
-                        <input id="email" disabled type="email" class="form-control" name="email" placeholder="email"
-                            required />
-                    </div>
-                    <div class="form-group">
-                        <label for="tipo" class="col-form-label">Tipo: </label>
-                        <select name="tipo" class="form-control">
-                            <option selected>Seleccione Tipo:</option>
-                            <option value="0">Usuario</option>
-                            <option value="1">Admin</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="confirmarEdit">Editar</button>
-                </div>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="AdminDashboard.html">CodeBook</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+                class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+                    aria-describedby="btnNavbarSearch" />
+                <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i
+                        class="fas fa-search"></i></button>
             </div>
-        </div>
-    </div>
-
-    <!-- Modal Confirmar Borrado -->
-    <div class="modal fade" id="deleteModalUsers" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalLabel">Eliminar Usuario</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="id" class="col-form-label">Id: </label>
-                        <select name="id" class="form-control" id="selectDeleteUsers">
-                        </select>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Settings</a></li>
+                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="menuAdmin" class="d-flex">
+        <div id="menuAdmin-navbar">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="container-fluid">
+                    <div class="row flex-nowrap">
+                        <div class="col-auto col-sm-12 col-md-12 col-xl-12 px-sm-2 px-0 bg-dark">
+                            <div
+                                class="d-flex flex-column align-items-center align-items-sm-start px-5 pt-2 text-white min-vh-100">
+                                <a href="/"
+                                    class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                    <span class="fs-5 d-none d-sm-inline">Menu</span>
+                                </a>
+                                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                                    id="menu">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link align-middle px-0">
+                                            <i class="fs-4 bi-house"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Home</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu1" data-bs-toggle="collapse"
+                                            class="nav-link px-0 align-middle">
+                                            <i class="fs-4 bi-speedometer2"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+                                        <ul class="collapse show nav flex-column ms-1" id="submenu1"
+                                            data-bs-parent="#menu">
+                                            <li class="w-100">
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Item</span> 1 </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Item</span> 2 </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-0 align-middle">
+                                            <i class="fs-4 bi-table"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Orders</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu2" data-bs-toggle="collapse"
+                                            class="nav-link px-0 align-middle ">
+                                            <i class="fs-4 bi-bootstrap"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
+                                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                            <li class="w-100">
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Item</span> 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Item</span> 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#submenu3" data-bs-toggle="collapse"
+                                            class="nav-link px-0 align-middle">
+                                            <i class="fs-4 bi-grid"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Products</span> </a>
+                                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                                            <li class="w-100">
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Product</span> 1</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Product</span> 2</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Product</span> 3</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link px-0"> <span
+                                                        class="d-none d-sm-inline">Product</span> 4</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-0 align-middle">
+                                            <i class="fs-4 bi-people"></i> <span
+                                                class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" id="confirmarBorradoUsers">Eliminar</button>
-                </div>
-            </div>
+            </nav>
         </div>
-    </div>
 
-    <!-- APARTADO DE LIBROS-->
+        <div id="menuAdmin-content" class="col bg-secondary d-flex flex-column">
+            <main>
 
-    <div class="container mt-3">
-        libros
-        <div id="Libros"></div>
-        <button class="btn btn-info"><a href="./Libros/crear/crearLibros.html">Crear Libro</a></button>
-    </div>
+                <!-- APARTADO DE USUARIOS-->
+                <div class="container mt-3">
+                    <div id="Usuarios"></div>
+                    <button class="btn btn-info"><a href="./Usuarios/crear/crearUsuarios.html">Crear User</a></button>
+                    <button class='btn' id="editusu" onclick=editarUsuario()>
+                        <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
+                    </button>
+                    <button class='btn' id="deleteusu" onclick=eliminarUsuario()>
+                        <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
+                    </button>
+                </div>
 
 
-    <!-- APARTADO DE CATEGORIAS-->
+                <!-- Modal para editar user-->
+                <div class="modal fade" id="editModalUsers" tabindex="-1" aria-labelledby="createModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="createModalLabel">Editar Usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <select name="id" class="form-control" id="select_id">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombre" class="col-form-label">Nombre: </label>
+                                    <input type="text" id="nombre" class="form-control" placeholder="nombre" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="col-form-label">Email: </label>
+                                    <input id="email" disabled type="email" class="form-control" name="email"
+                                        placeholder="email" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="tipo" class="col-form-label">Tipo: </label>
+                                    <select name="tipo" class="form-control">
+                                        <option selected>Seleccione Tipo:</option>
+                                        <option value="0">Usuario</option>
+                                        <option value="1">Admin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="confirmarEdit">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="container mt-3">
-        categorias
-        <div id="Categoria"></div>
-        <button class="btn btn-info"><a href="./Categorias/crear/crearCategorias.html">Crear Categoría</a></button>
-    </div>
+                <!-- Modal Confirmar Borrado -->
+                <div class="modal fade" id="deleteModalUsers" tabindex="-1" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Eliminar Usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <select name="id" class="form-control" id="selectDeleteUsers">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary"
+                                    id="confirmarBorradoUsers">Eliminar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- APARTADO DE CURSOS-->
+                <!-- APARTADO DE LIBROS-->
 
-    <div class="container mt-3">
-        cursos
-        <div id="Cursos"></div>
-        <button class="btn btn-info"><a href="#">Crear Cursos</a></button>
+                <div class="container mt-3">
+                    libros
+                    <div id="Libros"></div>
+                    <button class="btn btn-info"><a href="./Libros/crear/crearLibros.html">Crear Libro</a></button>
+                </div>
+
+
+                <!-- APARTADO DE CATEGORIAS-->
+
+                <div class="container mt-3">
+                    categorias
+                    <div id="Categoria"></div>
+                    <button class="btn btn-info"><a href="./Categorias/crear/crearCategorias.html">Crear
+                            Categoría</a></button>
+                </div>
+
+                <!-- APARTADO DE CURSOS-->
+
+                <div class="container mt-3">
+                    cursos
+                    <div id="Cursos"></div>
+                    <button class="btn btn-info"><a href="#">Crear Cursos</a></button>
+                </div>
+            </main>
+            <footer id="menuAdmin-footer" class="py-4 bg-light mt-auto">
+                <div class="container-sm">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                        <div>
+                            <a href="#">Privacy Policy</a>
+                            &middot;
+                            <a href="#">Terms &amp; Conditions</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="AdminDashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+        crossorigin="anonymous"></script>
+    <script src="js/datatables-simple-demo.js"></script>
 
 </body>
 
