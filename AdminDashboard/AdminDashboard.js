@@ -41,10 +41,14 @@ function tabla(elements) {
                 cadena += `
                     <th scope="row">${element[temp]}</th>`;
             } else {
-                cadena += `
-                <td>${element[temp]}</td>`;
+                //Filtro por si la tabla tiene miniaturas de imagen
+                if (temp == 'Miniatura') {
+                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`
+                } else {
+                    cadena += `
+                        <td>${element[temp]}</td>`;
+                }
             }
-
         }
         cadena += `
             </tr>
@@ -58,27 +62,28 @@ function tabla(elements) {
 
 }
 
-//Función que generarña las tablas para visualizar el contenido de la bbdd
-function tablaLibros(elements) {
+
+//Funcion asincrona especifica utilizada para poder descargar el libro
+async function tablaLibros(elements) {
 
     var cadena = ``;
 
-    //Variable que cuenta los elementos que tiene un objeto json
+    // Variable que cuenta los elementos que tiene un objeto json
     var keyCount = Object.keys(elements[0]).length - 2;
 
-    //Variable que coge los nombres de los elementos
+    // Variable que coge los nombres de los elementos
     var names = Object.keys(elements[0]);
 
     cadena = `
-            <table class="table table-dark table-hover">
-                <thead>
-                    <tr>`;
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>`;
 
     for (let i = 0; i < keyCount; i++) {
         cadena += `
-                <th scope="col">
-                    ${names[i]}
-                </th>
+            <th scope="col">
+                ${names[i]}
+            </th>
         `;
     }
 
@@ -88,7 +93,7 @@ function tablaLibros(elements) {
         <tbody>
     `;
 
-    elements.forEach(element => {
+    for (const element of elements) {
         cadena += `<tr>`;
 
         for (let i = 0; i < keyCount; i++) {
@@ -97,37 +102,33 @@ function tablaLibros(elements) {
                 cadena += `
                     <th scope="row">${element[temp]}</th>`;
             } else {
-                if (temp == 'Miniatura') {
+                if (temp == 'Fichero') {
+                    // Verificar si el campo es 'Fichero', descargar el contenido y crear Blob
+                    const response = await fetch(element[temp]);
+                    if (response.ok) {
+                        //crear objeto blob con la url del fichero
+                        const blob = await response.blob();
+                        const blobLink = `<a href="${URL.createObjectURL(blob)}" download="documento.pdf">Descargar</a>`;
+                        cadena += `<td>${blobLink}</td>`;
+                    } else {
+                        cadena += `<td>Error al descargar el archivo</td>`;
+                    }
+                } else if (temp == 'Miniatura') {
                     cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`
                 } else {
                     cadena += `
-                <td>${element[temp]}</td>`;
+                        <td>${element[temp]}</td>`;
                 }
             }
-
-
         }
         cadena += `
             </tr>
-        
         `;
+    }
+    cadena += `</tbody></table>`;
 
-    });
-    cadena += `</tbody></table>`
-    
     return cadena;
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 // Obtener todos los datos de la tabla usuarios
@@ -255,12 +256,6 @@ function eliminarUsuario() {
     })
 
 
-
-
-
-
-
-
 }
 
 
@@ -297,16 +292,23 @@ fetch('./Queries/GetCategorias.php')
 var divLibros = document.getElementById("Libros");
 var infoLibros = [];
 
-// Hacer la solicitud al archivo PHP
-fetch('./Queries/GetLibros.php')
-    .then(response => response.json()) // Parsear la respuesta como JSON
-    .then((data) => {
-        // Manejar los datos obtenidos (en este caso, imprimir en la consola)
-        infoLibros = JSON.parse(JSON.stringify(data));
 
-        //llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
-        divLibros.innerHTML = tablaLibros(infoLibros);
-    })
-    .catch(error => {
+async function obtenerYMostrarTabla(jsonURL) {
+    try {
+        const response = await fetch(jsonURL);
+        const data = await response.json();
+
+        const infoLibros = JSON.parse(JSON.stringify(data));
+
+        // Llama a la función asincrónica tablaLibros y espera a que se resuelva la promesa
+        const tablaHtml = await tablaLibros(infoLibros);
+
+        // Imprime en la consola y asigna al div
+        divLibros.innerHTML = tablaHtml;
+    } catch (error) {
         console.error('Error al realizar la solicitud:', error);
-    });
+    }
+}
+
+// Llamada a la función que obtiene y muestra la tabla con un JSON específico
+obtenerYMostrarTabla('./Queries/GetLibros.php');

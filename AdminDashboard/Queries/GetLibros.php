@@ -8,7 +8,19 @@ $database = "prueba";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
-$queryCheckUser = "SELECT * FROM libros";
+$queryCheckUser = "SELECT 
+libros.Id
+, libros.Nombre
+, libros.Descripcion
+, categorias.Lenguaje AS Categoria
+, libros.Fichero
+, libros.Miniatura
+, libros.created_at
+, libros.updated_at 
+FROM libros
+ LEFT JOIN categorias 
+ ON libros.Id_categoria = categorias.Id;";
+
 $resultCheckUser = $conn->query($queryCheckUser);
 
 if ($resultCheckUser->num_rows > 0) {

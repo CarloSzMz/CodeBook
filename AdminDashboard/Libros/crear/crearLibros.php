@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $categoria = $_POST["Categoria"];
     $miniatura = $_POST["Miniatura"];
 
-    $ruta = '../Ficheros/';
+    $ruta = './Libros/Ficheros/';
 
     $ficheroFinal = $ruta.$fichero;
 
