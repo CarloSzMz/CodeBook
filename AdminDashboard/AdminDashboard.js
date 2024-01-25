@@ -152,7 +152,6 @@ function editarUsuario(user, emailuser, admin) {
             data: {
                 id: idUsuario,
                 nombre: nombreEditado,
-                email: emailuser,
                 tipo: tipoEditado
             },
             success: function (response) {
