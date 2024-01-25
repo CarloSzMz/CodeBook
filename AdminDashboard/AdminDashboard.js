@@ -82,6 +82,7 @@ function editarUsuario() {
     var selectedId = 0;
 
     //hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
 
     infoUsers.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
@@ -97,7 +98,7 @@ function editarUsuario() {
 
         document.getElementById('nombre').value = selectedUser.Nombre;
         document.getElementById('email').placeholder = selectedUser.Correo;
-        document.querySelector('#editModal select[name="tipo"]').value = selectedUser.Admin;
+        document.querySelector('#editModalUsers select[name="tipo"]').value = selectedUser.Admin;
 
 
     })
@@ -108,7 +109,7 @@ function editarUsuario() {
         //Hacer el fetch con los campos y update en la bbdd
         var idUsuario = selectedId;
         var nombreEditado = document.getElementById('nombre').value;
-        var tipoEditado = document.querySelector('#editModal select[name="tipo"]').value;
+        var tipoEditado = document.querySelector('#editModalUsers select[name="tipo"]').value;
 
         console.log("id " + idUsuario);
         console.log("Nombre " + nombreEditado);
@@ -124,6 +125,7 @@ function editarUsuario() {
             },
             success: function (response) {
                 console.log("exito");
+                tabla(infoUsers);
                 window.location.replace('./AdminDashboard.html');
             },
             error: function (error) {
