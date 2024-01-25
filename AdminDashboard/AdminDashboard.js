@@ -44,7 +44,14 @@ function tabla(elements) {
                 //Filtro por si la tabla tiene miniaturas de imagen
                 if (temp == 'Miniatura') {
                     cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`
-                } else {
+                } if (temp == 'Admin') {
+                    if (element[temp] == 1) {
+                        cadena += `<td>Si</td>`
+                    } else {
+                        cadena += `<td>No</td>`
+                    }
+                }
+                else {
                     cadena += `
                         <td>${element[temp]}</td>`;
                 }
