@@ -49,26 +49,30 @@
                             </div>
                         </div>
 
-                        <!-- Fichero -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 p-3">
-                            <div class="form-group">
-                                <strong>Fichero:</strong>
-                                <input type="text" name="Fichero" class="form-control">
-                            </div>
-                        </div>
-
                         <!-- Categoria -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <strong>Categoría:</strong>
-
-                                <select name="tipo" class="form-control">
-                                    <option selected disabled>Seleccione Tipo:</option>
-                                    <option value="0">Usuario</option>
-                                    <option value="1">Admin</option>
-                                </select>
+                                <label for="Categoría" class="col-form-label"><strong>Categoria:</strong> </label> <br>
+                                <select name="Categoria" class="form-control" id="select_Categoria"></select>
                             </div>
                         </div>
+
+                        <!-- Fichero -->
+                        <div class="col-xs-12 col-sm-12 col-md-12 p-3">
+                            <div class="form-group">
+                                <label for="Fichero" class="col-form-label"><strong>Fichero:</strong> </label> <br>
+                                <select name="Fichero" id="select_Fichero" class="form-control"></select>
+                            </div>
+                        </div>
+
+                        <!-- Miniatura -->
+                        <div class="col-xs-12 col-sm-12 col-md-12 p-3">
+                            <div class="form-group">
+                                <strong>Miniatura:</strong>
+                                <input type="text" name="Miniatura" class="form-control" placeholder="URL">
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="row">
@@ -84,6 +88,10 @@
             </section>
         </form>
     </div>
+
+    <script src="./crearLibros.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </body>
 
 </html>
