@@ -217,3 +217,24 @@ fetch('./Queries/GetCategorias.php')
         console.error('Error al realizar la solicitud:', error);
     });
 
+
+
+/*APARTADO LIBROS*/
+
+
+var divLibros = document.getElementById("Libros");
+var infoLibros = [];
+
+// Hacer la solicitud al archivo PHP
+fetch('./Queries/GetLibros.php')
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => {
+        // Manejar los datos obtenidos (en este caso, imprimir en la consola)
+        infoLibros = JSON.parse(JSON.stringify(data));
+
+        //llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
+        divLibros.innerHTML = tabla(infoLibros);
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });

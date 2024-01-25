@@ -11,14 +11,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Recibe los datos del formulario
-    $nombre = $_POST[""];
-    $desc = $_POST[""];
-    $fichero = $_POST[""];
-    $categoria = $_POST[""];
+    $nombre = $_POST["nombre"];
+    $desc = $_POST["descripcion"];
+    $fichero = $_POST["Fichero"];
+    $categoria = $_POST["Categoria"];
+    $miniatura = $_POST["Miniatura"];
 
-    /*
+    $ruta = '../Ficheros/';
 
-    $query = "INSERT INTO libros (Nombre, Descripcion, Fichero, Categoria) VALUES ('$nombre', '$desc', '$fichero', '$categoria')";
+    $ficheroFinal = $ruta + $fichero;
+
+    $query = "INSERT INTO libros (Nombre, Descripcion, Fichero, Id_Categoria, Miniatura) VALUES ('$nombre', '$desc', '$ficheroFinal', '$categoria','$miniatura')";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos insertados correctamente.";
@@ -31,5 +34,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn->close();
     session_destroy();
-    */
 }
