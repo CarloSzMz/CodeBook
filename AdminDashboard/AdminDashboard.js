@@ -98,7 +98,7 @@ function tablaLibros(elements) {
                     <th scope="row">${element[temp]}</th>`;
             } else {
                 if (temp == 'Miniatura') {
-                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro"></td>`
+                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`
                 } else {
                     cadena += `
                 <td>${element[temp]}</td>`;
@@ -114,7 +114,7 @@ function tablaLibros(elements) {
 
     });
     cadena += `</tbody></table>`
-
+    
     return cadena;
 
 }
