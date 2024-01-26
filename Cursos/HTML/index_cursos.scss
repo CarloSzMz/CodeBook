@@ -139,17 +139,42 @@ aside {
   min-width: 30%;
   min-height: 300px;
   background: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   position: relative;
-  div {
-    position: absolute;
-    bottom: 0;
-    height: 50px;
-    border-radius: 30px;
-    width: 100%;
-    margin-bottom: 5px;
-    background-color: white;
-    box-sizing: border-box;
-  }
+}
+
+//MESAGES
+#sms_box {
+  bottom: 5px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 10px;
+  width: 97%;
+  margin-bottom: 5px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.receptor {
+  min-width: 50%;
+  min-height: 30px;
+  max-width: 70%;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.enviador {
+  display: flex;
+  align-items: end;
+  min-width: 50%;
+  min-height: 30px;
+  max-width: 70%;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
 }
 
 //ORDENADOR
