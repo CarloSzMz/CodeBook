@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index_cursos.css" />
+  </head>
+  <body>
+    <header>
+      <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+      <nav>
+        <img src="./Property 1=Default.jpg" />
+      </nav>
+    </header>
+    <div id="sub_header">NOMBRE CURSO</div>
+    <div id="select">
+      <select id="category" name="category"></select>
+    </div>
+    <main>
+      <div id="desc">
+        ¡Bienvenido al curso "Fundamentos y Desarrollo Avanzado en JavaScript"!
+        Este curso está diseñado para proporcionarte un sólido entendimiento de
+        JavaScript, desde los conceptos básicos hasta técnicas avanzadas de
+        desarrollo. Ya sea que seas un principiante absoluto o un desarrollador
+        con experiencia en otras tecnologías, este curso te ayudará a dominar el
+        lenguaje de programación fundamental para la construcción de
+        aplicaciones web modernas.
+      </div>
+      <div class="lineas">
+        <p id="labelCursos">Tema 1</p>
+        <hr />
+      </div>
+      <div id="t1">
+        <div class="content">
+          <img src="../img/img/Rectangle_1.png" />
+          <div>
+            <p>Intoducion a JavaScript</p>
+            <p>
+              Conoce la historia y evolución de JavaScript, configura tu entorno
+              de desarrollo y aprende la sintaxis básica del lenguaje para
+              comenzar a escribir código funcional
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lineas">
+        <p id="labelCursos">Tema 2</p>
+        <hr />
+      </div>
+    </main>
+  </body>
+  <script>
+    let select = document.getElementById("category");
+    function AnyadirTemas() {
+      for (let i = 0; i <= 5; i++) {
+        let option = document.createElement("option");
+        let value = document.createAttribute("value");
+        value.value = "Tema" + (i + 1);
+        option.innerHTML = "Tema " + (i + 1);
+        option.setAttributeNode(value);
+        select.appendChild(option);
+      }
+    }
+    AnyadirTemas();
+  </script>
+</html>
