@@ -3,13 +3,13 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 session_start();
 
-$_SESSION["nombreUsuario"] = "david";
+$_SESSION["nombreUsuario"] = "carlos";
 
 $nombre = $_SESSION["nombreUsuario"];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "BBDDProyecto";
+$database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
