@@ -27,26 +27,34 @@
         lenguaje de programación fundamental para la construcción de
         aplicaciones web modernas.
       </div>
-      <div class="lineas">
-        <p id="labelCursos">Tema 1</p>
-        <hr />
-      </div>
-      <div id="t1">
-        <div class="content">
-          <img src="../img/img/Rectangle_1.png" />
-          <div>
-            <p>Intoducion a JavaScript</p>
-            <p>
-              Conoce la historia y evolución de JavaScript, configura tu entorno
-              de desarrollo y aprende la sintaxis básica del lenguaje para
-              comenzar a escribir código funcional
-            </p>
+      <div id="maingrid">
+        <div id="temas">
+          <div class="lineas">
+            <p id="labelCursos">Tema 1</p>
+            <hr />
+          </div>
+          <div id="t1">
+            <div class="content">
+              <img src="../img/img/Rectangle_1.png" />
+              <div>
+                <p>Introducion a JavaScript</p>
+              </div>
+            </div>
+            <div class="content">
+              <img src="../img/img/Rectangle_1.png" />
+              <div>
+                <p>Estructuras de Control y Funciones</p>
+              </div>
+            </div>
+          </div>
+          <div class="lineas">
+            <p id="labelCursos">Tema 2</p>
+            <hr />
           </div>
         </div>
-      </div>
-      <div class="lineas">
-        <p id="labelCursos">Tema 2</p>
-        <hr />
+        <aside>
+          <div></div>
+        </aside>
       </div>
     </main>
   </body>
@@ -63,5 +71,36 @@
       }
     }
     AnyadirTemas();
+
+    function obtenerValorParametro(nombreParametro) {
+      const parametros = new URLSearchParams(window.location.search);
+      return parametros.get(nombreParametro);
+    }
+
+    // const idCurso = obtenerValorParametro('id_curso');
+    const idCurso = 6;
+
+    async function obtenerEpisodios(idCurso) {
+      try {
+        const response = await fetch(
+          `../PHP/sacar_episodios_curso.php?id_curso=${idCurso}`
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            `Error al obtener episodios. Status: ${response.status}`
+          );
+        }
+
+        const episodios = await response.json();
+        // Haz algo con los datos de los episodios, por ejemplo, mostrarlos en la consola
+        console.log(episodios);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+
+    // Llama a la función para obtener los episodios
+    obtenerEpisodios(idCurso);
   </script>
 </html>

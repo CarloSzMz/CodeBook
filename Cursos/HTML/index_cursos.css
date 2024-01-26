@@ -105,18 +105,69 @@ main {
   background-color: #2d2d2d;
   text-align: center;
 }
+.content img {
+  height: 80%;
+}
 .content div {
-  text-align: left;
-  padding: 10px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  height: 15%;
+  padding: 3px;
 }
 .content div p:nth-child(1) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
   font-family: "Poppins";
   color: white;
+  font-size: 20px;
 }
-.content div p:nth-child(2) {
-  font-family: "Poppins";
-  color: white;
-  font-size: 10px;
+
+#maingrid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#temas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 70%;
+}
+#temas > div {
+  flex-wrap: wrap;
+}
+
+aside {
+  border-radius: 5px;
+  min-width: 30%;
+  min-height: 300px;
+  background: #2d2d2d;
+  position: relative;
+}
+aside div {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 800px) {
+  #maingrid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  #temas {
+    min-width: 70%;
+  }
+  aside {
+    width: 30%;
+  }
 }/*# sourceMappingURL=index_cursos.css.map */

@@ -66,7 +66,7 @@ main {
   background-color: #1e1e1e;
 }
 
-#desc{
+#desc {
   @include medio();
   text-align: center;
   color: white;
@@ -99,22 +99,71 @@ main {
   height: 320px;
   background-color: #2d2d2d;
   text-align: center;
+  img {
+    height: 80%;
+  }
   div {
-    text-align: left;
-    padding: 10px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    height: 15%;
+    padding: 3px;
     p:nth-child(1) {
+      max-height: 100%;
+      text-align: left;
+      margin-left: 5px;
       font-family: $fuente;
       color: white;
+      font-size: 20px;
     }
-    p:nth-child(2) {
-      font-family: $fuente;
-      color: white;
-      font-size: 10px;
-    }
-
   }
 }
 
+//GRID PARA PONER CHAT ALADO
+#maingrid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#temas {
+  @include medio;
+  flex-wrap: wrap;
+  min-width: 70%;
+  & > div {
+    flex-wrap: wrap;
+  }
+}
 
+//ASIDE PARA EL CHAT
+aside {
+  border-radius: 5px;
+  min-width: 30%;
+  min-height: 300px;
+  background: #2d2d2d;
+  position: relative;
+  div {
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    border-radius: 30px;
+    width: 100%;
+    margin-bottom: 5px;
+    background-color: white;
+    box-sizing: border-box;
+  }
+}
+
+//ORDENADOR
+@media screen and (min-width: 800px) {
+  //GRID PARA PONER CHAT ALADO PC
+  #maingrid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  #temas {
+    min-width: 70%;
+  }
+  aside {
+    width: 30%;
+  }
+}
