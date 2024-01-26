@@ -63,6 +63,7 @@
           labelLibros.style.display = "flex"
           labelCursos.style.display = "flex"
         }
+
     });
     // Utilizar AJAX para obtener los datos de cursos
     fetch("../PHP/sacar_cursos.php")
@@ -95,7 +96,15 @@
 
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
-
+          clicar();
+          function clicar(){
+            divContent.addEventListener("click", ()=>{
+            let variableAEnviar = curso.Id;
+            //la url de el html de los cursos (indice_curso)
+            let nuevaURL = `content.php?id_curso=${encodeURIComponent(variableAEnviar)}`;
+            window.location.href = nuevaURL;
+          })
+          }
           // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
         });
@@ -135,6 +144,8 @@
 
           // Adjuntar el div de contenido al contenedor general
           contenedorLibros.appendChild(divContent);
+          
+          
         });
       })
       .catch((error) => console.error("Error al obtener los datos:", error));
