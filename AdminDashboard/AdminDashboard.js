@@ -43,8 +43,8 @@ function tabla(elements) {
             } else {
                 //Filtro por si la tabla tiene miniaturas de imagen
                 if (temp == 'Miniatura') {
-                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`
-                } if (temp == 'Admin') {
+                    cadena += `<td><img src="${element[temp]}" alt="Imagen del libro" style="width: 30px; border-radius: 150px;"></td>`;
+                } else if (temp == 'Admin') {
                     if (element[temp] == 1) {
                         cadena += `<td>Si</td>`
                     } else {
@@ -59,7 +59,6 @@ function tabla(elements) {
         }
         cadena += `
             </tr>
-        
         `;
 
     });
@@ -266,11 +265,6 @@ function eliminarUsuario() {
 }
 
 
-
-
-
-
-
 /* APARTADO CATEGORIAS*/
 
 
@@ -284,7 +278,7 @@ fetch('./Queries/GetCategorias.php')
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
         infoCategorias = JSON.parse(JSON.stringify(data));
 
-        //llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
+        //Llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
         divCategorias.innerHTML = tabla(infoCategorias);
     })
     .catch(error => {
@@ -319,3 +313,24 @@ async function obtenerYMostrarTabla(jsonURL) {
 
 // Llamada a la función que obtiene y muestra la tabla con un JSON específico
 obtenerYMostrarTabla('./Queries/GetLibros.php');
+
+/*APARTADO CURSOS*/
+
+var divCursos = document.getElementById("Cursos");
+var infoCursos = [];
+
+// Hacer la solicitud al archivo PHP
+fetch('./Queries/GetCursos.php')
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => { 
+        // Manejar datos obtenidos (en este caso, imprimir en la consola)
+        infoCursos = JSON.parse(JSON.stringify(data));
+        console.log(infoCursos);
+
+        // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
+        divCursos.innerHTML = tabla(infoCursos);
+    })
+
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    })
