@@ -42,6 +42,7 @@
         data.forEach((curso) => {
           const divContent = document.createElement("div");
           divContent.className = "content";
+          divContent.id = curso.Id
 
           const imgMiniatura = document.createElement("img");
           imgMiniatura.src = curso.Miniatura;
@@ -79,6 +80,7 @@
         data.forEach((libro) => {
           const divContent = document.createElement("div");
           divContent.className = "content";
+          divContent.id = libro.Id
 
           const imgMiniatura = document.createElement("img");
           imgMiniatura.src = libro.Miniatura;
