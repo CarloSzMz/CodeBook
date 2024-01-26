@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: El correo electrónico ya está en uso.";
     } else {
 
-        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 1)";
+        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0)";
 
         if ($conn->query($query) === TRUE) {
             echo "Datos insertados correctamente.";
