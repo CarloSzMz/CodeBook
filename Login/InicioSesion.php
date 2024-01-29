@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "prueba";
+    $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);
 
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($contrasenya, $hashContrasenya)) {
 
             $_SESSION["nombreUsuario"] = $row["Nombre"];
-            header("Location: ../AdminDashboard/AdminDashboard.html");
+            header("Location: ../Code/content/HTML/content.html");
             exit();
         } else {
             echo "Error: Contraseña incorrecta.";
