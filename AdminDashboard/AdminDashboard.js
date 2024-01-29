@@ -223,7 +223,7 @@ function eliminarUsuario() {
     var selectedId = 'Selecciona un Id';
 
     //hacer los selects de los id
-
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
     infoUsers.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
     });
@@ -294,7 +294,7 @@ function eliminarCategoria() {
     var selectedId = 'Selecciona un Id';
 
     //hacer los selects de los id
-
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
     infoCategorias.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
     });
@@ -377,6 +377,26 @@ fetch('./Queries/GetCursos.php')
 
         // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
         divCursos.innerHTML = tabla(infoCursos);
+    })
+
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    })
+
+/*APARTADO ESPISODIOS*/
+
+var divEpisodios = document.getElementById("Episodios");
+var infoEpisodios = [];
+
+// Hacer la solicitud al archivo PHP
+fetch('./Queries/GetEpisodios.php')
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => {
+        // Manejar datos obtenidos (en este caso, imprimir en la consola)
+        infoEpisodios = JSON.parse(JSON.stringify(data));
+        console.log(infoEpisodios);
+        // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
+        divEpisodios.innerHTML = tabla(infoEpisodios);
     })
 
     .catch(error => {
