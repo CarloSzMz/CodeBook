@@ -16,8 +16,7 @@ let select = document.getElementById("category");
       return parametros.get(nombreParametro);
     }
 
-    // const idCurso = obtenerValorParametro('id_curso');
-    let idCurso = 6;
+    const idCurso = obtenerValorParametro('id_curso');
 
     async function obtenerEpisodios(idCurso) {
       try {

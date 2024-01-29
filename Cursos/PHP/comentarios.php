@@ -4,9 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 session_start();
-//$id_curso = $_GET['id_curso'];
+$id_curso = $_GET['id_curso'];
 //$nombre = $_SESSION["nombreUsuario"];
-$id_curso = 6;
 $nombre = "david";
 $servername = "localhost";
 $username = "root";
