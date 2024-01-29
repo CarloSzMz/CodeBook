@@ -383,6 +383,46 @@ fetch('./Queries/GetCursos.php')
         console.error('Error al realizar la solicitud:', error);
     })
 
+
+function verCurso() {
+    var select_cursos = document.getElementById("selectVerCurso");
+    var modal = new bootstrap.Modal(document.getElementById('verModalCursos'));
+    var btnVerCursos = document.getElementById("confirmarVerCurso");
+    var cadOptions = ``;
+    var selectedCursos = '';
+    var selectedId = 'Selecciona un Id';
+
+    //hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    infoCursos.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
+    });
+
+    select_cursos.innerHTML = cadOptions;
+
+    select_cursos.addEventListener('change', () => {
+        selectedId = select_cursos.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedCursos = infoCursos.find(curso => curso.Id === selectedId);
+        console.log(selectedCursos.Nombre);
+    })
+
+    modal.show();
+
+    btnVerCursos.addEventListener('click', () => {
+        //Hacer el fetch con los campos y update en la bbdd
+        var idCurso = selectedId;
+
+        console.log("id " + idCurso);
+        window.location.replace(`./Cursos/visualizar/verCurso.html?id=${idCurso}`);
+    })
+
+}
+
+
+
+
+
 /*APARTADO ESPISODIOS*/
 
 var divEpisodios = document.getElementById("Episodios");
@@ -394,7 +434,7 @@ fetch('./Queries/GetEpisodios.php')
     .then((data) => {
         // Manejar datos obtenidos (en este caso, imprimir en la consola)
         infoEpisodios = JSON.parse(JSON.stringify(data));
-        console.log(infoEpisodios);
+
         // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
         divEpisodios.innerHTML = tabla(infoEpisodios);
     })
