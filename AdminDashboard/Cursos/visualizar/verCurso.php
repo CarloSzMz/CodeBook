@@ -13,8 +13,12 @@ $idCurso = $_GET['id'];
 
 $queryCheckUser = "SELECT  
 cursos.*
+,categorias.Lenguaje AS Categoria
 FROM cursos
-WHERE cursos.Id = $idCurso;";
+LEFT JOIN categorias 
+ON cursos.Id_Categoria = categorias.Id
+WHERE cursos.Id = $idCurso;
+";
 
 $resultCheckUser = $conn->query($queryCheckUser);
 
