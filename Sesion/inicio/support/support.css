@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+header {
+  height: 10%;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  color: white;
+  padding: 5px;
+  font-family: "Poppins";
+  font-style: italic;
+}
+
+#sub_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  left: 30%;
+  top: -15px;
+  width: 40%;
+  height: 30px;
+  background-color: gold;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+
+#formulario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: 95%;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+form div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 80%;
+}
+form div input,
+form div textarea {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: "Poppins";
+  font-size: 20px;
+  padding: 10px;
+}
+form div input:focus,
+form div textarea:focus {
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+}
+form div button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 20%;
+  height: 50px;
+  background-color: greenyellow;
+  color: black;
+  border: none;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+
+#enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=support.css.map */

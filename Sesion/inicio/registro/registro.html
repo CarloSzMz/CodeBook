@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/header/header.css">
+    <link rel="stylesheet" href="./reset.css">
+</head>
+<body>
+    <body>
+      <header>
+        <div id="nav">
+          <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+          <nav>
+            <img id="menu_open" src="../Component 1.png" />
+            <ul id="desplegable">
+              <img id="menu_close" src="../Component 2.png"> 
+              <li>SETTINGS</li>
+              <li>CONTENT</li>
+              <li>FAVOURITES</li>
+              <li>SUPPORT</li>
+              <li>ABOUT US</li>
+              <li>LOG OUT</li>
+            </ul>
+          </nav>
+        </div>
+  
+        </header>
+          <div id="sub_header">CREATE ACCOUNT</div>
+          <main>
+            <div></div>
+            <form method="post" action="./Registro.php" onsubmit="return validarFormulario()">
+                <div id="formulario">
+                    <div>
+                        <input
+                          id="NombreUsuario"
+                          type="text"
+                          name="NombreUsuario"
+                          required
+                          placeholder="User Name"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          id="Correo"
+                          type="text"
+                          name="Correo"
+                          required
+                          placeholder="Email"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          id="Contrasenya1"
+                          type="password"
+                          name="Contrasenya1"
+                          required
+                          placeholder="Password"
+                        />
+                      </div>
+                      <div>
+                        <input
+                          id="Contrasenya2"
+                          type="password"
+                          name="Contrasenya2"
+                          required
+                          placeholder="Repeat Password"
+                        />
+                      </div>
+                      <div id="enviar">
+                        <button>CREATE ACCOUNT</button>
+                      </div>
+                </div>
+            </form>
+            <div class="otros">
+                <a href="../inicio/inicio.html"><p>Already have account</p></a>
+            </div>
+          </main>
+          <footer></footer>
+</body>
+<script>
+  function validarFormulario() {
+      var contrasenya1 = document.getElementById("Contrasenya1").value;
+      var contrasenya2 = document.getElementById("Contrasenya2").value;
+
+      if (contrasenya1 !== contrasenya2) {
+          alert("Las contraseñas no coinciden. Por favor, verifica.");
+          return false;
+      }
+
+      return true;
+  };
+</script>
+<script src="../js/nav_menu.js"></script>
+</html>
