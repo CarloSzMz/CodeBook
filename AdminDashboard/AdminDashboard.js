@@ -285,6 +285,55 @@ fetch('./Queries/GetCategorias.php')
         console.error('Error al realizar la solicitud:', error);
     });
 
+function eliminarCategoria() {
+    var select_id = document.getElementById("selectDeleteCategorias");
+    var modal = new bootstrap.Modal(document.getElementById('deleteModalCategorias'));
+    var btnEliminar = document.getElementById("confirmarBorradoCategorias");
+    var cadOptions = ``;
+    var selectedCategoria = '';
+    var selectedId = 'Selecciona un Id';
+
+    //hacer los selects de los id
+
+    infoCategorias.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+    });
+
+    select_id.innerHTML = cadOptions;
+
+    select_id.addEventListener('change', () => {
+        selectedId = select_id.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedCategoria = infoCategorias.find(categoria => categoria.Id === selectedId);
+        console.log(selectedCategoria.Lenguaje);
+    })
+
+    modal.show();
+
+    btnEliminar.addEventListener('click', () => {
+        //Hacer el fetch con los campos y update en la bbdd
+        var idCategoria = selectedId;
+
+        console.log("id " + idCategoria);
+
+        $.ajax({
+            type: "POST",
+            url: "./Categorias/eliminar/eliminarCategoria.php",
+            data: {
+                id: idCategoria,
+            },
+            success: function (response) {
+                console.log("exito");
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    })
+
+
+}
 
 
 /*APARTADO LIBROS*/
@@ -322,10 +371,9 @@ var infoCursos = [];
 // Hacer la solicitud al archivo PHP
 fetch('./Queries/GetCursos.php')
     .then(response => response.json()) // Parsear la respuesta como JSON
-    .then((data) => { 
+    .then((data) => {
         // Manejar datos obtenidos (en este caso, imprimir en la consola)
         infoCursos = JSON.parse(JSON.stringify(data));
-        console.log(infoCursos);
 
         // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
         divCursos.innerHTML = tabla(infoCursos);
