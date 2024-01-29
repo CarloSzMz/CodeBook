@@ -195,7 +195,7 @@ aside {
   margin: 10px;
   width: 97%;
   margin-bottom: 5px;
-  background-color: white;
+  background-color: #1e1e1e;
   box-sizing: border-box;
 }
 
@@ -203,19 +203,19 @@ aside {
   min-width: 50%;
   min-height: 30px;
   max-width: 70%;
-  margin: 10px;
-  background-color: white;
+  margin-left: 10px;
+  margin-bottom: 7px;
+  margin-top: 7px;
+  background-color: #E84855;
   border-radius: 10px;
 }
 
 .enviador {
-  display: flex;
-  align-items: end;
   min-width: 50%;
   min-height: 30px;
   max-width: 70%;
-  margin: 10px;
-  background-color: white;
+  margin-left: 180px;
+  background-color: #77E13B;
   border-radius: 10px;
 }
 
@@ -230,5 +230,6 @@ aside {
   }
   aside {
     width: 30%;
+    min-height: 600px;
   }
 }/*# sourceMappingURL=index_cursos.css.map */
