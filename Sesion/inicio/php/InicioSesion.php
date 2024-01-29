@@ -1,5 +1,7 @@
 <?php
 session_start();
+session_destroy();
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["Correo"];
