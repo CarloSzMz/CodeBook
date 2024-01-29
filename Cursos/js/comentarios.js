@@ -11,8 +11,8 @@ async function obtenerComentariosCuros(idCurso) {
       }
 
       const comentarios = await response.json();
-console.log(comentarios)
-        
+      console.log(comentarios)
+      //falta tratar los comentarios para mostrarlos como si fuera un array asociativo;
       
     } catch (error) {
       console.error("Error:", error);
