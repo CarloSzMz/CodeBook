@@ -19,11 +19,47 @@ header {
   justify-content: space-between;
 }
 
+#nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 #logo {
   color: white;
-  padding: 5px;
+  padding: 15px;
   font-family: "Poppins";
   font-style: italic;
+}
+
+ul {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #1e1e1e;
+  width: 200px;
+  height: 95%;
+  display: none;
+}
+ul img {
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+}
+
+li {
+  padding: 15px;
+  list-style: none;
+  font-family: "Poppins";
+  color: white;
+  text-align: center;
+}
+li:hover {
+  color: greenyellow;
+}
+
+nav {
+  padding: 15px;
 }
 
 #sub_header {
@@ -32,12 +68,13 @@ header {
   align-items: center;
   text-align: center;
   position: relative;
-  left: 35%;
-  top: -20px;
+  left: 30%;
+  top: -15px;
   width: 40%;
-  height: 40px;
+  height: 30px;
   background-color: gold;
   font-family: "Poppins";
+  font-size: 20px;
 }
 
 .lineas {

@@ -8,11 +8,21 @@
   </head>
   <body>
     <header>
-      <p id="logo">CODE<span style="color: gold">BOOK</span></p>
-      <nav>
-        <img src="./Property 1=Default.jpg" />
-      </nav>
-      <button id="irFav">❤️</button>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <li>SETTINGS</li>
+            <li>CONTENT</li>
+            <li id="irFav">FAVOURITES</li>
+            <li>SUPPORT</li>
+            <li>ABOUT US</li>
+            <li>LOG OUT</li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div id="sub_header">CONTENT</div>
     <div id="select">
@@ -38,39 +48,36 @@
     <footer></footer>
   </body>
   <script>
-    let botonFavoritos = document.getElementById("irFav")
-    botonFavoritos.addEventListener("click", ()=>{
-      
-            //la url de el html de los cursos (indice_curso)
-            let nuevaURL = `../../favoritos/HTML/favoritos.html`;
-            window.location.href = nuevaURL;
-    })
-    let miSelect = document.getElementById("category")
+    let botonFavoritos = document.getElementById("irFav");
+    botonFavoritos.addEventListener("click", () => {
+      //la url de el html de los cursos (indice_curso)
+      let nuevaURL = `../../favoritos/HTML/favoritos.html`;
+      window.location.href = nuevaURL;
+    });
+    let miSelect = document.getElementById("category");
 
-    let labelLibros = document.getElementById("labelLibros")
-    let labelCursos = document.getElementById("labelCursos")
-    miSelect.addEventListener("change", function() {
-       
-        let selectedValue = miSelect.value;
-        let divCursos = document.getElementById("cursos")
-        let divLibros = document.getElementById("libros")
-        if(selectedValue == "courses"){
-          labelLibros.style.display = "none"
-          labelCursos.style.display = "flex"
-          divLibros.style.display = "none"
-          divCursos.style.display = "flex"
-        }else if(selectedValue == "books"){
-          labelLibros.style.display = "flex"
-          labelCursos.style.display = "none"
-          divCursos.style.display = "none"
-          divLibros.style.display = "flex"
-        }else{
-          divCursos.style.display = "flex"
-          divLibros.style.display = "flex"
-          labelLibros.style.display = "flex"
-          labelCursos.style.display = "flex"
-        }
-
+    let labelLibros = document.getElementById("labelLibros");
+    let labelCursos = document.getElementById("labelCursos");
+    miSelect.addEventListener("change", function () {
+      let selectedValue = miSelect.value;
+      let divCursos = document.getElementById("cursos");
+      let divLibros = document.getElementById("libros");
+      if (selectedValue == "courses") {
+        labelLibros.style.display = "none";
+        labelCursos.style.display = "flex";
+        divLibros.style.display = "none";
+        divCursos.style.display = "flex";
+      } else if (selectedValue == "books") {
+        labelLibros.style.display = "flex";
+        labelCursos.style.display = "none";
+        divCursos.style.display = "none";
+        divLibros.style.display = "flex";
+      } else {
+        divCursos.style.display = "flex";
+        divLibros.style.display = "flex";
+        labelLibros.style.display = "flex";
+        labelCursos.style.display = "flex";
+      }
     });
     // Utilizar AJAX para obtener los datos de cursos
     fetch("../PHP/sacar_cursos.php")
@@ -93,9 +100,9 @@
 
           const imgOtro = document.createElement("img");
           imgOtro.src = "../img/corazon.png";
-          imgOtro.style.maxHeight = "30px"
-          imgOtro.style.maxWidth = "30px"
-          imgOtro.setAttribute("id", "corazonImagen")
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -104,13 +111,15 @@
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
           clicar();
-          function clicar(){
-            divContent.addEventListener("click", ()=>{
-            let variableAEnviar = curso.Id;
-            //la url de el html de los cursos (indice_curso)
-            let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(variableAEnviar)}`;
-            window.location.href = nuevaURL;
-          })
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = curso.Id;
+              //la url de el html de los cursos (indice_curso)
+              let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
           }
           // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
@@ -118,7 +127,7 @@
       })
       .catch((error) => console.error("Error al obtener los datos:", error));
 
-      fetch("../PHP/sacar_libros.php")
+    fetch("../PHP/sacar_libros.php")
       .then((response) => response.json())
       .then((data) => {
         // Insertar los datos en la tabla
@@ -127,7 +136,7 @@
         data.forEach((libro) => {
           const divContent = document.createElement("div");
           divContent.className = "content";
-          divContent.id = libro.Id
+          divContent.id = libro.Id;
 
           const imgMiniatura = document.createElement("img");
           imgMiniatura.src = libro.Miniatura;
@@ -138,9 +147,9 @@
 
           const imgOtro = document.createElement("img");
           imgOtro.src = "../img/corazon.png";
-          imgOtro.style.maxHeight = "30px"
-          imgOtro.style.maxWidth = "30px"
-          imgOtro.setAttribute("id", "corazonImagen")
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -151,10 +160,9 @@
 
           // Adjuntar el div de contenido al contenedor general
           contenedorLibros.appendChild(divContent);
-          
-          
         });
       })
       .catch((error) => console.error("Error al obtener los datos:", error));
   </script>
+  <script src="../js/nav_menu.js"></script>
 </html>
