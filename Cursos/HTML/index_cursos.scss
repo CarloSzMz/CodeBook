@@ -1,0 +1,194 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+$fuente: "Poppins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+@mixin medio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 10%;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+}
+#logo {
+  color: white;
+  padding: 5px;
+  font-family: $fuente;
+  font-style: italic;
+}
+#sub_header {
+  @include medio;
+  text-align: center;
+  position: relative;
+  left: 35%;
+  top: -20px;
+  width: 40%;
+  height: 40px;
+  background-color: gold;
+  font-family: $fuente;
+}
+#select {
+  @include medio;
+}
+#category {
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-family: $fuente;
+  &:focus {
+    outline: none;
+    color: black;
+  }
+}
+
+main {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+
+#desc {
+  @include medio();
+  text-align: center;
+  color: white;
+  font-family: $fuente;
+  margin: 20px;
+}
+
+.lineas {
+  width: 100%;
+  hr {
+    margin-left: 10px;
+    margin-bottom: 5px;
+    width: 95%;
+  }
+  p {
+    color: white;
+    font-family: $fuente;
+    margin: 10px;
+  }
+}
+
+#t1 {
+  @include medio;
+  flex-wrap: wrap;
+}
+
+.content {
+  margin: 10px;
+  width: 300px;
+  height: 320px;
+  background-color: #2d2d2d;
+  text-align: center;
+  img {
+    height: 80%;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    height: 15%;
+    padding: 3px;
+    p:nth-child(1) {
+      max-height: 100%;
+      text-align: left;
+      margin-left: 5px;
+      font-family: $fuente;
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+//GRID PARA PONER CHAT ALADO
+#maingrid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#temas {
+  @include medio;
+  flex-wrap: wrap;
+  min-width: 70%;
+  & > div {
+    flex-wrap: wrap;
+  }
+}
+
+//ASIDE PARA EL CHAT
+aside {
+  border-radius: 5px;
+  min-width: 30%;
+  min-height: 300px;
+  background: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+}
+
+//MESAGES
+#sms_box {
+  bottom: 5px;
+  height: 50px;
+  border-radius: 30px;
+  margin: 10px;
+  width: 97%;
+  margin-bottom: 5px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.receptor {
+  min-width: 50%;
+  min-height: 30px;
+  max-width: 70%;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.enviador {
+  display: flex;
+  align-items: end;
+  min-width: 50%;
+  min-height: 30px;
+  max-width: 70%;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+//ORDENADOR
+@media screen and (min-width: 800px) {
+  //GRID PARA PONER CHAT ALADO PC
+  #maingrid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  #temas {
+    min-width: 70%;
+  }
+  aside {
+    width: 30%;
+  }
+}
