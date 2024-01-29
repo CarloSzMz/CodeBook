@@ -1,12 +1,4 @@
-function obtenerValorParametro(nombreParametro) {
-    const parametros = new URLSearchParams(window.location.search);
-    return parametros.get(nombreParametro);
-  }
-
-  // const idCurso = obtenerValorParametro('id_curso');
-   idCurso = 6;
-
-  async function obtenerComentariosCuros(idCurso) {
+async function obtenerComentariosCuros(idCurso) {
     try {
       const response = await fetch(
         `../PHP/comentarios.php?id_curso=${idCurso}`
