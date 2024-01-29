@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($query) === TRUE) {
             echo "Datos insertados correctamente.";
             $_SESSION["nombreUsuario"] = $nombreUsuario;
-            header("Location: ../AdminDashboard/AdminDashboard.html");
+            header("Location: ../Code/content/HTML/content.html");
             exit();
         } else {
             echo "Error al insertar datos: " . $conn->error;
