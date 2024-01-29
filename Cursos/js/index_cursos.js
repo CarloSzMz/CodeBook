@@ -17,7 +17,7 @@ let select = document.getElementById("category");
     }
 
     // const idCurso = obtenerValorParametro('id_curso');
-    const idCurso = 6;
+    let idCurso = 6;
 
     async function obtenerEpisodios(idCurso) {
       try {

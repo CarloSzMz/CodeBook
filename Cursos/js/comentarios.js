@@ -4,7 +4,7 @@ function obtenerValorParametro(nombreParametro) {
   }
 
   // const idCurso = obtenerValorParametro('id_curso');
-  const idCurso = 6;
+   idCurso = 6;
 
   async function obtenerComentariosCuros(idCurso) {
     try {
@@ -19,8 +19,7 @@ function obtenerValorParametro(nombreParametro) {
       }
 
       const comentarios = await response.json();
-
-    //tratamos los comentarios
+console.log(comentarios)
         
       
     } catch (error) {
@@ -29,4 +28,4 @@ function obtenerValorParametro(nombreParametro) {
   }
 
   // Llama a la función para obtener los episodios
-  obtenerEpisodios(idCurso);
+  obtenerComentariosCuros(idCurso);
