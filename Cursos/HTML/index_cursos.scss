@@ -26,7 +26,7 @@ header {
   justify-content: space-between;
 }
 
-#nav{
+#nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -40,7 +40,7 @@ header {
 }
 
 //HOVER DEL MENU DESPLEGABLE
-ul{
+ul {
   //border: 2px solid #EA39FF;
   position: absolute;
   top: 0;
@@ -49,23 +49,23 @@ ul{
   width: 200px;
   height: 95%;
   display: none;
-  img{
+  img {
     width: 20px;
     height: 20px;
     padding: 15px;
   }
 }
-li{
+li {
   padding: 15px;
   list-style: none;
   font-family: $fuente;
   color: white;
   text-align: center;
-  &:hover{
+  &:hover {
     color: greenyellow;
   }
 }
-nav{
+nav {
   padding: 15px;
 }
 
@@ -79,7 +79,7 @@ nav{
   height: 30px;
   background-color: gold;
   font-family: $fuente;
-  font-size: 20px
+  font-size: 20px;
 }
 #select {
   @include medio;
@@ -201,19 +201,35 @@ aside {
   min-height: 30px;
   max-width: 70%;
   margin-left: 10px;
-  margin-bottom: 7px;
-  margin-top: 7px;
-  background-color: #E84855;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: #e84855;
   border-radius: 10px;
+  & p {
+    margin: 3px;
+    font-family: $fuente;
+    color: white;
+    font-size: 15px;
+  }
 }
 
 .enviador {
+  display: flex;
+  flex-wrap: wrap;
   min-width: 50%;
   min-height: 30px;
   max-width: 70%;
+  margin-bottom: 3px;
+  margin-top: 3px;
   margin-left: 180px;
-  background-color: #77E13B;
+  background-color: #77e13b;
   border-radius: 10px;
+  & p {
+    margin: 3px;
+    font-family: $fuente;
+    color: white;
+    font-size: 15px;
+  }
 }
 
 //ORDENADOR

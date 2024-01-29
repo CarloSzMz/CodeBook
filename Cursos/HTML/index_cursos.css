@@ -204,19 +204,35 @@ aside {
   min-height: 30px;
   max-width: 70%;
   margin-left: 10px;
-  margin-bottom: 7px;
-  margin-top: 7px;
-  background-color: #E84855;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  background-color: #e84855;
   border-radius: 10px;
+}
+.receptor p {
+  margin: 3px;
+  font-family: "Poppins";
+  color: white;
+  font-size: 15px;
 }
 
 .enviador {
+  display: flex;
+  flex-wrap: wrap;
   min-width: 50%;
   min-height: 30px;
   max-width: 70%;
+  margin-bottom: 3px;
+  margin-top: 3px;
   margin-left: 180px;
-  background-color: #77E13B;
+  background-color: #77e13b;
   border-radius: 10px;
+}
+.enviador p {
+  margin: 3px;
+  font-family: "Poppins";
+  color: white;
+  font-size: 15px;
 }
 
 @media screen and (min-width: 800px) {
