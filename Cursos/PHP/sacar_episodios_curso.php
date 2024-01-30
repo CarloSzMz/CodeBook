@@ -2,29 +2,16 @@
 session_start();
 $id_curso = $_GET['id_curso'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "codebook";
+require_once('database.php');
 
-$conn = new mysqli($servername, $username, $password, $database);
+$database = new Database();
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+$database->conectar();
 
 $query = "SELECT * FROM episodios WHERE Id_curso = $id_curso";
-$result = $conn->query($query);
+$resultadosJSON = $database->obtenerResultadosJSON($query);
 
+$database->cerrarConexion();
 
-$episodios = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $episodios[] = $row;
-    }
-}
-
-$conn->close();
-
-echo json_encode($episodios);
+echo $resultadosJSON;
 ?>

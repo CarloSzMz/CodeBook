@@ -6,30 +6,19 @@ ini_set('display_errors', '1');
 session_start();
 $id_curso = $_GET['id_curso'];
 $nombre = $_SESSION["nombreUsuario"];
+require_once('database.php');
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "codebook";
+$database = new Database();
 
-$conn = new mysqli($servername, $username, $password, $database);
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+$database->conectar();
+
 
 $query = "SELECT * FROM comentarios WHERE Id_curso = '$id_curso'";
-$result = $conn->query($query);
+$resultadosJSON = $database->obtenerResultadosJSON($query);
 
+$database->cerrarConexion();
 
-$comentarios = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $comentarios[] = $row;
-    }
-}
+echo $resultadosJSON;
 
-$conn->close();
-
-echo json_encode($comentarios);
 ?>

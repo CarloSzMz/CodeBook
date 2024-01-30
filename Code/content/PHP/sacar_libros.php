@@ -1,31 +1,16 @@
 <?php
-session_start();
 
-$nombre = $_SESSION["nombreUsuario"];
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "codebook";
+require_once('database.php');
 
-$conn = new mysqli($servername, $username, $password, $database);
+$database = new Database();
 
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+$database->conectar();
 
 $query = "SELECT * FROM libros";
-$result = $conn->query($query);
+$resultadosJSON = $database->obtenerResultadosJSON($query);
 
-// Obtener los datos de cursos en un array
-$libros = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $libros[] = $row;
-    }
-}
+$database->cerrarConexion();
 
-$conn->close();
+echo $resultadosJSON;
 
-// Devolver los datos como JSON
-echo json_encode($libros);
 ?>
