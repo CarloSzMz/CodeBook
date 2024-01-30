@@ -156,9 +156,7 @@ function tablaEpisodios(elements) {
     cadenaEpisodios += `
         </tbody>
     </table>
-    <button id="btnAddEpisodio" class="btn btn-info">
-        <a href="./Episodios/crear/crearEpisodios.html?id=${idCurso}">Añadir Episodio</a>
-    </button>
+    
     `;
 
     return cadenaEpisodios;
