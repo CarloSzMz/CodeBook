@@ -208,7 +208,7 @@ aside {
   margin: 10px;
   width: 97%;
   margin-bottom: 5px;
-  background-color: #1e1e1e;
+  background-color: white;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -221,12 +221,14 @@ aside {
   margin-left: 8px;
 }
 #sms_box textarea {
-  width: 400px;
+  width: 90%;
   border-radius: 30px;
+  height: 30px;
   resize: none;
   padding: 7px;
   font-family: "Poppins";
   scrollbar-width: thin;
+  border: none;
 }
 #sms_box textarea:focus {
   outline: none;
@@ -270,6 +272,26 @@ aside {
   font-family: "Poppins";
   color: white;
   font-size: 15px;
+}
+
+form {
+  border-radius: 30px;
+  width: 100%;
+}
+form button {
+  border-radius: 30px;
+  border: none;
+  background-color: white;
+  margin-right: 5px;
+  height: 40px;
+}
+
+#bntsChat {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  border-radius: 30px;
+  width: 100%;
 }
 
 @media screen and (min-width: 600px) and (max-width: s800px) {
