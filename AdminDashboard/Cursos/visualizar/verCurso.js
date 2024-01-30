@@ -10,7 +10,6 @@ var divCurso = document.getElementById("infoCurso");
 var divComentarios = document.getElementById("Comentarios");
 var divEpisodios = document.getElementById("Episodios");
 
-
 // Detalles del curso
 fetch(`./verCurso.php?id=${idCurso}`)
     .then(response => response.json()) // Parsear la respuesta como JSON
@@ -37,7 +36,7 @@ fetch(`./verCurso.php?id=${idCurso}`)
     })
 
 // Episodios del curso
-fetch(`./verEpisodios.php?id=${idCurso}`)
+fetch(`./Episodios/visualizar/verEpisodios.php?id=${idCurso}`)
     .then(response => response.json()) // Parsear la respuesta como JSON
     .then((data) => {
         // Manejar datos obtenidos (en este caso, imprimir en la consola)
@@ -133,8 +132,12 @@ function tablaEpisodios(elements) {
         </tr>
         `;
     });
-    cadenaEpisodios += `</tbody></table>
-    <button id="btnAddEpisodio" class="btn btn-info">Añadir Episodio</button>
+    cadenaEpisodios += `
+        </tbody>
+    </table>
+    <button id="btnAddEpisodio" class="btn btn-info">
+        <a href="./Episodios/crear/crearEpisodios.html?id=${idCurso}">Añadir Episodio</a>
+    </button>
     `;
 
     return cadenaEpisodios;

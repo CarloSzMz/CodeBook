@@ -418,27 +418,3 @@ function verCurso() {
     })
 
 }
-
-
-
-
-
-/*APARTADO ESPISODIOS*/
-
-var divEpisodios = document.getElementById("Episodios");
-var infoEpisodios = [];
-
-// Hacer la solicitud al archivo PHP
-fetch('./Queries/GetEpisodios.php')
-    .then(response => response.json()) // Parsear la respuesta como JSON
-    .then((data) => {
-        // Manejar datos obtenidos (en este caso, imprimir en la consola)
-        infoEpisodios = JSON.parse(JSON.stringify(data));
-
-        // Llamar a la función que crea la tabla pasandole el arrayJSON del resultado de la query
-        divEpisodios.innerHTML = tabla(infoEpisodios);
-    })
-
-    .catch(error => {
-        console.error('Error al realizar la solicitud:', error);
-    })
