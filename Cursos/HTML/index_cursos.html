@@ -42,12 +42,13 @@
         <div id="temas"></div>
         <aside id="aside">
           <div id="sms_box">
-            <form>
-              <textarea name="textareaChat" id="textareaChat"></textarea>
-              <button type="submit">
-                <img src="../img/img/enviar.png" alt="Enviar" />
-              </button>
-            </form>
+          <form method="get" action="../PHP/insertarComentarios.php">
+            <input type="hidden" name="id_curso" id="inputIdCurso">
+            <textarea name="textareaChat" id="textareaChat" ></textarea>
+            <button type="submit">
+              <img src="../img/img/enviar.png" alt="Enviar">
+            </button>
+          </form>
           </div>
         </aside>
       </div>
@@ -57,4 +58,5 @@
   <script src="../js/comentarios.js"></script>
   <script src="../js/nav_menu.js"></script>
   <script src="../js/sacarID.js"></script>
+  <script src="../js/idCurso.js"></script>
 </html>
