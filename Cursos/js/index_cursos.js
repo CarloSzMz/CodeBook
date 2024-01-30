@@ -1,6 +1,6 @@
 let select = document.getElementById("category");
-    function AnyadirTemas() {
-      for (let i = 0; i <= 5; i++) {
+    function AnyadirTemas(cantidad) {
+      for (let i = 0; i < cantidad; i++) {
         let option = document.createElement("option");
         let value = document.createAttribute("value");
         value.value = "Tema" + (i + 1);
@@ -9,7 +9,7 @@ let select = document.getElementById("category");
         select.appendChild(option);
       }
     }
-    AnyadirTemas();
+    
 
     function obtenerValorParametro(nombreParametro) {
       const parametros = new URLSearchParams(window.location.search);
@@ -31,10 +31,11 @@ let select = document.getElementById("category");
         }
 
         const episodios = await response.json();
-
+        let NumeroEpisodios = episodios.length
         console.log(episodios);
         const contenedor = document.getElementById('temas')
         let i = 1;
+        AnyadirTemas(NumeroEpisodios);
         episodios.forEach(episodio => {
          
           const divLinea = document.createElement('div');
