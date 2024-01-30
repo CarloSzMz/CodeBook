@@ -134,7 +134,7 @@ aside {
   font-size: 15px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1200px) {
   #maingrid {
     display: flex;
     flex-direction: row;
