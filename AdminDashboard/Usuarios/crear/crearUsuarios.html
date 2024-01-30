@@ -19,14 +19,14 @@
 
 
     <div class="caja mt-2 mb-5">
-        <form class="form_edicion" action="./crearLibros.php" method="POST">
+        <form class="form_edicion" action="./crearUsuarios.php" method="POST">
             <section class="d-flex justify-content-center align-items-center">
                 <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4">
                     <div class="row">
 
                         <div class="col-lg-12">
 
-                            <h2 class="text-center">Crear Libro</h2>
+                            <h2 class="text-center">Crear Usuario</h2>
 
                         </div>
                     </div>
@@ -41,44 +41,40 @@
                             </div>
                         </div>
 
-                        <!-- Descripción -->
+                        <!-- E-mail -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <strong>Descripción:</strong>
-                                <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+                                <strong>E-mail:</strong>
+                                <input type="email" name="email" class="form-control" placeholder="E-mail">
                             </div>
                         </div>
 
-                        <!-- Categoria -->
+                        <!-- Password -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <label for="Categoría" class="col-form-label"><strong>Categoria:</strong> </label> <br>
-                                <select name="Categoria" class="form-control" id="select_Categoria"></select>
+                                <strong>Password:</strong>
+                                <input type="password" name="password" class="form-control">
                             </div>
                         </div>
 
-                        <!-- Fichero -->
+                        <!-- Tipo -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <label for="Fichero" class="col-form-label"><strong>Fichero:</strong> </label> <br>
-                                <select name="Fichero" id="select_Fichero" class="form-control"></select>
+                                <strong>Tipo:</strong>
+
+                                <select name="tipo" class="form-control">
+                                    <option selected disabled>Seleccione Tipo:</option>
+                                    <option value="0">Usuario</option>
+                                    <option value="1">Admin</option>
+                                </select>
                             </div>
                         </div>
-
-                        <!-- Miniatura -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 p-3">
-                            <div class="form-group">
-                                <strong>Miniatura:</strong>
-                                <input type="text" name="Miniatura" class="form-control" placeholder="URL">
-                            </div>
-                        </div>
-
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
-                            <button type="submit" class="btn btn-success float-left">Crear Libro</button>
-                            <a class="btn btn-danger float-right" href="../../AdminDashboard.html" title="Ver Libros">
+                            <button type="submit" class="btn btn-success float-left">Crear Usuario</button>
+                            <a class="btn btn-danger float-right" href="../../AdminDashboard.html" title="Ver Usuarios">
                                 Volver
                             </a>
                         </div>
@@ -88,10 +84,6 @@
             </section>
         </form>
     </div>
-
-    <script src="./crearLibros.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 </body>
 
 </html>

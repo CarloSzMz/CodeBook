@@ -2,18 +2,18 @@
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreEditado = $_POST["nombre"];
+    $email = $_POST["email"];
     $tipoEditado = $_POST["tipo"];
-    $id_usuario = $_POST["id"];
 
 
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "codebook";
+    $database = "prueba";
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "UPDATE usuarios SET Nombre = '$nombreEditado', Admin = '$tipoEditado'  WHERE Id = '$id_usuario'";
+    $query = "UPDATE usuarios SET Nombre = '$nombreEditado', Admin = '$tipoEditado'  WHERE Correo = '$email'";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos guardados correctamente.";

@@ -1,26 +1,32 @@
 <?php
-session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_usuario = $_POST["id"];
+// Lógica para conectarse a la base de datos y realizar la consulta
+// ...
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "prueba";
 
+$conn = new mysqli($servername, $username, $password, $database);
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "codebook";
+// Comprobación del parámetro ID en la URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
-    $conn = new mysqli($servername, $username, $password, $database);
+    // Query para la eliminación del usuario
+    $queryEliminarUsuario = "DELETE FROM usuarios WHERE Id = $id";
+    $resultEliminarUsuario = $conn->query($queryEliminarUsuario);
 
-    $query = "DELETE FROM usuarios WHERE Id = $id_usuario";
-
-    if ($conn->query($query) === TRUE) {
-        echo "Datos eliminados correctamente.";
-        $_SESSION["nombreUsuario"] = $nombreUsuario;
-        header("Location: ../../AdminDashboard.html");
-        exit();
+    if ($resultEliminarUsuario) {
+        // Enviar una respuesta JSON al cliente
+        echo json_encode(['success' => true, 'message' => 'Usuario eliminado correctamente']);
     } else {
-        echo "Error al insertar datos: " . $conn->error;
+        // Enviar una respuesta JSON al cliente en caso de error
+        echo json_encode(['success' => false, 'message' => 'Error al eliminar el usuario']);
     }
-    $conn->close();
-    session_destroy();
+} else {
+    // Enviar una respuesta JSON al cliente si no se proporciona el parámetro "id"
+    echo json_encode(['success' => false, 'message' => 'ID de usuario no proporcionado']);
 }
+
+$conn -> close();
+?>

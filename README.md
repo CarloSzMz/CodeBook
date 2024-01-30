@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+Rama Register
+=======
 # CodeBook
 
 _CodeBook es un proyecto de e-comerce donde se podra comprar cursos online en relacion con el desarollo web_
@@ -56,3 +59,5 @@ Este proyecto está bajo la Licencia (CodeBook)
 - Pon nos un 10.
 - etc.
 
+---
+>>>>>>> main
