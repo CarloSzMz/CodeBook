@@ -72,6 +72,26 @@ fetch(`./verComentarios.php?id=${idCurso}`)
                 { data: 'Nombre', title: 'Usuario' },
                 { data: 'Mensaje', title: 'Mensaje' },
                 { data: 'created_at', title: 'Fecha Creación' },
+                {
+                    // Columna adicional para el botón de eliminación
+                    data: null,
+                    title: 'Acciones',
+                    render: function (data, type, row) {
+                        return `
+
+                        <form action="./Comentarios/eliminar/eliminarComentario.php?id=${row.Id}&curso=${idCurso}" method="post">
+                            <button type="submit" class="btn" data-id="${row.Id}"> 
+                                <i class="fas fa-trash text-danger fa-lg"></i>
+                            </button>
+                        </form>
+
+
+
+
+
+                        `;
+                    }
+                },
 
                 // Agrega más columnas según sea necesario
             ],
