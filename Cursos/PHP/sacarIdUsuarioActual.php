@@ -1,11 +1,5 @@
 <?php
-error_reporting(E_ALL);
-
-ini_set('display_errors', '1');
-
 session_start();
-$id_curso = $_GET['id_curso'];
-$nombre = $_SESSION["nombreUsuario"];
 
 $servername = "localhost";
 $username = "root";
@@ -13,23 +7,23 @@ $password = "";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
-
+$nombre = $_SESSION["nombreUsuario"];
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM comentarios WHERE Id_curso = '$id_curso'";
+$query = "SELECT Id FROM usuarios WHERE Nombre = '$nombre'";
 $result = $conn->query($query);
 
+$datos = array();
 
-$comentarios = array();
 if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $comentarios[] = $row;
-    }
+  
+    $row = $result->fetch_assoc();
+    $datos = $row;
 }
 
 $conn->close();
 
-echo json_encode($comentarios);
+echo json_encode($datos);
 ?>
