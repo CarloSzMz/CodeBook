@@ -316,7 +316,10 @@
                     <div id="Cursos"></div>
                     <button class="btn btn-info"><a class="text-decoration-none text-light"
                             href="./Cursos/crear/crearCursos.html">Crear Cursos</a></button>
-                    <button class="btn btn-primary" onclick="verCurso()">Ver Cursos</button>
+                    <button class='btn' onclick=eliminarCursos()>
+                        <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
+                    </button>
+                    <button class="btn btn-primary" id="btnVerCurso" onclick="verCurso()">Ver Cursos</button>
                 </div>
 
                 <!-- Modal Ver Cursos -->
@@ -340,6 +343,33 @@
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary" id="confirmarVerCurso">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal Confirmar Borrado Usuarios -->
+                <div class="modal fade" id="deleteModalCursos" tabindex="-1" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Eliminar Usuario</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <select name="id" class="form-control" id="selectDeleteCursos">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary"
+                                    id="confirmarBorradoCursos">Eliminar</button>
                             </div>
                         </div>
                     </div>
