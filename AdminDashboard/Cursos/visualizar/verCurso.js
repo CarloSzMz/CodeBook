@@ -84,11 +84,6 @@ fetch(`./verComentarios.php?id=${idCurso}`)
                                 <i class="fas fa-trash text-danger fa-lg"></i>
                             </button>
                         </form>
-
-
-
-
-
                         `;
                     }
                 },
@@ -147,7 +142,7 @@ function tablaEpisodios(elements) {
             <td><img src="${element.Miniatura}" alt="Imagen del episodio" style="width: 30px; border-radius: 150px;"></td>
             <td>
                 <form action="./Episodios/eliminar/eliminarEpisodio.php?id=${element.Id}&curso=${idCurso}" method="post">
-                    <a class="btn" href="#" title="Editar Episodio">
+                    <a id="editarepisodio${element.Id}" class="btn editarEpisodio" onclick=editarEpisodio(${element.Id}); title="Editar Episodio">
                         <i class="fas fa-edit fa-lg text-primary"></i>
                     </a>
                     <button type="submit" title="Borrar Episodio" class="btn">
@@ -167,4 +162,62 @@ function tablaEpisodios(elements) {
     `;
 
     return cadenaEpisodios;
+}
+
+
+function editarEpisodio(idEpisodio) {
+
+    var modal = new bootstrap.Modal(document.getElementById('editModalEpisodio'));
+    var btnConfEdit = document.getElementById("confirmarEditEpisodio");
+    var nombreEp;
+    var DescEp;
+    var miniEp;
+    var idEp;
+
+    console.log(idEpisodio);
+
+    for (let i = 0; i < episodiosCurso.length; i++) {
+        if (episodiosCurso[i].Id == idEpisodio) {
+            console.log("episodio encontrado");
+            nombreEp = episodiosCurso[i].Nombre;
+            DescEp = episodiosCurso[i].Descripcion;
+            miniEp = episodiosCurso[i].Miniatura;
+            idEp = idEpisodio;
+
+            document.getElementById("nombre").value = nombreEp;
+            document.getElementById("descripcion").value = DescEp;
+            document.getElementById("miniatura").value = miniEp;
+
+        }
+    }
+
+    modal.show();
+
+    btnConfEdit.addEventListener('click', () => {
+
+        nombreEp = document.getElementById("nombre").value;
+        DescEp = document.getElementById("descripcion").value;
+        miniEp = document.getElementById("miniatura").value;
+
+        console.log(idEp + nombreEp + DescEp + miniEp + idCurso);
+        $.ajax({
+            type: 'POST',
+            url: './Episodios/editar/editarEpisodio.php',
+            data: {
+                id: idEp,
+                nombre: nombreEp,
+                descripcion: DescEp,
+                miniatura: miniEp,
+                curso: idCurso
+            },
+            success: function (response) {
+                console.log(response);
+                window.location.replace(`./verCurso.html?id=${idCurso}`);
+            }
+        });
+
+
+
+    });
+
 }
