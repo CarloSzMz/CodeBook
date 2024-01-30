@@ -104,6 +104,7 @@ aside {
 
 #frame {
   margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -145,5 +146,8 @@ aside {
   aside {
     width: 30%;
     min-height: 600px;
+  }
+  #frame {
+    margin-right: 0px;
   }
 }/*# sourceMappingURL=videos.css.map */
