@@ -45,6 +45,8 @@ fetch(`./verEpisodios.php?id=${idCurso}`)
 
         console.log("Episodios del curso:\n");
         console.log(episodiosCurso);
+
+        divEpisodios.innerHTML = tablaEpisodios(episodiosCurso);
     })
 
     .catch(error => {
@@ -74,7 +76,24 @@ fetch(`./verComentarios.php?id=${idCurso}`)
 
                 // Agrega más columnas según sea necesario
             ],
-            // Puedes configurar DataTables según tus necesidades
+            // Personalización de estilos
+            "pagingType": "full_numbers", // Añade numeración de páginas
+            "lengthMenu": [10, 25, 50, 75, 100], // Define el número de registros por página
+            "order": [[3, "desc"]], // Ordena la tabla por la cuarta columna (created_at) de forma descendente
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por página",
+                "zeroRecords": "No se encontraron registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No hay registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                "search": "Buscar:",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Último",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
         });
 
 
@@ -84,3 +103,39 @@ fetch(`./verComentarios.php?id=${idCurso}`)
         console.error('Error al realizar la solicitud:', error);
     })
 
+
+function tablaEpisodios(elements) {
+    var cadenaEpisodios = ``;
+    cadenaEpisodios += `
+    <table  class="table table-dark table-hover"> 
+        <thead> 
+            <tr> 
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th>Miniatura</th>
+                <th>Opciones</th>
+            </tr>
+        <thead>
+        <tbody>
+    `;
+    elements.forEach(element => {
+        cadenaEpisodios += `
+        <tr>
+            <td>${element.Id}</td>
+            <td>${element.Nombre}</td>
+            <td>${element.Descripcion}</td>
+            <td><img src="${element.Miniatura}" alt="Imagen del episodio" style="width: 30px; border-radius: 150px;"></td>
+            <td>
+                <button id="${element.Id}" class="btn btn-info">Editar</button>
+                <button id="${element.Id}" class="btn btn-danger">Borrar</button>
+            </td>
+        </tr>
+        `;
+    });
+    cadenaEpisodios += `</tbody></table>
+    <button id="btnAddEpisodio" class="btn btn-info">Añadir Episodio</button>
+    `;
+
+    return cadenaEpisodios;
+}
