@@ -136,13 +136,15 @@ main {
 }
 
 .content {
+  float: left;
   margin: 10px;
-  width: 300px;
-  height: 320px;
+  width: 600px;
+  height: 200px;
   background-color: #2d2d2d;
   text-align: center;
 }
 .content img {
+  float: left;
   height: 80%;
 }
 .content div {
@@ -150,14 +152,26 @@ main {
   align-items: center;
   height: 15%;
   padding: 3px;
+  flex-wrap: wrap;
+  padding: 3px;
 }
 .content div p:nth-child(1) {
   max-height: 100%;
   text-align: left;
   margin-left: 5px;
   font-family: "Poppins";
+  font-style: italic;
   color: white;
-  font-size: 20px;
+  font-size: 30px;
+}
+.content div p:nth-child(2) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-family: "Poppins";
+  color: white;
+  margin-top: 15px;
+  font-size: 15px;
 }
 
 #maingrid {
@@ -168,8 +182,7 @@ main {
 
 #temas {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   flex-wrap: wrap;
   min-width: 70%;
 }
@@ -220,7 +233,7 @@ aside {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 .receptor {
