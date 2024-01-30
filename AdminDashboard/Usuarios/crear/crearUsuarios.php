@@ -1,15 +1,11 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombreUsuario = $_POST["NombreUsuario"];
-    $contrasenya = $_POST["Contrasenya1"];
-    $correo = $_POST["Correo"];
-
 
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "prueba";
+    $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);
 
