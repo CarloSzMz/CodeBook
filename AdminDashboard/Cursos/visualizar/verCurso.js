@@ -161,6 +161,7 @@ function tablaEpisodios(elements) {
 
     return cadenaEpisodios;
 }
+document.getElementById("btnAddEpisodio").innerHTML = `<a href="./Episodios/crear/crearEpisodios.html?id=${idCurso}">Añadir Episodio</a>`;
 
 
 function editarEpisodio(idEpisodio) {
