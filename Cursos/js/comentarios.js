@@ -12,7 +12,8 @@ async function obtenerIdUsuario() {
       return null;
   }
 }
-
+let aside = document.getElementById("aside")
+let divMensaje = document.getElementById("sms_box")
 async function obtenerComentariosCursos(idCurso) {
   try {
       const idUsuario = await obtenerIdUsuario();
@@ -34,9 +35,22 @@ async function obtenerComentariosCursos(idCurso) {
           if (comentario.Id_Usuario == idUsuario) {
               // Asignar una clase específica para los comentarios del usuario actual
               comentario.clase = 'comentario-usuario-actual';
+              let divEnviador = document.createElement("div")
+              divEnviador.setAttribute("class", "enviador")
+              let texto = document.createElement("p")
+              texto.textContent = comentario.Mensaje;
+              divEnviador.appendChild(texto)
+              aside.insertBefore(divEnviador, divMensaje)
+
           } else {
               // Asignar una clase diferente para otros comentarios
               comentario.clase = 'otro-comentario';
+              let divEnviador = document.createElement("div")
+              divEnviador.setAttribute("class", "receptor")
+              let texto = document.createElement("p")
+              texto.textContent = comentario.Mensaje;
+              divEnviador.appendChild(texto)
+              aside.insertBefore(divEnviador, divMensaje)
           }
       });
 
