@@ -28,10 +28,6 @@ main {
   background-color: #1e1e1e;
 }
 
-#video {
-  border: 1px solid red;
-}
-
 //EL ASIDE CON LOS TEMAS
 .lineas {
   width: 100%;
@@ -99,6 +95,7 @@ main {
   width: 100%;
 }
 #video {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -118,4 +115,50 @@ aside {
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
+}
+
+// LADO DE VIDEO
+#frame {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+#desc {
+  p:nth-child(1) {
+    max-height: 100%;
+    text-align: left;
+    margin-left: 5px;
+    font-family: $fuente;
+    font-style: italic;
+    color: white;
+    font-size: 30px;
+  }
+
+  p:nth-child(2) {
+    max-height: 100%;
+    text-align: left;
+    margin-left: 5px;
+    font-family: $fuente;
+    color: white;
+    margin-top: 15px;
+    font-size: 15px;
+  }
+}
+
+//ORDENADOR
+@media screen and (min-width: 800px) {
+  //GRID PARA PONER CHAT ALADO PC
+  #maingrid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  #temas {
+    min-width: 70%;
+  }
+  aside {
+    width: 30%;
+    min-height: 600px;
+  }
 }
