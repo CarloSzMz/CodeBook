@@ -18,29 +18,18 @@
 <body>
     <form method="post" action="./Registro.php" onsubmit="return validarFormulario()">
         <label>Nombre de Usuario</label>
-        <input type="text" id="NombreUsuario" name="NombreUsuario" required><br>
+        <input type="text" id="NombreUsuario" name="NombreUsuario" minlength="4" required><br>
         <label>Correo Electronico</label>
         <input type="text" id="Correo" name="Correo" required><br>
         <label>Contraseña</label>
-        <input type="password" id="Contrasenya1" name="Contrasenya1" required><br>
+        <input type="password" id="Contrasenya1" name="Contrasenya1" minlength="6" required><br>
         <label>Repite la contraseña</label>
-        <input type="password" id="Contrasenya2" name="Contrasenya2" required><br>
+        <input type="password" id="Contrasenya2" name="Contrasenya2" minlength="6" required><br>
         <input type="submit" id="enviarForm">
     </form>
     <button id="btnIniciarSesion">Ya tienes cuenta? Inicia sesion</button>
-
+    <script src="Registro.js"></script>
     <script>
-        function validarFormulario() {
-            var contrasenya1 = document.getElementById("Contrasenya1").value;
-            var contrasenya2 = document.getElementById("Contrasenya2").value;
-
-            if (contrasenya1 !== contrasenya2) {
-                alert("Las contraseñas no coinciden. Por favor, verifica.");
-                return false;
-            }
-
-            return true;
-        }
         document.getElementById("btnIniciarSesion").addEventListener("click", function () {
 
             window.location.href = "../Login/InicioSesion.html";
