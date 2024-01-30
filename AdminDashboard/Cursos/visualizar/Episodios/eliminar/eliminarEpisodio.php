@@ -1,6 +1,9 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_episodio = $_GET["id"];
+    $curso = $_GET["curso"];
+
 
     $servername = "localhost";
     $username = "root";
@@ -9,22 +12,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $nombre = $_POST["nombre"];
-    $desc = $_POST["descripcion"];
-    $curso = $_POST["curso"];
-    $URL = $_POST["URL"];
-
-    $query = "INSERT INTO episodios (Nombre, Descripcion, Id_curso, URL) VALUES ('$nombre', '$desc', '$curso','$URL')";
+    $query = "DELETE FROM episodios WHERE Id = $id_episodio";
 
     if ($conn->query($query) === TRUE) {
-        echo "Datos insertados correctamente.";
+        echo "Datos eliminados correctamente.";
         $_SESSION["nombreUsuario"] = $nombreUsuario;
-        header("Location: ../../AdminDashboard.html");
+        header("Location: ../../verCurso.html?id=$curso");
         exit();
     } else {
         echo "Error al insertar datos: " . $conn->error;
     }
-
     $conn->close();
     session_destroy();
 }

@@ -126,8 +126,14 @@ function tablaEpisodios(elements) {
             <td>${element.Descripcion}</td>
             <td><img src="${element.Miniatura}" alt="Imagen del episodio" style="width: 30px; border-radius: 150px;"></td>
             <td>
-                <button id="${element.Id}" class="btn btn-info">Editar</button>
-                <button id="${element.Id}" class="btn btn-danger">Borrar</button>
+                <form action="./Episodios/eliminar/eliminarEpisodio.php?id=${element.Id}&curso=${idCurso}" method="post">
+                    <a class="btn" href="#" title="Editar Episodio">
+                        <i class="fas fa-edit fa-lg text-primary"></i>
+                    </a>
+                    <button type="submit" title="Borrar Episodio" class="btn">
+                        <i class="fas fa-trash text-danger fa-lg"></i>
+                    </button>
+                </form>
             </td>
         </tr>
         `;
