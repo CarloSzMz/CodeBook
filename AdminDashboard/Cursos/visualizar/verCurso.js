@@ -10,7 +10,6 @@ var divCurso = document.getElementById("infoCurso");
 var divComentarios = document.getElementById("Comentarios");
 var divEpisodios = document.getElementById("Episodios");
 
-var cadCurso = ``;
 
 // Detalles del curso
 fetch(`./verCurso.php?id=${idCurso}`)
@@ -21,13 +20,16 @@ fetch(`./verCurso.php?id=${idCurso}`)
 
         console.log("Info del curso:\n");
         console.log(infoCurso);
-        cadCurso += `
-        <h2>${infoCurso[0].Nombre}</h2>
-        <h2>${infoCurso[0].Descripcion}</h2>
-        <h2>${infoCurso[0].Categoria}</h2>
-        <img src="${infoCurso[0].Miniatura}" style="width: 80px;" alt="Img Curso">
-        `;
-        divCurso.innerHTML = cadCurso;
+
+        divCurso.innerHTML = `
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${infoCurso[0].Miniatura}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${infoCurso[0].Nombre}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${infoCurso[0].Categoria}</h6>
+          <p class="card-text">${infoCurso[0].Descripcion}</p>
+        </div>
+      </div>`;
     })
 
     .catch(error => {
