@@ -197,6 +197,30 @@ aside {
   margin-bottom: 5px;
   background-color: #1e1e1e;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+#sms_box img {
+  height: 30px;
+  width: 30px;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 8px;
+}
+#sms_box textarea {
+  width: 400px;
+  border-radius: 30px;
+  resize: none;
+  padding: 7px;
+  font-family: "Poppins";
+  scrollbar-width: thin;
+}
+#sms_box textarea:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
 }
 
 .receptor {
@@ -235,6 +259,11 @@ aside {
   font-size: 15px;
 }
 
+@media screen and (min-width: 600px) and (max-width: s800px) {
+  textarea {
+    min-width: 690px;
+  }
+}
 @media screen and (min-width: 800px) {
   #maingrid {
     display: flex;
