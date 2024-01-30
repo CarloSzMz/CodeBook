@@ -19,7 +19,7 @@
             <li id="irFav">FAVOURITES</li>
             <li>SUPPORT</li>
             <li>ABOUT US</li>
-            <li>LOG OUT</li>
+            <li id="logout">LOG OUT</li>
           </ul>
         </nav>
       </div>
@@ -48,6 +48,9 @@
     <footer></footer>
   </body>
   <script>
+    document.getElementById("logout").addEventListener("click",()=>{
+        window.location.href = "../PHP/logout.php"
+    })
     let botonFavoritos = document.getElementById("irFav");
     botonFavoritos.addEventListener("click", () => {
       //la url de el html de los cursos (indice_curso)

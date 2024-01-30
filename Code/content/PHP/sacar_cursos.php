@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION["nombreUsuario"] = "david";
+
 $nombre = $_SESSION["nombreUsuario"];
 $servername = "localhost";
 $username = "root";

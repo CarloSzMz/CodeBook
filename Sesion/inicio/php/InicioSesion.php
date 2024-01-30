@@ -1,7 +1,5 @@
 <?php
-session_start();
-session_destroy();
-session_start();
+ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["Correo"];
@@ -27,7 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashContrasenya = $row["Contraseña"];
 
         if (password_verify($contrasenya, $hashContrasenya)) {
-
+           
+         
             $_SESSION["nombreUsuario"] = $row["Nombre"];
             header("Location: ../../../Code/content/HTML/content.html");
             exit();

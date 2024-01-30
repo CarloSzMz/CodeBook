@@ -14,7 +14,6 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
-
 $query = "SELECT Id FROM usuarios WHERE Nombre = '$nombre'";
 $result = $conn->query($query);
 
