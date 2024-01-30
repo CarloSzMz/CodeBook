@@ -2,8 +2,7 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_categoria = $_POST["id"];
-
+    $id_libros = $_POST["id"];
 
     $servername = "localhost";
     $username = "root";
@@ -12,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "DELETE FROM categorias WHERE Id = $id_categoria";
+    $query = "DELETE FROM libros WHERE Id = $id_libros";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos eliminados correctamente.";
@@ -25,3 +24,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     session_destroy();
 }
+?>

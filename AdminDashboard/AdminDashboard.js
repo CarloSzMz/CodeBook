@@ -2,15 +2,15 @@ var div = document.getElementById("infoUsers");
 var infoUsers = [];
 var divUsers = document.getElementById("Usuarios")
 
-//Función que generará las tablas para visualizar el contenido de la bbdd
+// Función que generará las tablas para visualizar el contenido de la bbdd
 function tabla(elements) {
 
     var cadena = ``;
 
-    //Variable que cuenta los elementos que tiene un objeto json
+    // Variable que cuenta los elementos que tiene un objeto json
     var keyCount = Object.keys(elements[0]).length - 2;
 
-    //Variable que coge los nombres de los elementos
+    // Variable que coge los nombres de los elementos
     var names = Object.keys(elements[0]);
 
     cadena = `
@@ -160,7 +160,7 @@ function editarUsuario() {
     var selectedUser = '';
     var selectedId = 0;
 
-    //hacer los selects de los id
+    // Hacer los selects de los id
     cadOptions += `<option selected disabled>Selecciona un Id</option>`;
 
     infoUsers.forEach(element => {
@@ -240,6 +240,7 @@ function eliminarUsuario() {
     modal.show();
 
     btnEliminar.addEventListener('click', () => {
+
         //Hacer el fetch con los campos y update en la bbdd
         var idUsuario = selectedId;
 
@@ -260,13 +261,10 @@ function eliminarUsuario() {
             }
         });
     })
-
-
 }
 
 
 /* APARTADO CATEGORIAS*/
-
 
 var divCategorias = document.getElementById("Categoria");
 var infoCategorias = [];
@@ -275,6 +273,7 @@ var infoCategorias = [];
 fetch('./Queries/GetCategorias.php')
     .then(response => response.json()) // Parsear la respuesta como JSON
     .then((data) => {
+
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
         infoCategorias = JSON.parse(JSON.stringify(data));
 
@@ -293,7 +292,7 @@ function eliminarCategoria() {
     var selectedCategoria = '';
     var selectedId = 'Selecciona un Id';
 
-    //hacer los selects de los id
+    // Hacer los selects de los id
     cadOptions += `<option selected disabled>Selecciona un Id</option>`;
     infoCategorias.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
@@ -311,9 +310,9 @@ function eliminarCategoria() {
     modal.show();
 
     btnEliminar.addEventListener('click', () => {
-        //Hacer el fetch con los campos y update en la bbdd
-        var idCategoria = selectedId;
 
+        // Hacer el fetch con los campos y update en la bbdd
+        var idCategoria = selectedId;
         console.log("id " + idCategoria);
 
         $.ajax({
@@ -330,18 +329,26 @@ function eliminarCategoria() {
                 console.error(error);
             }
         });
-    })
-
-
+    });
 }
 
 
 /*APARTADO LIBROS*/
 
-
 var divLibros = document.getElementById("Libros");
 var infoLibros = [];
 
+// Hacer la solicitud al archivo PHP
+fetch('./Queries/GetLibros.php')
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => {
+
+        // Manejar los datos obtenidos (en este caso, imprimir en la consola)
+        infoLibros = JSON.parse(JSON.stringify(data));
+    })
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    });
 
 async function obtenerYMostrarTabla(jsonURL) {
     try {
@@ -363,6 +370,55 @@ async function obtenerYMostrarTabla(jsonURL) {
 // Llamada a la función que obtiene y muestra la tabla con un JSON específico
 obtenerYMostrarTabla('./Queries/GetLibros.php');
 
+function eliminarLibros() {
+    var select_id = document.getElementById("selectDeleteLibros");
+    var modal = new bootstrap.Modal(document.getElementById("deleteModalLibros"));
+    var btnEliminar = document.getElementById("confirmarBorradoLibros");
+    var cadOptions = ``;
+    var selectedLibro = '';
+    var selectedId = 'Selecciona un Id';
+
+    // Hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    infoLibros.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+    });
+
+    select_id.innerHTML = cadOptions;
+
+    select_id.addEventListener('change', () => {
+        selectedId = select_id.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedLibro = infoLibros.find(libro => libro.Id === selectedId);
+        console.log(selectedLibro.Nombre);
+    });
+
+    modal.show();
+
+    btnEliminar.addEventListener('click', () => {
+
+        // Hacer el fetch con los campos y update en la bbdd
+        var idLibro = selectedId;
+        console.log("id " + idLibro);
+
+        $.ajax({
+            type: "POST",
+            url: "./Libros/eliminar/eliminarLibros.php",
+            data: {
+                id: idLibro,
+            },
+            success: function (response) {
+                console.log("exito");
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    });
+}
+
+
 /*APARTADO CURSOS*/
 
 var divCursos = document.getElementById("Cursos");
@@ -372,6 +428,7 @@ var infoCursos = [];
 fetch('./Queries/GetCursos.php')
     .then(response => response.json()) // Parsear la respuesta como JSON
     .then((data) => {
+
         // Manejar datos obtenidos (en este caso, imprimir en la consola)
         infoCursos = JSON.parse(JSON.stringify(data));
 
@@ -392,7 +449,7 @@ function verCurso() {
     var selectedCursos = '';
     var selectedId = 'Selecciona un Id';
 
-    //hacer los selects de los id
+    // Hacer los selects de los id
     cadOptions += `<option selected disabled>Selecciona un Id</option>`;
     infoCursos.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
@@ -405,16 +462,64 @@ function verCurso() {
         console.log("Id seleccionado " + selectedId);
         selectedCursos = infoCursos.find(curso => curso.Id === selectedId);
         console.log(selectedCursos.Nombre);
-    })
+    });
 
     modal.show();
 
     btnVerCursos.addEventListener('click', () => {
-        //Hacer el fetch con los campos y update en la bbdd
+
+        // Hacer el fetch con los campos y update en la bbdd
         var idCurso = selectedId;
 
         console.log("id " + idCurso);
         window.location.replace(`./Cursos/visualizar/verCurso.html?id=${idCurso}`);
-    })
+    });
+}
 
+function eliminarCursos() {
+    var select_id = document.getElementById("selectDeleteCursos");
+    var modal = new bootstrap.Modal(document.getElementById('deleteModalCursos'));
+    var btnEliminarCursos = document.getElementById("confirmarBorradoCursos");
+    var cadOptions = ``;
+    var selectedCursos = '';
+    var selectedId = 'Selecciona un Id';
+
+    // Hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    infoCursos.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
+    });
+
+    select_id.innerHTML = cadOptions;
+
+    select_id.addEventListener('change', () => {
+        selectedId = select_id.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedCursos = infoCursos.find(curso => curso.Id === selectedId);
+        console.log(selectedCursos.Nombre);
+    });
+
+    modal.show();
+
+    btnEliminarCursos.addEventListener('click', () => {
+
+        // Hacer el fetch con los campos y update en la bbdd
+        var idCurso = selectedId;
+        console.log("id " + idCurso);
+
+        $.ajax({
+            type: "POST",
+            url: "./Cursos/eliminar/eliminarCursos.php",
+            data: {
+                id: idCurso,
+            },
+            success: function (response) {
+                console.log("exito");
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    });
 }
