@@ -29,6 +29,11 @@ main {
 }
 
 //EL ASIDE CON LOS TEMAS
+#temas {
+  display: flex;
+  flex-direction: column;
+}
+
 .lineas {
   width: 100%;
   hr {
@@ -43,15 +48,10 @@ main {
   }
 }
 
-#t1 {
-  @include medio;
-  flex-wrap: wrap;
-}
-
 .content {
   float: left;
   margin: 10px;
-  width: 600px;
+  width: 97%;
   height: 200px;
   background-color: #2d2d2d;
   text-align: center;
@@ -61,10 +61,8 @@ main {
   }
   div {
     display: flex;
-    align-items: center;
-    height: 15%;
     padding: 3px;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 3px;
     p:nth-child(1) {
       max-height: 100%;
@@ -73,9 +71,8 @@ main {
       font-family: $fuente;
       font-style: italic;
       color: white;
-      font-size: 30px;
+      font-size: 25px;
     }
-
     p:nth-child(2) {
       max-height: 100%;
       text-align: left;
@@ -83,7 +80,7 @@ main {
       font-family: $fuente;
       color: white;
       margin-top: 15px;
-      font-size: 15px;
+      font-size: 13px;
     }
   }
 }
@@ -95,36 +92,37 @@ main {
   width: 100%;
 }
 #video {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   min-width: 70%;
-  & > div {
-    flex-wrap: wrap;
-  }
 }
 
 //ASIDE PARA EL CHAT
 aside {
-  border-radius: 5px;
-  min-width: 30%;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 20%;
   min-height: 300px;
   background: #2d2d2d;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   position: relative;
 }
 
 // LADO DE VIDEO
 #frame {
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
-  border-radius: 20px;
+  & video {
+    border-radius: 20px;
+  }
 }
 
 #desc {
+  padding: 20px;
   p:nth-child(1) {
     max-height: 100%;
     text-align: left;
