@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($contrasenya, $hashContrasenya)) {
 
             $_SESSION["nombreUsuario"] = $row["Nombre"];
-            header("Location: ../AdminDashboard/AdminDashboard.html");
+            header("Location: ../Code/content/HTML/content.html");
             exit();
         } else {
             echo "Error: Contraseña incorrecta.";
@@ -39,4 +39,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     session_destroy();
 }
-?>

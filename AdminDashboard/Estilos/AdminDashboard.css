@@ -1,0 +1,35 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+
+ .sb-nav-fixed #menuAdmin #menuAdmin-navbar {
+     width: 225px;
+     height: 100vh;
+     z-index: 1038;
+ }
+
+ #menuAdmin {
+     display: flex;
+ }
+
+ .sb-sidenav {
+     display: flex;
+     flex-direction: column;
+     height: 100%;
+     flex-wrap: nowrap;
+ }
+
+ #menuAdmin-content {
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+ body {
+     font-family: 'Poppins', sans-serif;
+ }

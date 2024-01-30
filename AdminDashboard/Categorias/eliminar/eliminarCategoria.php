@@ -1,9 +1,7 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombreEditado = $_POST["nombre"];
-    $tipoEditado = $_POST["tipo"];
-    $id_usuario = $_POST["id"];
+    $id_categoria = $_POST["id"];
 
 
     $servername = "localhost";
@@ -13,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "UPDATE usuarios SET Nombre = '$nombreEditado', Admin = '$tipoEditado'  WHERE Id = '$id_usuario'";
+    $query = "DELETE FROM categorias WHERE Id = $id_categoria";
 
     if ($conn->query($query) === TRUE) {
-        echo "Datos guardados correctamente.";
+        echo "Datos eliminados correctamente.";
         $_SESSION["nombreUsuario"] = $nombreUsuario;
         header("Location: ../../AdminDashboard.html");
         exit();
