@@ -64,7 +64,9 @@ let select = document.getElementById("category");
           divTexto.appendChild(pDescripcion)
           nuevaEstructura.appendChild(divTexto);
     
-
+          nuevaEstructura.addEventListener("click", ()=>{
+            window.location.href = "../../Videos/HTML/videos.html?id_episodio=" + encodeURIComponent(episodio.Id);
+          })
           contenedor.appendChild(nuevaEstructura);
           
         });
