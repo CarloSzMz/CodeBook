@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreEditado = $_POST["nombre"];
     $tipoEditado = $_POST["tipo"];
@@ -26,3 +27,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     session_destroy();
 }
+?>
