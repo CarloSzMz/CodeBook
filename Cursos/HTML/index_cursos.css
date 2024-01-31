@@ -250,6 +250,7 @@ aside {
   margin-bottom: 4px;
   margin-top: 4px;
   border-radius: 10px;
+  background-color: red;
 }
 .receptor p {
   margin: 3px;
