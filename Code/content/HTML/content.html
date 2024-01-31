@@ -87,7 +87,7 @@
       .then((response) => response.json())
       .then((data) => {
         // Insertar los datos en la tabla
-        console.log(data)
+       
         const contenedorCursos = document.getElementById("cursos");
 
         data.forEach((curso) => {
@@ -106,7 +106,7 @@
           imgOtro.src = "../img/corazon.png";
           imgOtro.style.maxHeight = "30px";
           imgOtro.style.maxWidth = "30px";
-          imgOtro.setAttribute("id", "corazonImagen");
+          imgOtro.setAttribute("class", "corazonImagen");
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -153,7 +153,8 @@
           imgOtro.src = "../img/corazon.png";
           imgOtro.style.maxHeight = "30px";
           imgOtro.style.maxWidth = "30px";
-          imgOtro.setAttribute("id", "corazonImagen");
+          imgOtro.setAttribute("class", "corazonImagen");
+          
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -181,4 +182,5 @@
   </script>
   <script src="../js/nav_menu.js"></script>
   <script src="../js/marcarFavoritos.js"></script>
+  <script src="../js/anyadirFavoritos.js"></script>
 </html>

@@ -1,7 +1,7 @@
 fetch('../PHP/sacar_cursos_favoritos.php?')
   .then(response => response.json())
   .then(data => {
-    console.log(data)
+    
     var elementosP = document.querySelectorAll('p');
     data.forEach(element => {
         elementosP.forEach(p => {
@@ -17,7 +17,6 @@ fetch('../PHP/sacar_cursos_favoritos.php?')
   fetch('../PHP/sacar_libros_favoritos.php?')
   .then(response => response.json())
   .then(data => {
-    console.log(data)
     var elementosP = document.querySelectorAll('p');
     data.forEach(element => {
         elementosP.forEach(p => {
