@@ -10,6 +10,7 @@ $fuente: "Poppins";
 body,
 html {
   height: 100%;
+  width: 100%;
   margin: 0;
 }
 
@@ -38,6 +39,7 @@ main {
   flex-direction: column;
   min-height: 80%;
   background-color: #1e1e1e;
+  max-width: 100%;
 
   h1 {
     text-align: center;
@@ -55,22 +57,57 @@ main {
     background-color: greenyellow;
     color: black;
     font-family: $fuente;
+    border: none;
   }
+
+  img {
+    width: 80%;
+  }
+}
+
+//GRID PAGINA
+#maingrid {
+  @include medio();
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+aside {
+  @include medio();
+  flex-direction: column;
+  font-size: 30px;
+  background-color: #2d2d2d;
+  height: 600px;
 }
 
 footer {
   min-height: 10%;
   background-color: #1e1e1e;
+}
 
-  & > div {
-    float: right;
-    width: 30%;
-    height: 30px;
-    background-color: #2d2d2d;
-    text-align: center;
+//STYLO ORDENADOR
+@media screen and (min-width: 800px) {
+  //GRID PAGINA
+  #maingrid {
+    width: 100%;
+    @include medio();
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
-    & > p {
-      margin-right: 100%;
+  #img{
+    width: 50%;
+    & img{
+      margin-left: 100px;
     }
+  }
+
+  aside {
+    width: 50%;
+    @include medio();
+    flex-direction: column;
+    font-size: 40px;
+    background-color: #2d2d2d;
+    height: 763px;
   }
 }
