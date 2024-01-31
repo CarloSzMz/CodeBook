@@ -160,7 +160,7 @@ main {
       font-size: 30px;
     }
 
-    p:nth-child(2){
+    p:nth-child(2) {
       max-height: 100%;
       text-align: left;
       margin-left: 5px;
@@ -190,14 +190,18 @@ main {
 
 //ASIDE PARA EL CHAT
 aside {
+  overflow-y: scroll;
+  scrollbar-width: thin;
   border-radius: 5px;
-  min-width: 30%;
+  max-width: 100%;
   min-height: 300px;
   background: #2d2d2d;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: static;
 }
 
 //MESAGES
@@ -206,7 +210,7 @@ aside {
   height: 50px;
   border-radius: 30px;
   margin: 10px;
-  width: 97%;
+  width: 95%;
   margin-bottom: 5px;
   background-color: white;
   box-sizing: border-box;
@@ -229,13 +233,13 @@ aside {
     font-family: $fuente;
     scrollbar-width: thin;
     border: none;
-    &:focus{
+    &:focus {
       outline: none;
     }
   }
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0px;
 }
 
@@ -246,7 +250,6 @@ aside {
   margin-left: 10px;
   margin-bottom: 4px;
   margin-top: 4px;
-  background-color: #e84855;
   border-radius: 10px;
   & p {
     margin: 3px;
@@ -275,10 +278,10 @@ aside {
   }
 }
 
-form{
+form {
   border-radius: 30px;
   width: 100%;
-  button{
+  button {
     border-radius: 30px;
     border: none;
     background-color: white;
@@ -287,7 +290,7 @@ form{
   }
 }
 
-#bntsChat{
+#bntsChat {
   display: flex;
   justify-content: space-between;
   height: 50px;
@@ -296,13 +299,11 @@ form{
 }
 
 //TABLET
-@media screen and (min-width:600px) and (max-width: s800px) {
-  textarea{
+@media screen and (min-width: 600px) and (max-width: s800px) {
+  textarea {
     min-width: 690px;
   }
-
 }
-
 
 //ORDENADOR
 @media screen and (min-width: 800px) {
@@ -317,6 +318,6 @@ form{
   }
   aside {
     width: 30%;
-    min-height: 600px;
+    max-height: 470px;
   }
 }
