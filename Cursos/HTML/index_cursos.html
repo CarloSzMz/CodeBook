@@ -25,7 +25,7 @@
       </div>
     </header>
     <div id="sub_header">NOMBRE CURSO</div>
-    <button id="comprar">Comprar</button>
+    <div class="center"><button id="comprar">Comprar</button></div>
     <div id="select">
       <select id="category" name="category"></select>
     </div>
@@ -46,7 +46,11 @@
             <form method="get" action="../PHP/insertarComentarios.php">
               <input type="hidden" name="id_curso" id="inputIdCurso" />
               <div id="bntsChat">
-                <textarea name="textareaChat" id="textareaChat" maxlength="255"></textarea>
+                <textarea
+                  name="textareaChat"
+                  id="textareaChat"
+                  maxlength="255"
+                ></textarea>
                 <button type="submit">
                   <img src="../img/img/enviar.png" alt="Enviar" />
                 </button>
@@ -64,4 +68,5 @@
   <script src="../js/idCurso.js"></script>
   <script src="../js/sacarelnombredelcurso.js"></script>
   <script src="../js/comprar.js"></script>
+  <script src="../js/bloqueo.js"></script>
 </html>

@@ -6,6 +6,15 @@ $fuente: "Poppins";
   box-sizing: content-box;
 }
 
+.difuminar div:not(.center) {
+  filter: blur(6px);
+  z-index: 1;
+}
+
+.ocultar {
+  display: none;
+}
+
 body,
 html {
   background-color: #1e1e1e;
@@ -81,6 +90,24 @@ nav {
   font-family: $fuente;
   font-size: 20px;
 }
+
+#comprar {
+  position: absolute;
+  background-color: #77e13b;
+  border: none;
+  border-radius: 20px;
+  font-family: $fuente;
+  font-size: 25px;
+  width: 150px;
+  height: 60px;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  filter: blur(0);
+  filter: none;
+}
+
 #select {
   @include medio;
 }
@@ -179,6 +206,7 @@ main {
   width: 100%;
 }
 #temas {
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -190,7 +218,7 @@ main {
 
 //ASIDE PARA EL CHAT
 aside {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-width: thin;
   border-radius: 5px;
   max-width: 100%;
@@ -201,7 +229,6 @@ aside {
   justify-content: flex-end;
   margin-left: 10px;
   margin-right: 10px;
-  position: static;
 }
 
 //MESAGES
@@ -211,7 +238,7 @@ aside {
   border-radius: 30px;
   margin: 10px;
   width: 95%;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   background-color: white;
   box-sizing: border-box;
   display: flex;
@@ -307,7 +334,7 @@ form {
 }
 
 //ORDENADOR
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1300px) {
   //GRID PARA PONER CHAT ALADO PC
   #maingrid {
     display: flex;
@@ -319,6 +346,10 @@ form {
   }
   aside {
     width: 30%;
+    min-height: 410px;
     max-height: 470px;
+    //PARA QUE ESTE SIEMPRE BAJO DERECHA
+    //position: fixed;
+    //left: 1000px;
   }
 }
