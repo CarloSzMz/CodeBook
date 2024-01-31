@@ -12,7 +12,7 @@ enlaceDescarga.addEventListener('click', function() {
        
             var data = dataArray[0];
 
-            if (data && data.Fichero) {
+            if (data) {
                 var enlace = document.createElement('a');
                 enlace.href = data.Fichero;
                 enlace.download = data.Nombre;
