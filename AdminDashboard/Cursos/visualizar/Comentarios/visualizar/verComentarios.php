@@ -27,3 +27,5 @@ $resultCheckUser = $conn->query($queryCheckUser);
 if ($resultCheckUser->num_rows > 0) {
     echo json_encode($resultCheckUser->fetch_all(MYSQLI_ASSOC));
 }
+
+?>
