@@ -9,7 +9,7 @@ enlaceDescarga.addEventListener('click', function() {
             return response.json();
         })
         .then(dataArray => {
-            // Accede al objeto en la posición 0 del array
+       
             var data = dataArray[0];
 
             if (data && data.Fichero) {
@@ -18,7 +18,7 @@ enlaceDescarga.addEventListener('click', function() {
                 enlace.download = data.Nombre;
 
                 enlace.addEventListener('load', function() {
-                    // Elimina el enlace después de la descarga
+      
                     if (document.body.contains(enlace)) {
                         document.body.removeChild(enlace);
                     }

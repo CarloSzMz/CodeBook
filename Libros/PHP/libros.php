@@ -15,7 +15,7 @@ $idLibro = $_GET["id_libro"];
 $query = "SELECT * FROM libros WHERE Id = '$idLibro'";
 $result = $conn->query($query);
 
-// Obtener los datos de cursos en un array
+
 $libros = array();
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
@@ -25,6 +25,5 @@ if ($result->num_rows > 0) {
 
 $conn->close();
 
-// Devolver los datos como JSON
 echo json_encode($libros);
 ?>
