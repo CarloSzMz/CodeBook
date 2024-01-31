@@ -1,10 +1,11 @@
+let html = document.getElementsByTagName("html")[0];
 fetch("../PHP/estaComprado.php?id_curso=" + idCurso2)
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
     if (data == "no comprado") {
       document.body.classList.toggle("difuminar");
-      let html = document.getElementsByTagName("html")[0];
+      
       html.classList.toggle("difuminar");
       let divTemas = document.querySelectorAll(".content");
       divTemas.forEach((tema) => {
