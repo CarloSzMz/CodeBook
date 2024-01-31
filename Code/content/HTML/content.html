@@ -161,6 +161,17 @@
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
 
+          clicar();
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = libro.Id;
+              //la url de el html de los cursos (indice_curso)
+              let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
+          }
           // Adjuntar el div de contenido al contenedor general
           contenedorLibros.appendChild(divContent);
         });
