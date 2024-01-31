@@ -21,7 +21,7 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $id = $row['Id'];
 
-    $query2 = "SELECT Id_Curso FROM favorito_cursos WHERE Id_Usuario = '$id'";
+    $query2 = "SELECT * FROM favorito_cursos WHERE Id_Usuario = '$id'";
     $result2 = $conn->query($query2);
 
     if ($result2->num_rows > 0) {
