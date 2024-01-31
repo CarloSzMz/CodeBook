@@ -87,6 +87,7 @@
       .then((response) => response.json())
       .then((data) => {
         // Insertar los datos en la tabla
+        console.log(data)
         const contenedorCursos = document.getElementById("cursos");
 
         data.forEach((curso) => {
