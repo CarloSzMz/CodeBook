@@ -167,6 +167,7 @@ function editarUsuario() {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
 
     });
+
     select_id.innerHTML = cadOptions;
 
     select_id.addEventListener('change', () => {
@@ -179,12 +180,12 @@ function editarUsuario() {
         document.getElementById('email').placeholder = selectedUser.Correo;
         document.querySelector('#editModalUsers select[name="tipo"]').value = selectedUser.Admin;
 
-
-    })
+    });
 
     modal.show();
 
     btnEditar.addEventListener('click', () => {
+
         //Hacer el fetch con los campos y update en la bbdd
         var idUsuario = selectedId;
         var nombreEditado = document.getElementById('nombre').value;
@@ -370,6 +371,77 @@ async function obtenerYMostrarTabla(jsonURL) {
 // Llamada a la función que obtiene y muestra la tabla con un JSON específico
 obtenerYMostrarTabla('./Queries/GetLibros.php');
 
+function editarLibro() {
+    var select_libros = document.getElementById("select_libros");
+    var modal = new bootstrap.Modal(document.getElementById('editModalLibro'));
+    var btnEditar = document.getElementById("confirmarEditLibros");
+    var cadOptions = ``;
+    var selectedLibro = '';
+    var selectedId = 0;
+
+    // Hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+
+    infoLibros.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+
+    });
+
+    select_libros.innerHTML = cadOptions;
+
+    select_libros.addEventListener('change', () => {
+        selectedId = select_libros.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedLibro = infoLibros.find(libro => libro.Id === selectedId);
+        console.log(selectedLibro.Nombre);
+
+        document.getElementById('nombre_libros').placeholder = selectedLibro.Nombre;
+        document.getElementById('descripcion').placeholder = selectedLibro.Descripcion;
+        document.getElementById('miniatura').placeholder = selectedLibro.Miniatura;
+
+        document.getElementById('nombre_libros').value = selectedLibro.Nombre;
+        document.getElementById('descripcion').value = selectedLibro.Descripcion;
+        document.getElementById('miniatura').value = selectedLibro.Miniatura;
+
+
+    });
+
+    modal.show();
+
+    btnEditar.addEventListener('click', () => {
+
+        //Hacer el fetch con los campos y update en la bbdd
+        var idLibro = selectedId;
+        var nombreEditado = document.getElementById('nombre_libros').value;
+        var descripcionEditado = document.getElementById('descripcion').value;
+        var miniaturaEditado = document.getElementById('miniatura').value;
+
+        console.log("id " + idLibro);
+        console.log("Nombre " + nombreEditado);
+        console.log("Descripción " + descripcionEditado);
+        console.log("Miniatura " + miniaturaEditado);
+
+        $.ajax({
+            type: "POST",
+            url: "./Libros/editar/editarLibros.php",
+            data: {
+                id: idLibro,
+                nombre: nombreEditado,
+                descripcion: descripcionEditado,
+                miniatura: miniaturaEditado
+            },
+            success: function (response) {
+                console.log("exito");
+                tabla(infoUsers);
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    })
+}
+
 function eliminarLibros() {
     var select_id = document.getElementById("selectDeleteLibros");
     var modal = new bootstrap.Modal(document.getElementById("deleteModalLibros"));
@@ -450,7 +522,7 @@ function verCurso() {
     var selectedId = 'Selecciona un Id';
 
     // Hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    cadOptions += `<option selected disabled>Selecciona un Nombre</option>`;
     infoCursos.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
@@ -485,7 +557,7 @@ function eliminarCursos() {
     var selectedId = 'Selecciona un Id';
 
     // Hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    cadOptions += `<option selected disabled>Selecciona un Nombre</option>`;
     infoCursos.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Page</title>
     <link rel="shortcut icon" href="../Images/logo.png" type="png">
+    <link rel="stylesheet" href="Estilos/AdminDashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -155,6 +156,9 @@
                     <button class='btn' id="deleteusu" onclick=eliminarUsuario()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
+                    <button class="btn">
+                        
+                    </button>
                 </div>
 
 
@@ -176,12 +180,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="nombre" class="col-form-label">Nombre: </label>
-                                    <input type="text" id="nombre" class="form-control" placeholder="nombre" required />
+                                    <input type="text" id="nombre" class="form-control" placeholder="Nombre" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="col-form-label">Email: </label>
                                     <input id="email" disabled type="email" class="form-control" name="email"
-                                        placeholder="email" required />
+                                        placeholder="Email" required />
                                 </div>
                                 <div class="form-group">
                                     <label for="tipo" class="col-form-label">Tipo: </label>
@@ -276,9 +280,52 @@
                     <button class="btn btn-info"><a class="text-decoration-none text-light"
                             href="./Libros/crear/crearLibros.html">Crear Libro</a>
                     </button>
+                    <button class='btn' id="editlib" onclick=editarLibro()>
+                        <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
+                    </button>
                     <button class='btn' onclick=eliminarLibros()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
+                </div>
+
+                <!-- Modal para editar libro-->
+                <div class="modal fade" id="editModalLibro" tabindex="-1" aria-labelledby="createModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="createModalLabel">Editar Libro</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <select name="id" class="form-control" id="select_libros">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombre" class="col-form-label">Nombre: </label>
+                                    <input type="text" id="nombre_libros" class="form-control" placeholder="Nombre" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="descripcion" class="col-form-label">Descripción: </label>
+                                    <input id="descripcion" type="descripcion" class="form-control" name="descripcion"
+                                        placeholder="Descripción" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="miniatura" class="col-form-label">Miniatura: </label>
+                                    <input id="miniatura" type="miniatura" class="form-control" name="miniatura"
+                                        placeholder="URL" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="confirmarEditLibros">Editar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Modal Confirmar Borrado Libros -->
@@ -311,7 +358,7 @@
 
                 <!-- APARTADO DE CURSOS-->
 
-                <div class="container mt-3">
+                <div class="container mt-3 mb-3">
                     cursos
                     <div id="Cursos"></div>
                     <button class="btn btn-info"><a class="text-decoration-none text-light"
@@ -319,7 +366,7 @@
                     <button class='btn' onclick=eliminarCursos()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
-                    <button class="btn btn-primary" id="btnVerCurso" onclick="verCurso()">Ver Cursos</button>
+                    <button class="btn btn-primary" onclick="verCurso()">Ver Cursos</button>
                 </div>
 
                 <!-- Modal Ver Cursos -->
@@ -376,7 +423,7 @@
                 </div>
 
             </main>
-            <footer id="menuAdmin-footer" class="py-4 bg-light mt-auto">
+            <footer id="menuAdmin-footer" class="py-4 bg-light">
                 <div class="container-sm">
                     <div class="d-flex align-items-center justify-content-between small">
                         <div class="text-muted">Copyright &copy; Your Website 2023</div>
