@@ -11,17 +11,72 @@
     <script src="https://kit.fontawesome.com/0265a14cdb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <div class="container mt-5">
-        <div class="container" id="InfoUsuario"></div>
-        <div class="container" id="Inventario"></div>
-        <div class="container">
-            <h4>Comentarios</h4><br>
-            <table id="tablaComments"></table>
+<body class="bg-secondary">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="../../AdminDashboard.html">CodeBook</a>
+
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container mt-5 mb-5">
+        <div class="container" style="margin-left: 22%;">
+            <div class="card" style="width: 700px;">
+                <div class="row no-gutters">
+                    <div class="col-sm-5 bg-ligth" style="border-right: 1px solid #ccc;">
+                        <i class="fa-solid fa-user mt-3" style="font-size: 8em;margin-left: 30%;"></i>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="card-body" id="InfoUsuario">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <hr style="height: 4px; background-color: #333;">
+
+        <div class="container mt-4">
+            <h4>Cursos</h4>
+            <div class="card-group mt-3" id="Inventario_Cursos"></div>
+        </div>
+        <hr style="height: 4px; background-color: #333;">
+        <div class="container mt-4">
+            <h4>Libros</h4>
+            <div class="card-group mt-3" id="Inventario_Libros"></div>
+        </div>
+        <hr style="height: 4px; background-color: #333;">
+
+        <div class="card border-0 flex-fill w-100 mb-3">
+            <h4>Comentarios</h4><br>
+            <div class="table-responsive">
+                <table id="tablaComments" class="table align-middle table-edge table-hover table-nowrap mb-0">
+                </table>
+            </div>
+        </div>
+
         <button class="btn btn-info"><a href="../../AdminDashboard.html">Volver</a></button>
     </div>
-
+    <footer id="menuAdmin-footer" class="py-4 bg-light">
+        <div class="container-sm">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy; Your Website 2023</div>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    &middot;
+                    <a href="#">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 <script src="./verUsuario.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

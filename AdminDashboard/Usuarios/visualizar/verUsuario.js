@@ -5,7 +5,8 @@ console.log("ID Recuperado: " + idUser);
 
 
 var divInfoUsu = document.getElementById("InfoUsuario");
-var divInventario = document.getElementById("Inventario");
+var divInventarioCursos = document.getElementById("Inventario_Cursos");
+var divInventarioLibros = document.getElementById("Inventario_Libros");
 var datosUser = [];
 var libros = [];
 var cursos = [];
@@ -22,9 +23,8 @@ fetch(`./verUsuario.php?id=${idUser}`)
 
         datosUser.forEach(element => {
             divInfoUsu.innerHTML += `
-                    <h3>${element.Nombre}</h3>
-                    <h3>${element.Correo}</h3>
-                    <h3>Tipo Usuario: ${element.Admin}</h3>
+                    <h3 class="card-title">Nombre: </h3><h6 class="card-text">${element.Nombre}</h6>
+                    <h3 class="card-title">Correo: </h3><h6 class="card-text">${element.Correo}</h6>
                 `;
         });
 
@@ -42,24 +42,23 @@ fetch(`./Inventario/php/Ver_invLibros.php?id=${idUser}`)
 
         console.log("Libros:\n");
         console.log(libros);
+        rellenarInventarioLibros();
+    })
 
-        fetch(`./Inventario/php/Ver_invCursos.php?id=${idUser}`)
-            .then(response => response.json()) // Parsear la respuesta como JSON
-            .then((data) => {
-                // Manejar datos obtenidos (en este caso, imprimir en la consola)
-                cursos = JSON.parse(JSON.stringify(data));
+    .catch(error => {
+        console.error('Error al realizar la solicitud:', error);
+    })
 
-                console.log("cursos:\n");
-                console.log(cursos);
+fetch(`./Inventario/php/Ver_invCursos.php?id=${idUser}`)
+    .then(response => response.json()) // Parsear la respuesta como JSON
+    .then((data) => {
+        // Manejar datos obtenidos (en este caso, imprimir en la consola)
+        cursos = JSON.parse(JSON.stringify(data));
 
-                rellenarInventario();
-            })
+        console.log("cursos:\n");
+        console.log(cursos);
 
-            .catch(error => {
-                console.error('Error al realizar la solicitud:', error);
-            })
-
-
+        rellenarInventarioCursos();
     })
 
     .catch(error => {
@@ -127,35 +126,54 @@ fetch(`./Comentarios/Ver_Comentarios.php?id=${idUser}`)
         console.error('Error al realizar la solicitud:', error);
     })
 
-
-function rellenarInventario() {
-
+function rellenarInventarioLibros() {
     var cad = ``;
 
-    cad += `<h4>Libros:</h4>`;
     libros.forEach(element => {
-        cad += `<h6>Nombre: ${element.Nombre}</h6>
-                <h6>Desc: ${element.Descripcion}</h6>
-                <h6>Categoria: ${element.Id_Categoria}</h6>
-                <img src="${element.Miniatura}" alt="img libro" width="80px">        
-                <br>
-        `;
-    });
-    cad += `<br><h4>Cursos</h4>`;
-    cursos.forEach(element => {
         cad += `
-            <h6>Nombre: ${element.Nombre}</h6>
-            <h6>Desc: ${element.Descripcion}</h6>
-            <h6>Categoria: ${element.Id_Categoria}</h6>
-            <img src="${element.Miniatura}" alt="img curso" width="80px">        
-            <br>
+        <div class="col-md-4">
+            <div class="card" style="width: 15rem;">
+                <img class="card-img-top" src="${element.Miniatura}" alt="Imagen Curso">
+                <div class="card-body">
+                    <h5 class="card-title">${element.Nombre}</h5>
+                    <h4 class="card-subtitle mb-2 text-muted">${element.Id_Categoria}</h4>
+                    <p class="card-text">${element.Descripcion}</p>
+                    <form action="./Inventario/php/Eliminar_Libro.php?id=${element.Id}&user=${idUser}" method="post">
+                    <button type="submit" title="Quitar Libro" class="btn">
+                        <i class="fas fa-trash text-danger fa-lg"></i>
+                    </button>
+                </form>
+                </div>
+            </div>
+        </div>
         `;
     });
-    divInventario.innerHTML = cad;
+    divInventarioLibros.innerHTML = cad;
+
 }
 
-function comentarios() {
+function rellenarInventarioCursos() {
+    var cad = ``;
 
+    cursos.forEach(element => {
+        cad += `
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="${element.Miniatura}" alt="Imagen Curso">
+                <div class="card-body">
+                    <h5 class="card-title">${element.Nombre}</h5>
+                    <h4 class="card-subtitle mb-2 text-muted">${element.Id_Categoria}</h4>
+                    <p class="card-text">${element.Descripcion}</p>
+                    <button class="btn btn-success" onclick=VerCurso(${element.Id})>Ver</button>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+    divInventarioCursos.innerHTML = cad;
+}
 
-
+function VerCurso(IdCurso) {
+    console.log(IdCurso);
+    window.location.replace(`../../Cursos/visualizar/verCurso.html?id=${IdCurso}`);
 }
