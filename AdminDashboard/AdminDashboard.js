@@ -265,6 +265,42 @@ function eliminarUsuario() {
 }
 
 
+function verUser() {
+    var select_user = document.getElementById("selectVerUser");
+    var modal = new bootstrap.Modal(document.getElementById('verModalUsuarios'));
+    var btnVerUsers = document.getElementById("confirmarVerUser");
+    var cadOptions = ``;
+    var selectedUser = '';
+    var selectedId = 'Selecciona un Id';
+
+    // Hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Nombre</option>`;
+    infoUsers.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
+    });
+
+    select_user.innerHTML = cadOptions;
+
+    select_user.addEventListener('change', () => {
+        selectedId = select_user.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedUser = infoUsers.find(user => user.Id === selectedId);
+        console.log(selectedUser.Nombre);
+    });
+
+    modal.show();
+
+    btnVerUsers.addEventListener('click', () => {
+
+        // Hacer el fetch con los campos y update en la bbdd
+        var idUser = selectedId;
+
+        console.log("id " + idUser);
+        window.location.replace(`./Usuarios/visualizar/verUsuario.html?id=${idUser}`);
+    });
+}
+
+
 /* APARTADO CATEGORIAS*/
 
 var divCategorias = document.getElementById("Categoria");
