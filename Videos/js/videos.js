@@ -3,14 +3,18 @@ var idEpisodio2 = urlParams.get('id_episodio');
 console.log(idEpisodio2)
 const contenedor = document.getElementById('temas')
 let i = 1;
-
+let titulo = document.getElementById("sub_header");
 let reproductor = document.getElementById("reproductor");
 let video = document.getElementById("videito");
+
 fetch('../PHP/videos.php?id_episodio=' + idEpisodio2)
   .then(response => response.json())
   .then(data => {
+    
     reproductor.src = data.URL
     video.load();
+    titulo.textContent = data.Nombre;
+    
   })
   .catch(error => console.error('Error:', error));
 
