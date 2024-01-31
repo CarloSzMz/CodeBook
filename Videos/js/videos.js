@@ -3,16 +3,18 @@ var idEpisodio2 = urlParams.get('id_episodio');
 console.log(idEpisodio2)
 const contenedor = document.getElementById('temas')
 let i = 1;
-fetch('../PHP/videos.php?id_episodio='+idEpisodio2)
+
+let reproductor = document.getElementById("reproductor");
+let video = document.getElementById("videito");
+fetch('../PHP/videos.php?id_episodio=' + idEpisodio2)
   .then(response => response.json())
   .then(data => {
-    
-    console.log(data);
-    
+    reproductor.src = data.URL
+    video.load();
   })
   .catch(error => console.error('Error:', error));
 
- 
+
   fetch('../PHP/restoVideos.php?id_episodio='+idEpisodio2)
   .then(response => response.json())
   .then(data => {
@@ -45,6 +47,10 @@ fetch('../PHP/videos.php?id_episodio='+idEpisodio2)
       divTexto.appendChild(pDescripcion)
 
       nuevaEstructura.appendChild(divTexto);
+      contenedor.appendChild(nuevaEstructura)
+      nuevaEstructura.addEventListener("click", ()=>{
+        window.location.href = "../../Videos/HTML/videos.html?id_episodio=" + encodeURIComponent(episodio.Id);
+      })
       contenedor.appendChild(nuevaEstructura)
     });
     
