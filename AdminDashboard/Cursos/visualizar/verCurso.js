@@ -54,7 +54,7 @@ fetch(`./Episodios/visualizar/verEpisodios.php?id=${idCurso}`)
 
 
 // Comentarios del curso
-fetch(`./verComentarios.php?id=${idCurso}`)
+fetch(`./Comentarios/visualizar/verComentarios.php?id=${idCurso}`)
     .then(response => response.json()) // Parsear la respuesta como JSON
     .then((data) => {
         // Manejar datos obtenidos (en este caso, imprimir en la consola)
@@ -161,7 +161,8 @@ function tablaEpisodios(elements) {
 
     return cadenaEpisodios;
 }
-document.getElementById("btnAddEpisodio").innerHTML = `<a href="./Episodios/crear/crearEpisodios.html?id=${idCurso}">Añadir Episodio</a>`;
+var enlace = document.getElementById("enlaceAddEpisodio");
+enlace.setAttribute('href', `./Episodios/crear/crearEpisodios.html?id=${idCurso}`);
 
 
 function editarEpisodio(idEpisodio) {
