@@ -9,7 +9,7 @@ $longitud = $_POST['longitud'];
 }
 
 
-$conexion = new mysqli("localhost", "root", "", "BBDDProyecto");
+$conexion = new mysqli("localhost", "root", "", "codebook");
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);

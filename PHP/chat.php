@@ -18,7 +18,7 @@ echo "<bR> chat con: ".$nombre2."<br>";
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "BBDDProyecto";
+$database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
