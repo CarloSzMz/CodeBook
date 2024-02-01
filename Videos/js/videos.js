@@ -14,7 +14,11 @@ fetch('../PHP/videos.php?id_episodio=' + idEpisodio2)
     reproductor.src = data.URL
     video.load();
     titulo.textContent = data.Nombre;
-    
+    console.log(data)
+    let divTitulo = document.getElementById("titulo")
+    divTitulo.textContent = data.Nombre;
+    let divDesc = document.getElementById("descripcion")
+    divDesc.textContent = data.Descripcion
   })
   .catch(error => console.error('Error:', error));
 
