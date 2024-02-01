@@ -1,4 +1,5 @@
 let html = document.getElementsByTagName("html")[0];
+let botonComprar = document.getElementById("comprar");
 fetch("../PHP/estaComprado.php?id_curso=" + idCurso2)
   .then((response) => response.json())
   .then((data) => {
@@ -20,8 +21,6 @@ fetch("../PHP/estaComprado.php?id_curso=" + idCurso2)
     }
   })
   .catch((error) => console.error("Error:", error));
-
-let botonComprar = document.getElementById("comprar");
 
 botonComprar.addEventListener("click", () => {
   fetch("../PHP/comprar.php?id_curso=" + idCurso2)
