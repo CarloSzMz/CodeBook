@@ -11,7 +11,9 @@ $conn = new mysqli($servername, $username, $password, $database);
 
 $idUser = $_GET['id'];
 
-$queryCheckUser = "SELECT libros.* FROM libros
+$queryCheckUser = "SELECT libros.* 
+,IL.Id AS Relacion
+FROM libros
 LEFT JOIN inventario_libros IL
 ON libros.Id = IL.Id_Libro
 WHERE IL.Id_Usuario = $idUser;

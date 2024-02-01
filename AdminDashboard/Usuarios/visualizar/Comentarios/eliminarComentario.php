@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id_relacion = $_GET["id"];
+    $id_comentario = $_GET["id"];
     $user = $_GET["user"];
 
 
@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "DELETE FROM inventario_libros WHERE Id = $id_relacion;";
+    $query = "DELETE FROM comentarios WHERE Id = $id_comentario";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos eliminados correctamente.";
         $_SESSION["nombreUsuario"] = $nombreUsuario;
-        header("Location: ../../verUsuario.html?id=$user");
+        header("Location: ../verUsuario.html?id=$user");
         exit();
     } else {
         echo "Error al insertar datos: " . $conn->error;
