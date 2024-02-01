@@ -2,8 +2,7 @@
 
 $idCurso = $_GET['id_curso'];
 
-// Ahora puedes utilizar $idCurso en tu lógica PHP
-// ...
+
 session_start();
 
 $servername = "localhost";
@@ -17,7 +16,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$query = "SELECT Nombre FROM cursos WHERE Id = '$idCurso'";
+$query = "SELECT * FROM cursos WHERE Id = '$idCurso'";
 $result = $conn->query($query);
 
 $datos = array();
