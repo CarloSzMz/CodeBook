@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/header/header.css" />
+    <link rel="stylesheet" href="../style/videos.css" />
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <li>SETTINGS</li>
+            <li>CONTENT</li>
+            <li id="irFav">FAVOURITES</li>
+            <li>SUPPORT</li>
+            <li>ABOUT US</li>
+            <li>LOG OUT</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="sub_header">NOMBRE CURSO</div>
+    <main>
+      <div id="maingrid">
+        <div id="video">
+          <div id="frame">
+            <video width="100%" controls id="videito">
+              <source
+                src="../vid/1. Introducción.mp4"
+                type="video/mp4"
+                autoplay
+                id="reproductor"
+              />
+            </video>
+          </div>
+          <div id="desc">
+            <p id="titulo">Introducción a JavaScript</p>
+            <p id="descripcion">
+              Conoce la historia y evolución de JavaScript, configura tu entorno
+              de desarrollo y aprende la sintaxis básica del lenguaje para
+              comenzar a escribir código funcional.
+            </p>
+          </div>
+        </div>
+        <aside id="aside">
+          <div id="temas"></div>
+        </aside>
+      </div>
+    </main>
+    <script src="../js/videos.js"></script>
+    <script src="../js/nav_menu.js"></script>
+  </body>
+</html>

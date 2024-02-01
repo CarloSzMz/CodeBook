@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./index_cursos.css" />
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <li>SETTINGS</li>
+            <li>CONTENT</li>
+            <li id="irFav">FAVOURITES</li>
+            <li>SUPPORT</li>
+            <li>ABOUT US</li>
+            <li>LOG OUT</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="sub_header">NOMBRE CURSO</div>
+    <div class="center"><button id="comprar">Comprar</button></div>
+    <div id="select">
+      <select id="category" name="category"></select>
+    </div>
+    <main>
+      <div id="desc">
+        ¡Bienvenido al curso "Fundamentos y Desarrollo Avanzado en JavaScript"!
+        Este curso está diseñado para proporcionarte un sólido entendimiento de
+        JavaScript, desde los conceptos básicos hasta técnicas avanzadas de
+        desarrollo. Ya sea que seas un principiante absoluto o un desarrollador
+        con experiencia en otras tecnologías, este curso te ayudará a dominar el
+        lenguaje de programación fundamental para la construcción de
+        aplicaciones web modernas.
+      </div>
+      <div id="maingrid">
+        <div id="temas"></div>
+        <aside id="aside">
+          <div id="sms_box">
+            <form method="get" action="../PHP/insertarComentarios.php">
+              <input type="hidden" name="id_curso" id="inputIdCurso" />
+              <div id="bntsChat">
+                <textarea
+                  name="textareaChat"
+                  id="textareaChat"
+                  maxlength="255"
+                ></textarea>
+                <button type="submit">
+                  <img src="../img/img/enviar.png" alt="Enviar" />
+                </button>
+              </div>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+  <script src="../js/index_cursos.js"></script>
+  <script src="../js/comentarios.js"></script>
+  <script src="../js/nav_menu.js"></script>
+  <script src="../js/sacarID.js"></script>
+  <script src="../js/idCurso.js"></script>
+  <script src="../js/sacarelnombredelcurso.js"></script>
+  <script src="../js/comprar.js"></script>
+  
+</html>

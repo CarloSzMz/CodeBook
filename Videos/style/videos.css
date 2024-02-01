@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+
+#temas {
+  display: flex;
+  flex-direction: column;
+}
+
+.lineas {
+  width: 100%;
+}
+.lineas hr {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 95%;
+}
+.lineas p {
+  color: white;
+  font-family: "Poppins";
+  margin: 10px;
+}
+
+.content {
+  float: left;
+  margin: 10px;
+  width: 97%;
+  height: 200px;
+  background-color: #2d2d2d;
+  text-align: center;
+}
+.content img {
+  float: left;
+  height: 80%;
+}
+.content div {
+  display: flex;
+  padding: 3px;
+  flex-direction: column;
+  padding: 3px;
+}
+.content div p:nth-child(1) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-family: "Poppins";
+  font-style: italic;
+  color: white;
+  font-size: 25px;
+}
+.content div p:nth-child(2) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-family: "Poppins";
+  color: white;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+#maingrid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#video {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  min-width: 70%;
+}
+
+aside {
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  min-width: 20%;
+  min-height: 300px;
+  background: #2d2d2d;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#frame {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+#frame video {
+  border-radius: 20px;
+}
+
+#desc {
+  padding: 20px;
+}
+#desc p:nth-child(1) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-family: "Poppins";
+  font-style: italic;
+  color: white;
+  font-size: 30px;
+}
+#desc p:nth-child(2) {
+  max-height: 100%;
+  text-align: left;
+  margin-left: 5px;
+  font-family: "Poppins";
+  color: white;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+@media screen and (min-width: 1200px) {
+  #maingrid {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  #temas {
+    min-width: 70%;
+  }
+  aside {
+    width: 30%;
+    min-height: 600px;
+  }
+  #frame {
+    margin-right: 0px;
+  }
+}/*# sourceMappingURL=videos.css.map */

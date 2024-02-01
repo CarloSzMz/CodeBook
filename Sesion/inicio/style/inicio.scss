@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+$fuente: "Poppins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+@mixin medio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+main {
+  @include medio();
+  flex-direction: column;
+  min-height: 80%;
+  background-color: #1e1e1e;
+}
+//FORMULARIO
+#formulario {
+    @include medio();
+  }
+  form {
+    width: 95%;
+    margin-left: 10px;
+    @include medio();
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-top:50px;
+      width: 80%;
+      input,
+      textarea {
+        border: none;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        color: white;
+        font-family: $fuente;
+        font-size: 20px;
+        padding: 10px;
+        &:focus {
+          border: none;
+          border-bottom: 1px solid white;
+          outline: none;
+        }
+        &::placeholder{
+            color: white;
+        }
+      }
+      button {
+        @include medio;
+        margin-top: 20px;
+        width: 30%;
+        height: 50px;
+        background-color: greenyellow;
+        color: black;
+        border: none;
+        font-family: $fuente;
+        font-size: 20px
+      }
+    }
+  }
+  #enviar{
+    @include medio();
+  }
+
+  //ENLACES A CREAR CUENTA O PERDIDA
+  .otros{
+    @include medio();
+    width: 95%;
+    margin-left: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    font-family: $fuente;
+    a{
+        font-size: 20px;
+        text-decoration: none;
+        color: white;
+    }
+    p{
+        padding: 5px;
+        margin-left: 50px;
+        margin-right: 60px;
+    }
+  }

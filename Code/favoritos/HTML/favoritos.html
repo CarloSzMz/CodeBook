@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./favoritos.css" />
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <li>SETTINGS</li>
+            <li>CONTENT</li>
+            <li id="irFav">FAVOURITES</li>
+            <li>SUPPORT</li>
+            <li>ABOUT US</li>
+            <li>LOG OUT</li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="sub_header">MY FAVOURITE CONTENT</div>
+
+    <main>
+      <div class="lineas">
+        <p>My Favourite Courses</p>
+        <hr />
+      </div>
+      <div id="cursos"></div>
+      <div class="lineas">
+        <p>My Favourite Books</p>
+        <hr/>
+      </div>
+      <div id="libros"></div>
+    </main>
+    <footer></footer>
+  </body>
+  <script>
+    
+    fetch("../PHP/tus_cursos_favoritos.php")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+     
+        
+        const contenedorCursos = document.getElementById("cursos");
+
+        data.forEach((curso) => {
+          const divContent = document.createElement("div");
+          divContent.className = "content";
+          divContent.id = curso.Id
+
+          const imgMiniatura = document.createElement("img");
+          imgMiniatura.src = curso.Miniatura;
+
+          const divDescripcion = document.createElement("div");
+          const pNombre = document.createElement("p");
+          pNombre.textContent = curso.Nombre;
+
+          const imgOtro = document.createElement("img");
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px"
+          imgOtro.style.maxWidth = "30px"
+          imgOtro.setAttribute("id", "corazonImagen")
+
+          // Adjuntar elementos al div de contenido
+          divDescripcion.appendChild(pNombre);
+          divDescripcion.appendChild(imgOtro);
+
+          divContent.appendChild(imgMiniatura);
+          divContent.appendChild(divDescripcion);
+
+          // Adjuntar el div de contenido al contenedor general
+          contenedorCursos.appendChild(divContent);
+          clicar();
+          function clicar(){
+            divContent.addEventListener("click", ()=>{
+            let variableAEnviar = curso.Id;
+            //la url de el html de los cursos (indice_curso)
+            let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(variableAEnviar)}`;
+            window.location.href = nuevaURL;
+          })
+          }
+          
+        });
+      })
+      .catch((error) => console.error("Error al obtener los datos:", error));
+
+      fetch("../PHP/tus_libros_favoritos.php")
+      .then((response) => response.json())
+      .then((data) => {
+     
+        const contenedorlibros = document.getElementById("libros");
+
+        data.forEach((libro) => {
+          const divContent = document.createElement("div");
+          divContent.className = "content";
+          divContent.id = libro.Id
+
+          const imgMiniatura = document.createElement("img");
+          imgMiniatura.src = libro.Miniatura;
+
+          const divDescripcion = document.createElement("div");
+          const pNombre = document.createElement("p");
+          pNombre.textContent = libro.Nombre;
+
+          const imgOtro = document.createElement("img");
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px"
+          imgOtro.style.maxWidth = "30px"
+          imgOtro.setAttribute("id", "corazonImagen")
+
+          // Adjuntar elementos al div de contenido
+          divDescripcion.appendChild(pNombre);
+          divDescripcion.appendChild(imgOtro);
+
+          divContent.appendChild(imgMiniatura);
+          divContent.appendChild(divDescripcion);
+
+          // Adjuntar el div de contenido al contenedor general
+          contenedorlibros.appendChild(divContent);
+         
+          clicar();
+          function clicar(){
+            divContent.addEventListener("click", ()=>{
+            let variableAEnviar = libro.Id;
+            //la url de el html de los cursos (indice_curso)
+            let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(variableAEnviar)}`;
+            window.location.href = nuevaURL;
+          })
+          }
+        });
+      })
+      .catch((error) => console.error("Error al obtener los datos:", error));
+  </script>
+  <script src="../js/nav_menu.js"></script>
+</html>
