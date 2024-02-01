@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "DELETE FROM inventario_libros WHERE Id = $id_relacion;";
+    $query = "DELETE FROM inventario_curso WHERE Id = $id_relacion;";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos eliminados correctamente.";

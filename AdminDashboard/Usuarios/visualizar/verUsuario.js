@@ -88,7 +88,7 @@ fetch(`./Comentarios/Ver_Comentarios.php?id=${idUser}`)
                     render: function (data, type, row) {
                         return `
 
-                        <form action="#" method="post">
+                        <form action="./Comentarios/eliminarComentario.php?id=${row.Id}&user=${idUser}" method="post">
                             <button type="submit" class="btn" data-id="${row.Id}"> 
                                 <i class="fas fa-trash text-danger fa-lg"></i>
                             </button>
@@ -138,11 +138,11 @@ function rellenarInventarioLibros() {
                     <h5 class="card-title">${element.Nombre}</h5>
                     <h4 class="card-subtitle mb-2 text-muted">${element.Id_Categoria}</h4>
                     <p class="card-text">${element.Descripcion}</p>
-                    <form action="./Inventario/php/Eliminar_Libro.php?id=${element.Id}&user=${idUser}" method="post">
-                    <button type="submit" title="Quitar Libro" class="btn">
-                        <i class="fas fa-trash text-danger fa-lg"></i>
-                    </button>
-                </form>
+                    <form action="./Inventario/php/Eliminar_Libro.php?id=${element.Relacion}&user=${idUser}" method="post">
+                        <button type="submit" title="Quitar Libro" class="btn">
+                            <i class="fas fa-trash text-danger fa-lg"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -164,7 +164,14 @@ function rellenarInventarioCursos() {
                     <h5 class="card-title">${element.Nombre}</h5>
                     <h4 class="card-subtitle mb-2 text-muted">${element.Id_Categoria}</h4>
                     <p class="card-text">${element.Descripcion}</p>
-                    <button class="btn btn-success" onclick=VerCurso(${element.Id})>Ver</button>
+                    <form action="./Inventario/php/Eliminar_curso.php?id=${element.Relacion}&user=${idUser}" method="post">
+                        <a class="btn" onclick=VerCurso(${element.Id}); title="Ver Curso">
+                            <i class="fas fa-eye text-primary fa-lg"></i>
+                        </a>
+                        <button type="submit" title="Quitar Curso" class="btn">
+                            <i class="fas fa-trash text-danger fa-lg"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
