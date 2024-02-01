@@ -4,7 +4,6 @@ fetch('../PHP/sacarelnombredelcurso.php?id_curso=' + idCurso2)
   .then(response => response.json())
   .then(data => {
     descripcion.textContent = data.Descripcion;
-    console.log(data);
     tituloCurso.textContent = data.Nombre
   })
   .catch(error => console.error('Error:', error));
