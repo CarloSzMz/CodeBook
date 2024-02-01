@@ -121,7 +121,7 @@ fetch(`./Comentarios/visualizar/verComentarios.php?id=${idCurso}`)
 function tablaEpisodios(elements) {
     var cadenaEpisodios = ``;
     cadenaEpisodios += `
-    <table  class="table table-dark table-hover"> 
+    <table  class="table table-white table-hover"> 
         <thead> 
             <tr> 
                 <th scope="col">Id</th>
