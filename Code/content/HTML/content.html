@@ -20,6 +20,7 @@
             <li>SUPPORT</li>
             <li>ABOUT US</li>
             <li id="logout">LOG OUT</li>
+            <li id="mapa">MAPA</li>
           </ul>
         </nav>
       </div>
@@ -48,6 +49,10 @@
     <footer></footer>
   </body>
   <script>
+    let irMapa = document.getElementById("mapa")
+    irMapa.addEventListener("click", ()=>{
+      window.location.href = "../../../Mapa/HTML/Mapa.html"
+    })
     document.getElementById("logout").addEventListener("click",()=>{
         window.location.href = "../PHP/logout.php"
     })
@@ -82,11 +87,10 @@
         labelCursos.style.display = "flex";
       }
     });
-    // Utilizar AJAX para obtener los datos de cursos
+
     fetch("../PHP/sacar_cursos.php")
       .then((response) => response.json())
       .then((data) => {
-        // Insertar los datos en la tabla
        
         const contenedorCursos = document.getElementById("cursos");
 
@@ -118,14 +122,12 @@
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = curso.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
                 variableAEnviar
               )}`;
               window.location.href = nuevaURL;
             });
           }
-          // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
         });
       })
