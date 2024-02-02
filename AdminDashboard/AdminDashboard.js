@@ -265,7 +265,7 @@ function eliminarUsuario() {
 }
 
 
-function verUser() {
+function verUsuario() {
     var select_user = document.getElementById("selectVerUser");
     var modal = new bootstrap.Modal(document.getElementById('verModalUsuarios'));
     var btnVerUsers = document.getElementById("confirmarVerUser");
@@ -478,7 +478,7 @@ function editarLibro() {
     })
 }
 
-function eliminarLibros() {
+function eliminarLibro() {
     var select_id = document.getElementById("selectDeleteLibros");
     var modal = new bootstrap.Modal(document.getElementById("deleteModalLibros"));
     var btnEliminar = document.getElementById("confirmarBorradoLibros");
@@ -548,6 +548,76 @@ fetch('./Queries/GetCursos.php')
         console.error('Error al realizar la solicitud:', error);
     })
 
+function editarCurso() {
+    var select_cursos = document.getElementById("select_cursos");
+    var modal = new bootstrap.Modal(document.getElementById('editModalCurso'));
+    var btnEditar = document.getElementById("confirmarEditCursos");
+    var cadOptions = ``;
+    var selectedCurso = '';
+    var selectedId = 0;
+
+    // Hacer los selects de los id
+    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+
+    infoCursos.forEach(element => {
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+
+    });
+
+    select_cursos.innerHTML = cadOptions;
+
+    select_cursos.addEventListener('change', () => {
+        selectedId = select_cursos.value;
+        console.log("Id seleccionado " + selectedId);
+        selectedCurso = infoCursos.find(Curso => Curso.Id === selectedId);
+        console.log(selectedCurso.Nombre);
+
+        document.getElementById('nombre_cursos').placeholder = selectedCurso.Nombre;
+        document.getElementById('descripcion_cursos').placeholder = selectedCurso.Descripcion;
+        document.getElementById('miniatura_cursos').placeholder = selectedCurso.Miniatura;
+
+        document.getElementById('nombre_cursos').value = selectedCurso.Nombre;
+        document.getElementById('descripcion_cursos').value = selectedCurso.Descripcion;
+        document.getElementById('miniatura_cursos').value = selectedCurso.Miniatura;
+
+
+    });
+
+    modal.show();
+
+    btnEditar.addEventListener('click', () => {
+
+        //Hacer el fetch con los campos y update en la bbdd
+        var idCurso = selectedId;
+        var nombreEditado = document.getElementById('nombre_cursos').value;
+        var descripcionEditado = document.getElementById('descripcion_cursos').value;
+        var miniaturaEditado = document.getElementById('miniatura_cursos').value;
+
+        console.log("id " + idCurso);
+        console.log("Nombre " + nombreEditado);
+        console.log("Descripción " + descripcionEditado);
+        console.log("Miniatura " + miniaturaEditado);
+
+        $.ajax({
+            type: "POST",
+            url: "./Cursos/editar/editarCursos.php",
+            data: {
+                id: idCurso,
+                nombre: nombreEditado,
+                descripcion: descripcionEditado,
+                miniatura: miniaturaEditado
+            },
+            success: function (response) {
+                console.log("exito");
+                tabla(infoUsers);
+                window.location.replace('./AdminDashboard.html');
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
+    })
+}
 
 function verCurso() {
     var select_cursos = document.getElementById("selectVerCurso");
@@ -584,7 +654,7 @@ function verCurso() {
     });
 }
 
-function eliminarCursos() {
+function eliminarCurso() {
     var select_id = document.getElementById("selectDeleteCursos");
     var modal = new bootstrap.Modal(document.getElementById('deleteModalCursos'));
     var btnEliminarCursos = document.getElementById("confirmarBorradoCursos");

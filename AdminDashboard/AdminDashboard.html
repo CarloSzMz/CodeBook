@@ -105,11 +105,11 @@
                     <button class='btn' id="deleteusu" onclick=eliminarUsuario()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
-                    <button class="btn btn-primary" onclick="verUser()">Ver Usuario</button>
+                    <button class="btn btn-primary" onclick="verUsuario()">Ver Usuario</button>
                 </div>
 
 
-                <!-- Modal para editar user-->
+                <!-- Modal Editar Usuarios -->
                 <div class="modal fade" id="editModalUsers" tabindex="-1" aria-labelledby="createModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -179,7 +179,7 @@
                     </div>
                 </div>
 
-                <!-- Modal Ver Usuario -->
+                <!-- Modal Ver Usuarios -->
                 <div class="modal fade" id="verModalUsuarios" tabindex="-1" aria-labelledby="deleteModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -259,12 +259,12 @@
                     <button class='btn' id="editlib" onclick=editarLibro()>
                         <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
                     </button>
-                    <button class='btn' onclick=eliminarLibros()>
+                    <button class='btn' onclick=eliminarLibro()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
                 </div>
 
-                <!-- Modal para editar libro-->
+                <!-- Modal Editar Libros -->
                 <div class="modal fade" id="editModalLibro" tabindex="-1" aria-labelledby="createModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
@@ -339,37 +339,55 @@
                     <div id="Cursos"></div>
                     <button class="btn btn-info"><a class="text-decoration-none text-light"
                             href="./Cursos/crear/crearCursos.html">Crear Cursos</a></button>
-                    <button class='btn' onclick=eliminarCursos()>
+                    <button class='btn' id="editusu" onclick=editarCurso()>
+                        <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
+                    </button>
+                    <button class='btn' onclick=eliminarCurso()>
                         <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                     </button>
                     <button class="btn btn-primary" onclick="verCurso()">Ver Cursos</button>
                 </div>
 
-                <!-- Modal Ver Cursos -->
-                <div class="modal fade" id="verModalCursos" tabindex="-1" aria-labelledby="deleteModalLabel"
+                <!-- Modal Editar Cursos -->
+                <div class="modal fade" id="editModalCurso" tabindex="-1" aria-labelledby="createModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel">Ver Curso</h5>
+                                <h5 class="modal-title" id="createModalLabel">Editar Curso</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label for="id" class="col-form-label">Id: </label>
-                                    <select name="id" class="form-control" id="selectVerCurso">
+                                    <select name="id" class="form-control" id="select_cursos">
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nombre" class="col-form-label">Nombre: </label>
+                                    <input type="text" id="nombre_cursos" class="form-control" placeholder="Nombre" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="descripcion" class="col-form-label">Descripción: </label>
+                                    <input id="descripcion_cursos" type="descripcion" class="form-control" name="descripcion"
+                                        placeholder="Descripción" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="miniatura" class="col-form-label">Miniatura: </label>
+                                    <input id="miniatura_cursos" type="miniatura" class="form-control" name="miniatura"
+                                        placeholder="URL" />
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="confirmarVerCurso">Ver</button>
+                                <button type="submit" class="btn btn-primary" id="confirmarEditCursos">Editar</button>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Modal Confirmar Borrado Cursos -->
                 <div class="modal fade" id="deleteModalCursos" tabindex="-1" aria-labelledby="deleteModalLabel"
@@ -398,6 +416,31 @@
                     </div>
                 </div>
 
+                <!-- Modal Ver Cursos -->
+                <div class="modal fade" id="verModalCursos" tabindex="-1" aria-labelledby="deleteModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel">Ver Curso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">Id: </label>
+                                    <select name="id" class="form-control" id="selectVerCurso">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" id="confirmarVerCurso">Ver</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
             <footer id="menuAdmin-footer" class="py-4 bg-light">
                 <div class="container-sm">
