@@ -8,10 +8,23 @@
   </head>
   <body>
     <header>
-      <p id="logo">CODE<span style="color: gold">BOOK</span></p>
-      <nav>
-        <img src="./Property 1=Default.jpg" />
-      </nav>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <a href="#"><li>SETTINGS</li></a>
+            <a href="../../Code/content/HTML/content.html"><li>CONTENT</li></a>
+            <a href="../../Code/favoritos/HTML/favoritos.html"
+              ><li id="irFav">FAVOURITES</li></a
+            >
+            <a href="../../Sesion/support/support.html"><li>SUPPORT</li></a>
+            <a href="#"><li>ABOUT US</li></a>
+            <a href="../../Code/content/PHP/logout.php"><li>LOG OUT</li></a>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div id="sub_header">SUPPORT</div>
     <main>
@@ -61,4 +74,5 @@
       </form>
     </main>
   </body>
+  <script src="../js/nav_menu.js"></script>
 </html>

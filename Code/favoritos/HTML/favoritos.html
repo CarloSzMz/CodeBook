@@ -14,12 +14,14 @@
           <img id="menu_open" src="../img/Component 1.png" />
           <ul id="desplegable">
             <img id="menu_close" src="../img/Component 2.png" />
-            <li>SETTINGS</li>
-            <li>CONTENT</li>
-            <li id="irFav">FAVOURITES</li>
-            <li>SUPPORT</li>
-            <li>ABOUT US</li>
-            <li>LOG OUT</li>
+            <a href="#"><li>SETTINGS</li></a>
+            <a href="../../../Code/content/HTML/content.html"><li>CONTENT</li></a>
+            <a href="../../../Code/favoritos/HTML/favoritos.html"
+              ><li id="irFav">FAVOURITES</li></a
+            >
+            <a href="../../../Sesion/support/support.html"><li>SUPPORT</li></a>
+            <a href="#"><li>ABOUT US</li></a>
+            <a href="../../../Code/content/PHP/logout.php"><li>LOG OUT</li></a>
           </ul>
         </nav>
       </div>
@@ -34,26 +36,24 @@
       <div id="cursos"></div>
       <div class="lineas">
         <p>My Favourite Books</p>
-        <hr/>
+        <hr />
       </div>
       <div id="libros"></div>
     </main>
     <footer></footer>
   </body>
   <script>
-    
     fetch("../PHP/tus_cursos_favoritos.php")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-     
-        
+        console.log(data);
+
         const contenedorCursos = document.getElementById("cursos");
 
         data.forEach((curso) => {
           const divContent = document.createElement("div");
           divContent.className = "content";
-          divContent.id = curso.Id
+          divContent.id = curso.Id;
 
           const imgMiniatura = document.createElement("img");
           imgMiniatura.src = curso.Miniatura;
@@ -64,9 +64,9 @@
 
           const imgOtro = document.createElement("img");
           imgOtro.src = "../img/corazon.png";
-          imgOtro.style.maxHeight = "30px"
-          imgOtro.style.maxWidth = "30px"
-          imgOtro.setAttribute("id", "corazonImagen")
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -78,29 +78,29 @@
           // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
           clicar();
-          function clicar(){
-            divContent.addEventListener("click", ()=>{
-            let variableAEnviar = curso.Id;
-            //la url de el html de los cursos (indice_curso)
-            let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(variableAEnviar)}`;
-            window.location.href = nuevaURL;
-          })
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = curso.Id;
+              //la url de el html de los cursos (indice_curso)
+              let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
           }
-          
         });
       })
       .catch((error) => console.error("Error al obtener los datos:", error));
 
-      fetch("../PHP/tus_libros_favoritos.php")
+    fetch("../PHP/tus_libros_favoritos.php")
       .then((response) => response.json())
       .then((data) => {
-     
         const contenedorlibros = document.getElementById("libros");
 
         data.forEach((libro) => {
           const divContent = document.createElement("div");
           divContent.className = "content";
-          divContent.id = libro.Id
+          divContent.id = libro.Id;
 
           const imgMiniatura = document.createElement("img");
           imgMiniatura.src = libro.Miniatura;
@@ -111,9 +111,9 @@
 
           const imgOtro = document.createElement("img");
           imgOtro.src = "../img/corazon.png";
-          imgOtro.style.maxHeight = "30px"
-          imgOtro.style.maxWidth = "30px"
-          imgOtro.setAttribute("id", "corazonImagen")
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
 
           // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
@@ -124,15 +124,17 @@
 
           // Adjuntar el div de contenido al contenedor general
           contenedorlibros.appendChild(divContent);
-         
+
           clicar();
-          function clicar(){
-            divContent.addEventListener("click", ()=>{
-            let variableAEnviar = libro.Id;
-            //la url de el html de los cursos (indice_curso)
-            let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(variableAEnviar)}`;
-            window.location.href = nuevaURL;
-          })
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = libro.Id;
+              //la url de el html de los cursos (indice_curso)
+              let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
           }
         });
       })

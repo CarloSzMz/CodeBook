@@ -41,7 +41,6 @@ ul {
   height: 95%;
   display: none;
 }
-
 ul img {
   width: 20px;
   height: 20px;
@@ -55,7 +54,6 @@ li {
   color: white;
   text-align: center;
 }
-
 li:hover {
   color: greenyellow;
 }
@@ -79,66 +77,50 @@ nav {
   font-size: 20px;
 }
 
+.lineas {
+  width: 100%;
+}
+.lineas hr {
+  margin-left: 10px;
+  margin-bottom: 5px;
+  width: 95%;
+}
+.lineas p {
+  color: white;
+  font-family: "Poppins";
+  margin: 10px;
+}
+
 main {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: start;
   flex-direction: column;
   min-height: 80%;
   background-color: #1e1e1e;
 }
 
-#formulario {
+#cursos {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  min-height: 200px;
 }
 
-form {
-  width: 95%;
-  margin-left: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.content {
+  margin: 10px;
+  width: 300px;
+  height: 320px;
+  background-color: #2d2d2d;
+  text-align: center;
 }
-form div {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-  width: 80%;
-}
-form div input,
-form div textarea {
-  border: none;
-  border-bottom: 1px solid white;
-  background-color: transparent;
-  color: white;
-  font-family: "Poppins";
-  font-size: 20px;
+.content div {
   padding: 10px;
-}
-form div input:focus,
-form div textarea:focus {
-  border: none;
-  border-bottom: 1px solid white;
-  outline: none;
-}
-form div button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  width: 20%;
-  height: 50px;
-  background-color: greenyellow;
-  color: black;
-  border: none;
+  justify-content: space-between;
+}
+.content div p {
   font-family: "Poppins";
-  font-size: 20px;
-}
-
-#enviar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}/*# sourceMappingURL=support.css.map */
+  color: white;
+}/*# sourceMappingURL=inventario.css.map */
