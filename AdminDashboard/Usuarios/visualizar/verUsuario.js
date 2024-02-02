@@ -138,7 +138,7 @@ function rellenarInventarioLibros() {
                     <h5 class="card-title">${element.Nombre}</h5>
                     <h4 class="card-subtitle mb-2 text-muted">${element.Id_Categoria}</h4>
                     <p class="card-text">${element.Descripcion}</p>
-                    <form action="./Inventario/php/Eliminar_Libro.php?id=${element.Relacion}&user=${idUser}" method="post">
+                    <form action="./Inventario/php/Eliminar_libro.php?id=${element.Relacion}&user=${idUser}" method="post">
                         <button type="submit" title="Quitar Libro" class="btn">
                             <i class="fas fa-trash text-danger fa-lg"></i>
                         </button>
@@ -158,7 +158,7 @@ function rellenarInventarioCursos() {
     cursos.forEach(element => {
         cad += `
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
+            <div class="card" style="width: 15rem;">
                 <img class="card-img-top" src="${element.Miniatura}" alt="Imagen Curso">
                 <div class="card-body">
                     <h5 class="card-title">${element.Nombre}</h5>
