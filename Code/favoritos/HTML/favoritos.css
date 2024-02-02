@@ -108,6 +108,14 @@ main {
   min-height: 200px;
 }
 
+#libros {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 200px;
+}
+
 .content {
   margin: 10px;
   width: 300px;
