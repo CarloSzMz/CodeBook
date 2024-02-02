@@ -25,14 +25,54 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+#nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 #logo {
   color: white;
-  padding: 5px;
-  font-family: $fuente;
+  padding: 15px;
+  font-family: "Poppins";
   font-style: italic;
 }
+
+ul {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #1e1e1e;
+  width: 200px;
+  height: 95%;
+  display: none;
+}
+ul img {
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+}
+
+li {
+  padding: 15px;
+  list-style: none;
+  font-family: "Poppins";
+  color: white;
+  text-align: center;
+}
+li:hover {
+  color: greenyellow;
+}
+
+nav {
+  padding: 15px;
+}
+
 #sub_header {
-  @include medio;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   position: relative;
   left: 30%;
@@ -40,8 +80,8 @@ header {
   width: 40%;
   height: 30px;
   background-color: gold;
-  font-family: $fuente;
-  font-size: 20px
+  font-family: "Poppins";
+  font-size: 20px;
 }
 main {
   @include medio();
@@ -61,7 +101,7 @@ form {
   div {
     display: flex;
     flex-direction: column;
-    margin-top:50px;
+    margin-top: 50px;
     width: 80%;
     input,
     textarea {
@@ -87,10 +127,10 @@ form {
       color: black;
       border: none;
       font-family: $fuente;
-      font-size: 20px
+      font-size: 20px;
     }
   }
 }
-#enviar{
+#enviar {
   @include medio();
 }
