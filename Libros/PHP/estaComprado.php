@@ -28,12 +28,21 @@ if ($result->num_rows > 0) {
     $datos = $row["Id"];
 }
 
-$query2 = "INSERT INTO inventario_libros (Id_Libro, Id_Usuario) VALUES ('$idLibro', '$datos')";
+$query2 = "SELECT * FROM inventario_libros WHERE Id_Libro = '$idLibro' AND Id_Usuario = '$datos'";
 $result2 = $conn->query($query2);
 
 $datos2 = array();
 
+if ($result2->num_rows > 0) {
+  
+    $row2 = $result2->fetch_assoc();
+    $datos2 = $row2;
+}else{
+    $datos2 = "no comprado";
+}
+
 $conn->close();
 
+echo json_encode($datos2);
 
 ?>
