@@ -3,11 +3,10 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if (isset($_POST["mensaje"]) && isset($_POST["nombre1"]) && isset($_POST["nombre2"])) {
+    if (isset($_POST["mensaje"]) && isset($_POST["nombre1"])) {
 
         $mensaje = $_POST["mensaje"];
-        $nombre1 = $_POST["nombre1"];
-        $nombre2 = $_POST["nombre2"];
+        $destinatario = $_POST["nombre1"];
 
     } else {
 
@@ -18,18 +17,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "Error: Esta página solo acepta solicitudes POST." . "<br>";
 }
 
-
+$remitente = $_SESSION["nombreUsuario"];
 $conexion = new mysqli("localhost", "root", "", "codebook");
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
 }
 
-$sql = "INSERT INTO mensajes (nombreRemitente, nombreDestinatario, mensaje) VALUES ('$nombre1', '$nombre2', '$mensaje')";
+$sql = "INSERT INTO mensajes (nombreRemitente, nombreDestinatario, mensaje) VALUES ('$remitente', '$destinatario', '$mensaje')";
 
 $conexion->query($sql);
 
 $conexion->close();
-header('Location: ../PHP/chat.php?usuario=' .  $nombre2);
+header('Location: ../HTML/chat.html?usuario=' .  $destinatario);
 ?>
 

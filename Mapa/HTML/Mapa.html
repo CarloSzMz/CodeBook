@@ -18,8 +18,10 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap">
     </script>
-    <script>
-        let map;
+    <script src="../js/Mapa.js">
+        
+    </script>
+    <script>let map;
         function initMap() {    
             fetch("../PHP/sacar_usuarios_con_ubi.php")
                 .then(response => response.json())
@@ -90,14 +92,12 @@
         function clicarIconos(){
             let areas = document.querySelectorAll('div[aria-label]');
             areas.forEach(element => {
-                //../PHP/chat.php
                 element.addEventListener("click",()=>{
                     let nombre = element.getAttribute("aria-label")
-                    window.location.href = "../PHP/chat.php?usuario=" + nombre;
+                    window.location.href = "../HTML/chat.html?usuario=" + nombre;
                 })
             });
         }
-
-    </script>
+</script>
 </body>
 </html>
