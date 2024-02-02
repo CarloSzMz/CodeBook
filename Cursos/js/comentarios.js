@@ -30,10 +30,8 @@ async function obtenerComentariosCursos(idCurso) {
 
       const comentarios = await response.json();
 
-      // Asignar clase diferente a los comentarios según el Id_Usuario
       comentarios.forEach(comentario => {
           if (comentario.Id_Usuario == idUsuario) {
-              // Asignar una clase específica para los comentarios del usuario actual
               comentario.clase = 'comentario-usuario-actual';
               let divEnviador = document.createElement("div")
               divEnviador.setAttribute("class", "enviador")
@@ -43,7 +41,6 @@ async function obtenerComentariosCursos(idCurso) {
               aside.insertBefore(divEnviador, divMensaje)
 
           } else {
-              // Asignar una clase diferente para otros comentarios
               comentario.clase = 'otro-comentario';
               let divEnviador = document.createElement("div")
               divEnviador.setAttribute("class", "receptor")
@@ -54,16 +51,12 @@ async function obtenerComentariosCursos(idCurso) {
           }
       });
 
-      // Hacer algo con los comentarios, por ejemplo, mostrarlos en la consola
       console.log(comentarios);
       
-      // Puedes manipular el DOM para mostrar los comentarios con las clases asignadas
-      // Ejemplo: renderizarComentarios(comentarios);
 
   } catch (error) {
       console.error("Error:", error);
   }
 }
 
-// Llamada inicial para obtener los comentarios
 obtenerComentariosCursos(idCurso);

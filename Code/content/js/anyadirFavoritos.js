@@ -15,7 +15,6 @@ setTimeout(function() {
 
             fetch('../PHP/anyadirFavoritosCursos.php?id_curso=' + idAbuelo)
                 .then(() => {
-                    // Lógica para cambiar la imagen después de la llamada fetch
                     if (rutaRelativa == "../img/corazonRojo.png") {
                         imagen.src = "../img/corazon.png";
                     } else if(rutaRelativa == "../img/corazon.png") {
@@ -23,7 +22,6 @@ setTimeout(function() {
                     }
                 })
                 .then(() => {
-                    // Cambia el estado favorito después de la llamada fetch
                     rutaRelativa = imagen.getAttribute('src');
                 })
                 .catch(error => console.error('Error:', error));
@@ -48,7 +46,6 @@ setTimeout(function() {
             console.log(idAbuelo)
             fetch('../PHP/anyadirFavoritosLibros.php?id_libro=' + idAbuelo)
                 .then(() => {
-                    // Lógica para cambiar la imagen después de la llamada fetch
                     if (rutaRelativa == "../img/corazonRojo.png") {
                         imagen.src = "../img/corazon.png";
                     } else if(rutaRelativa == "../img/corazon.png") {
@@ -56,7 +53,6 @@ setTimeout(function() {
                     }
                 })
                 .then(() => {
-                    // Cambia el estado favorito después de la llamada fetch
                     rutaRelativa = imagen.getAttribute('src');
                 })
                 .catch(error => console.error('Error:', error));

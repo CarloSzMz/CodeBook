@@ -59,7 +59,6 @@
     })
     let botonFavoritos = document.getElementById("irFav");
     botonFavoritos.addEventListener("click", () => {
-      //la url de el html de los cursos (indice_curso)
       let nuevaURL = `../../favoritos/HTML/favoritos.html`;
       window.location.href = nuevaURL;
     });
@@ -88,7 +87,6 @@
         labelCursos.style.display = "flex";
       }
     });
-
     fetch("../PHP/sacar_cursos.php")
       .then((response) => response.json())
       .then((data) => {
@@ -113,7 +111,6 @@
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("class", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
@@ -137,7 +134,6 @@
     fetch("../PHP/sacar_libros.php")
       .then((response) => response.json())
       .then((data) => {
-        // Insertar los datos en la tabla
         const contenedorLibros = document.getElementById("libros");
 
         data.forEach((libro) => {
@@ -159,7 +155,6 @@
           imgOtro.setAttribute("class", "corazonImagen");
           
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
@@ -170,14 +165,12 @@
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = libro.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
                 variableAEnviar
               )}`;
               window.location.href = nuevaURL;
             });
           }
-          // Adjuntar el div de contenido al contenedor general
           contenedorLibros.appendChild(divContent);
         });
       })
