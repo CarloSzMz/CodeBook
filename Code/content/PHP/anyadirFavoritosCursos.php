@@ -39,7 +39,6 @@ if ($result2->num_rows > 0) {
         echo "Error al eliminar de la BBDD: " . $conn->error;
     }
 } else {
-    // Aquí puedes hacer algo si no hay resultados
     echo "No esta aun en la BBDD";
     $insertQuery = "INSERT INTO favorito_cursos (Id_Usuario, Id_Curso) VALUES ('$id', '$idCurso')";
     
@@ -51,6 +50,5 @@ if ($result2->num_rows > 0) {
 }
 $conn->close();
 
-// Devolver los datos como JSON
 
 ?>

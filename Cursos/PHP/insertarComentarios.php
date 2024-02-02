@@ -25,7 +25,6 @@ if ($resultUsuario->num_rows > 0) {
     $rowUsuario = $resultUsuario->fetch_assoc();
     $id_usuario = $rowUsuario['Id'];
 
-    // Insertar comentario
     $queryInsertar = "INSERT INTO comentarios (Id_Usuario, Id_Curso, Mensaje) VALUES ('$id_usuario', '$id_curso', '$mensaje')";
 
     if ($conn->query($queryInsertar) === TRUE) {

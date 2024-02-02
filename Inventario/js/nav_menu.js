@@ -48,20 +48,17 @@ fetch("../PHP/sacar_inventario_cursos.php")
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("id", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
 
-          // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
           clicar();
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = curso.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
                 variableAEnviar
               )}`;
@@ -95,21 +92,18 @@ fetch("../PHP/sacar_inventario_cursos.php")
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("id", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
 
-          // Adjuntar el div de contenido al contenedor general
           contenedorlibros.appendChild(divContent);
 
           clicar();
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = libro.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
                 variableAEnviar
               )}`;
