@@ -15,13 +15,9 @@
     <div id="map"></div>
     <button onclick="obtenerUbicacion()">Compartir Ubicación</button>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap">
-    </script>
-    <script src="../js/Mapa.js">
-        
-    </script>
-    <script>let map;
+    
+    <script>
+    let map;
         function initMap() {    
             fetch("../PHP/sacar_usuarios_con_ubi.php")
                 .then(response => response.json())
@@ -99,5 +95,11 @@
             });
         }
 </script>
+<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap">
+    </script>
+    <script src="../js/Mapa.js">
+        
+    </script>
 </body>
 </html>
