@@ -1,6 +1,5 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+
 session_start();
 
 $nombre = $_SESSION["nombreUsuario"];
@@ -14,6 +13,7 @@ $conn = new mysqli($servername, $username, $password, $database);
 if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
+
 $query = "SELECT Id FROM usuarios WHERE Nombre = '$nombre'";
 $result = $conn->query($query);
 
@@ -21,27 +21,27 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $id = $row['Id'];
 
-    $query2 = "SELECT Id_Curso FROM inventario_curso WHERE Id_Usuario = '$id'";
+    $query2 = "SELECT Id_Libro FROM inventario_libros WHERE Id_Usuario = '$id'";
     $result2 = $conn->query($query2);
 
     if ($result2->num_rows > 0) {
-        $cursos = array();
+        $libros = array();
 
         while ($row2 = $result2->fetch_assoc()) {
-            $idCurso = $row2["Id_Curso"];
+            $idLibro = $row2["Id_Libro"];
 
-            $queryCurso = "SELECT * FROM cursos WHERE Id = '$idCurso'";
-            $resultCurso = $conn->query($queryCurso);
+           
+            $querylibro = "SELECT * FROM libros WHERE Id = '$idLibro'";
+            $resultLibro = $conn->query($querylibro);
 
-            if ($resultCurso->num_rows > 0) {
-                while ($rowCurso = $resultCurso->fetch_assoc()) {
-                    $cursos[] = $rowCurso;
+            if ($resultLibro->num_rows > 0) {
+                while ($rowLibro = $resultLibro->fetch_assoc()) {
+                    $libros[] = $rowLibro;
                 }
             }
         }
 
-        
-        echo json_encode($cursos);
+        echo json_encode($libros);
     }
 }
 
