@@ -4,6 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreUsuario = $_POST["NombreUsuario"];
     $contrasenya = $_POST["Contrasenya1"];
     $correo = $_POST["Correo"];
+    $numero = $_POST["numero"];
 
     $hashContrasenya = password_hash($contrasenya, PASSWORD_DEFAULT);
 
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: El correo electrónico ya está en uso.";
     } else {
 
-        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0)";
+        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin, telefono) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0, $numero)";
 
         if ($conn->query($query) === TRUE) {
             echo "Datos insertados correctamente.";
