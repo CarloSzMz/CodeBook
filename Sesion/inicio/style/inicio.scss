@@ -19,7 +19,9 @@ html {
   align-items: center;
 }
 
-
+#menu_open{
+  display: none;
+}
 
 main {
   @include medio();
