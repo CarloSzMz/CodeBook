@@ -12,15 +12,49 @@
      display: flex;
  }
 
- .sb-sidenav {
+ #menuAdmin-navbar {
+     padding-left: 0;
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+ }
+
+ #menuAdmin-navbar.toggled {
+     padding-left: 220px;
+ }
+
+ #sidenavAccordion {
      display: flex;
      flex-direction: column;
      height: 100%;
      flex-wrap: nowrap;
+     position: fixed;
+     left: 220px;
+     z-index: 1000;
+     overflow-y: auto;
+     margin-left: -220px;
+     width: 0;
+     height: 100%;
+     -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+     -o-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+ }
+
+ #menuAdmin-navbar.toggled #sidenavAccordion {
+     width: 220px;
+ }
+
+ #menuAdmin-navbar.toggled #menuAdmin-content {
+     position: absolute;
+     margin-right: -220px;
  }
 
  #menuAdmin-content {
      display: flex;
      flex-direction: column;
      min-height: 100vh;
+     padding: 15px;
+     width: 100%;
  }

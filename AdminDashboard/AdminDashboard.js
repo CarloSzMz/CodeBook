@@ -702,3 +702,10 @@ function verCurso() {
         window.location.replace(`./Cursos/visualizar/verCurso.html?id=${idCurso}`);
     });
 }
+
+// Toggle Button
+
+$("#sidebarToggle").click(function(e) {
+    e.preventDefault();
+    $("#menuAdmin-navbar").toggleClass("toggled");
+});
