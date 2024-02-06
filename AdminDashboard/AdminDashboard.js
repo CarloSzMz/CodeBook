@@ -303,7 +303,7 @@ function verUsuario() {
 
 /* APARTADO CATEGORIAS*/
 
-var divCategorias = document.getElementById("Categoria");
+var divCategorias = document.getElementById("Categorias");
 var infoCategorias = [];
 
 // Hacer la solicitud al archivo PHP
