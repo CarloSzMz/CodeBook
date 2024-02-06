@@ -2,6 +2,12 @@
      padding: 0;
  }
 
+ #nav-menu{
+    position: fixed;
+    z-index: 1038;
+    width: 100%;
+ }
+
  .sb-nav-fixed #menuAdmin #menuAdmin-navbar {
      width: 225px;
      height: 100vh;
@@ -21,19 +27,18 @@
  }
 
  #menuAdmin-navbar.toggled {
-     padding-left: 220px;
+     padding-left: 240px;
  }
 
  #sidenavAccordion {
      display: flex;
      flex-direction: column;
-     height: 100%;
      flex-wrap: nowrap;
      position: fixed;
-     left: 220px;
+     left: 260px;
      z-index: 1000;
      overflow-y: auto;
-     margin-left: -220px;
+     margin-left: -270px;
      width: 0;
      height: 100%;
      -webkit-transition: all 0.5s ease;
@@ -43,12 +48,12 @@
  }
 
  #menuAdmin-navbar.toggled #sidenavAccordion {
-     width: 220px;
+     width: 250px;
  }
 
  #menuAdmin-navbar.toggled #menuAdmin-content {
      position: absolute;
-     margin-right: -220px;
+     margin-right: -250px;
  }
 
  #menuAdmin-content {
