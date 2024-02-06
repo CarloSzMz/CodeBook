@@ -95,7 +95,7 @@ main {
 }
 
 form {
-  width: 95%;
+  width: 500px;
   margin-left: 10px;
   display: flex;
   justify-content: center;
@@ -123,6 +123,13 @@ form div textarea:focus {
   border-bottom: 1px solid white;
   outline: none;
 }
+form div input::-moz-placeholder, form div textarea::-moz-placeholder {
+  color: white;
+}
+form div input::placeholder,
+form div textarea::placeholder {
+  color: white;
+}
 form div button {
   display: flex;
   justify-content: center;
@@ -135,6 +142,7 @@ form div button {
   border: none;
   font-family: "Poppins";
   font-size: 20px;
+  border-radius: 20px;
 }
 
 #enviar {

@@ -212,13 +212,16 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   min-width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #temas > div {
   flex-wrap: wrap;
 }
 
 aside {
-  overflow-y: auto;
+  overflow-y: scroll;
   scrollbar-width: thin;
   border-radius: 5px;
   max-width: 100%;
@@ -229,6 +232,7 @@ aside {
   justify-content: flex-end;
   margin-left: 10px;
   margin-right: 10px;
+  padding: 5px;
 }
 
 #sms_box {
@@ -265,7 +269,7 @@ aside {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
 }
 
 .receptor {
@@ -276,7 +280,7 @@ aside {
   margin-bottom: 4px;
   margin-top: 4px;
   border-radius: 10px;
-  background-color: red;
+  background-color: rgb(138, 6, 6);
 }
 .receptor p {
   margin: 3px;
@@ -294,7 +298,8 @@ aside {
   margin-bottom: 3px;
   margin-top: 3px;
   margin-left: 180px;
-  background-color: #77e13b;
+  margin-right: 10px;
+  background-color: #32760b;
   border-radius: 10px;
 }
 .enviador p {
@@ -342,5 +347,6 @@ form button {
     width: 30%;
     min-height: 410px;
     max-height: 470px;
+    margin-right: 20px;
   }
 }/*# sourceMappingURL=index_cursos.css.map */
