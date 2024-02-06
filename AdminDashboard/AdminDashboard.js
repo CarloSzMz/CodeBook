@@ -314,7 +314,7 @@ fetch('./Queries/GetCategorias.php')
         // Manejar los datos obtenidos (en este caso, imprimir en la consola)
         infoCategorias = JSON.parse(JSON.stringify(data));
 
-        //Llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
+        // Llamar a la funcion que crea la tabla pasandole el arrayJSON del resultado de la query
         divCategorias.innerHTML = tabla(infoCategorias);
     })
     .catch(error => {
@@ -446,7 +446,7 @@ function editarLibro() {
 
     btnEditar.addEventListener('click', () => {
 
-        //Hacer el fetch con los campos y update en la bbdd
+        // Hacer el fetch con los campos y update en la bbdd
         var idLibro = selectedId;
         var nombreEditado = document.getElementById('nombre_libros').value;
         var descripcionEditado = document.getElementById('descripcion_libros').value;
@@ -587,7 +587,7 @@ function editarCurso() {
 
     btnEditar.addEventListener('click', () => {
 
-        //Hacer el fetch con los campos y update en la bbdd
+        // Hacer el fetch con los campos y update en la bbdd
         var idCurso = selectedId;
         var nombreEditado = document.getElementById('nombre_cursos').value;
         var descripcionEditado = document.getElementById('descripcion_cursos').value;
