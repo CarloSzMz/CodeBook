@@ -224,7 +224,7 @@ function eliminarUsuario() {
     var selectedId = 'Selecciona un Id';
 
     //hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un nombre</option>`;
+    cadOptions += `<option selected disabled>Selecciona un Usuario</option>`;
     infoUsers.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
@@ -629,7 +629,7 @@ function eliminarCurso() {
     var selectedId = 'Selecciona un Id';
     
     // Hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Nombre</option>`;
+    cadOptions += `<option selected disabled>Selecciona un Curso</option>`;
     infoCursos.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
