@@ -224,9 +224,9 @@ function eliminarUsuario() {
     var selectedId = 'Selecciona un Id';
 
     //hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    cadOptions += `<option selected disabled>Selecciona un nombre</option>`;
     infoUsers.forEach(element => {
-        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
 
     select_user.innerHTML = cadOptions;
@@ -330,9 +330,9 @@ function eliminarCategoria() {
     var selectedId = 'Selecciona un Id';
 
     // Hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    cadOptions += `<option selected disabled>Selecciona una Categoría</option>`;
     infoCategorias.forEach(element => {
-        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Lenguaje}</option>`;
     });
 
     select_categorias.innerHTML = cadOptions;
@@ -487,9 +487,9 @@ function eliminarLibro() {
     var selectedId = 'Selecciona un Id';
 
     // Hacer los selects de los id
-    cadOptions += `<option selected disabled>Selecciona un Id</option>`;
+    cadOptions += `<option selected disabled>Selecciona un Libro</option>`;
     infoLibros.forEach(element => {
-        cadOptions += `<option id=selectId value="${element.Id}">${element.Id}</option>`;
+        cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
 
     select_libros.innerHTML = cadOptions;
