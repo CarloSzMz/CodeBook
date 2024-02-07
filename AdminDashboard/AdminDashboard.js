@@ -627,30 +627,30 @@ function eliminarCurso() {
     var cadOptions = ``;
     var selectedCursos = '';
     var selectedId = 'Selecciona un Id';
-    
+
     // Hacer los selects de los id
     cadOptions += `<option selected disabled>Selecciona un Curso</option>`;
     infoCursos.forEach(element => {
         cadOptions += `<option id=selectId value="${element.Id}">${element.Nombre}</option>`;
     });
-    
+
     select_cursos.innerHTML = cadOptions;
-    
+
     select_cursos.addEventListener('change', () => {
         selectedId = select_cursos.value;
         console.log("Id seleccionado " + selectedId);
         selectedCursos = infoCursos.find(curso => curso.Id === selectedId);
         console.log(selectedCursos.Nombre);
     });
-    
+
     modal.show();
-    
+
     btnEliminarCursos.addEventListener('click', () => {
-        
+
         // Hacer el fetch con los campos y update en la bbdd
         var idCurso = selectedId;
         console.log("id " + idCurso);
-        
+
         $.ajax({
             type: "POST",
             url: "./Cursos/eliminar/eliminarCursos.php",
@@ -705,7 +705,21 @@ function verCurso() {
 
 // Toggle Button
 
-$("#sidebarToggle").click(function(e) {
+$("#sidebarToggle").click(function (e) {
     e.preventDefault();
     $("#menuAdmin-navbar").toggleClass("toggled");
 });
+
+// Función sidebar
+function verYesconder(div) {
+    let divGen = document.getElementById(div);
+
+    // General
+    if (divGen.classList.contains("d-flex")) {
+        divGen.classList.remove("d-flex");
+        divGen.classList.add("d-none");
+    } else if (divGen.classList.contains("d-none")){
+        divGen.classList.remove("d-none");
+        divGen.classList.add("d-flex");
+    }
+}
