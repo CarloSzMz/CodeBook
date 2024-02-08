@@ -43,10 +43,6 @@
             <!-- Div de la tabla-->
             <div id="Episodios"></div>
 
-            <button id="btnAddEpisodio" class="btn btn-info mt-2">
-                <a class="text-decoration-none text-light" id="enlaceAddEpisodio" href="">Añadir Episodio</a>
-            </button>
-
             <!-- Modal Editar Episodio -->
             <div class="modal fade" id="editModalEpisodio" tabindex="-1" aria-labelledby="createModalLabel"
                 aria-hidden="true">
@@ -81,11 +77,20 @@
             </div>
 
         </div>
-        <div id="Comentarios" class="container mt-5 mb-4 p-2 border border-dark bg-white">
+
+        <div class="container p-0 mt-3 mb-4">
+            <button id="btnAddEpisodio" class="btn btn-success">
+                <a class="text-decoration-none text-light" id="enlaceAddEpisodio" href="">Añadir Episodio</a>
+            </button>
+        </div>
+
+        <div id="Comentarios" class="container mt-4 p-2 border border-dark bg-white">
             <h5 class="p-2 border-bottom border-dark mb-2 bg-white text-dark fw-bold">Comentarios</h5>
 
             <table class="mt-2" id="TablaComments"></table>
-            <button class="btn btn-info"><a class="text-decoration-none text-light"
+        </div>
+        <div class="container p-0 mt-3 mb-5">
+            <button class="btn btn-danger"><a class="text-decoration-none text-light"
                     href="../../AdminDashboard.html">Volver</a></button>
         </div>
     </div>
