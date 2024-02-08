@@ -1,105 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa de Usuarios</title>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <div id="map"></div>
-    <button onclick="obtenerUbicacion()">Compartir Ubicación</button>
+    <link rel="stylesheet" href="../style/mapa.css" />
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../img/Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../img/Component 2.png" />
+            <a href="#"><li>SETTINGS</li></a>
+            <a href="../../Code/content/HTML/content.html"><li>CONTENT</li></a>
+            <a href="../../Code/favoritos/HTML/favoritos.html"
+              ><li id="irFav">FAVOURITES</li></a
+            >
+            <a href="../../Sesion/support/support.html"><li>SUPPORT</li></a>
+            <a href="#"><li>ABOUT US</li></a>
+            <a href="../../Code/content/PHP/logout.php"><li>LOG OUT</li></a>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div id="sub_header">SHARE POSITION</div>
 
-    
+    <main>
+      <div id="map"></div>
+      <button onclick="obtenerUbicacion()">Compartir Ubicación</button>
+    </main>
+
+    <footer></footer>
+
     <script>
-    let map;
-        function initMap() {    
-            fetch("../PHP/sacar_usuarios_con_ubi.php")
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data);
-                    let centroMapa = { lat: 39.469947814941406, lng: -0.3763095438480377 };
-                    map = new google.maps.Map(document.getElementById('map'), {
-                        center: centroMapa,
-                        zoom: 12
-                    });
-                    data.forEach(function(usuario) {
-                        let posicion = {
-                            lat: parseFloat(usuario.latitud),
-                            lng: parseFloat(usuario.longitud)
-                        };
-
-                        let marker = new google.maps.Marker({
-                            position: posicion,
-                            map: map,
-                            title: usuario.Nombre 
-                        });
-                    });  
-                    setTimeout(clicarIconos, 1000);    
-                })
-                .catch(error => {
-                    console.error("Error: ", error)
-                });
-        }
-
-        function obtenerUbicacion() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        let latitud = position.coords.latitude;
-                        let longitud = position.coords.longitude;
-                        console.log("Ubicación obtenida:", latitud, longitud);
-
-                    
-                        enviarUbicacionAlServidor(latitud, longitud);
-                    },
-                    function(error) {
-                        console.error("Error al obtener la ubicación:", error.message);
-                    }
-                );
-            } else {
-                alert("La geolocalización no está soportada por tu navegador.");
-            }
-        }
-
-
-        function enviarUbicacionAlServidor(latitud, longitud) {
-           
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "../PHP/almacenar_ubicacion.php", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    console.log("Ubicación almacenada en el servidor.");
-                }
+      let map;
+      function initMap() {
+        fetch("../PHP/sacar_usuarios_con_ubi.php")
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            let centroMapa = {
+              lat: 39.469947814941406,
+              lng: -0.3763095438480377,
             };
-
-            let data = "latitud=" + latitud + "&longitud=" + longitud;
-            xhr.send(data);
-
-        }
-
-        function clicarIconos(){
-            let areas = document.querySelectorAll('div[aria-label]');
-            areas.forEach(element => {
-                element.addEventListener("click",()=>{
-                    let nombre = element.getAttribute("aria-label")
-                    window.location.href = "../HTML/chat.html?usuario=" + nombre;
-                })
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: centroMapa,
+              zoom: 12,
             });
+            data.forEach(function (usuario) {
+              let posicion = {
+                lat: parseFloat(usuario.latitud),
+                lng: parseFloat(usuario.longitud),
+              };
+
+              let marker = new google.maps.Marker({
+                position: posicion,
+                map: map,
+                title: usuario.Nombre,
+              });
+            });
+            setTimeout(clicarIconos, 1000);
+          })
+          .catch((error) => {
+            console.error("Error: ", error);
+          });
+      }
+
+      function obtenerUbicacion() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              let latitud = position.coords.latitude;
+              let longitud = position.coords.longitude;
+              console.log("Ubicación obtenida:", latitud, longitud);
+
+              enviarUbicacionAlServidor(latitud, longitud);
+            },
+            function (error) {
+              console.error("Error al obtener la ubicación:", error.message);
+            }
+          );
+        } else {
+          alert("La geolocalización no está soportada por tu navegador.");
         }
-</script>
-<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap">
+      }
+
+      function enviarUbicacionAlServidor(latitud, longitud) {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "../PHP/almacenar_ubicacion.php", true);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log("Ubicación almacenada en el servidor.");
+          }
+        };
+
+        let data = "latitud=" + latitud + "&longitud=" + longitud;
+        xhr.send(data);
+      }
+
+      function clicarIconos() {
+        let areas = document.querySelectorAll("div[aria-label]");
+        areas.forEach((element) => {
+          element.addEventListener("click", () => {
+            let nombre = element.getAttribute("aria-label");
+            window.location.href = "../HTML/chat.html?usuario=" + nombre;
+          });
+        });
+      }
     </script>
-    <script src="../js/Mapa.js">
-        
-    </script>
-</body>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx9CyuWIyaGOG0cIBRUslZcQKbVHxtEJg&callback=initMap"
+    ></script>
+    <script src="../js/Mapa.js"></script>
+    <script src="../js/nav_menu.js"></script>
+  </body>
 </html>
