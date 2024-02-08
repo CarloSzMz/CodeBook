@@ -85,7 +85,7 @@ nav {
   left: 30%;
   top: -15px;
   width: 40%;
-  height: 30px;
+  height: 60px;
   background-color: gold;
   font-family: $fuente;
   font-size: 20px;
@@ -112,6 +112,7 @@ nav {
   @include medio;
 }
 #category {
+  font-size: 20px;
   text-align: center;
   color: white;
   background-color: transparent;
@@ -142,10 +143,11 @@ main {
 
 .lineas {
   width: 100%;
+  @include medio();
   hr {
     margin-left: 10px;
     margin-bottom: 5px;
-    width: 95%;
+    width: 65%;
   }
   p {
     color: white;
@@ -336,7 +338,7 @@ form {
   }
 }
 
-//ORDENADOR
+/*//ORDENADOR
 @media screen and (min-width: 1300px) {
   //GRID PARA PONER CHAT ALADO PC
   #maingrid {
@@ -355,5 +357,11 @@ form {
     //PARA QUE ESTE SIEMPRE BAJO DERECHA
     //position: fixed;
     //left: 1000px;
+  }
+}*/
+
+@media screen and (min-width: 1300px) {
+  aside{
+    width: 70%;
   }
 }

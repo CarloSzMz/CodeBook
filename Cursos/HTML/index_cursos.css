@@ -80,7 +80,7 @@ nav {
   left: 30%;
   top: -15px;
   width: 40%;
-  height: 30px;
+  height: 60px;
   background-color: gold;
   font-family: "Poppins";
   font-size: 20px;
@@ -110,6 +110,7 @@ nav {
 }
 
 #category {
+  font-size: 20px;
   text-align: center;
   color: white;
   background-color: transparent;
@@ -142,11 +143,14 @@ main {
 
 .lineas {
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .lineas hr {
   margin-left: 10px;
   margin-bottom: 5px;
-  width: 95%;
+  width: 65%;
 }
 .lineas p {
   color: white;
@@ -334,7 +338,9 @@ form button {
     min-width: 690px;
   }
 }
+/*//ORDENADOR
 @media screen and (min-width: 1300px) {
+  //GRID PARA PONER CHAT ALADO PC
   #maingrid {
     display: flex;
     flex-direction: row;
@@ -348,5 +354,13 @@ form button {
     min-height: 410px;
     max-height: 470px;
     margin-right: 20px;
+    //PARA QUE ESTE SIEMPRE BAJO DERECHA
+    //position: fixed;
+    //left: 1000px;
+  }
+}*/
+@media screen and (min-width: 1300px) {
+  aside {
+    width: 70%;
   }
 }/*# sourceMappingURL=index_cursos.css.map */
