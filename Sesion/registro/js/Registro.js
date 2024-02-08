@@ -1,7 +1,7 @@
 // Registro.js
 
 document.getElementById("registroForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evitar el envío predeterminado del formulario
+    event.preventDefault(); 
   
     var formData = new FormData(this);
   
@@ -12,7 +12,7 @@ document.getElementById("registroForm").addEventListener("submit", function(even
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = "../../Code/content/HTML/content.html"; // Redirigir a la página de contenido si el registro es exitoso
+        window.location.href = "../../Code/content/HTML/content.html"; 
       } else {
         alert(data.message);
       }
