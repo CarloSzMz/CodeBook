@@ -237,6 +237,7 @@ main {
 
 form {
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 form input {
   margin-left: 20px;
@@ -265,6 +266,9 @@ form input:focus {
   color: #8e8e8e;
 }
 #allcmt #cmt p {
+  font-size: 12px;
+  font-family: "Poppins";
+  color: white;
   margin-left: 40px;
 }
 
@@ -295,6 +299,6 @@ footer {
 }*/
 @media screen and (min-width: 450px) and (max-width: 450px) {
   .content {
-    width: 80%;
+    width: 90%;
   }
 }/*# sourceMappingURL=index_cursos.css.map */

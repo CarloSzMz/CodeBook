@@ -235,6 +235,7 @@ main {
 
 form {
   margin-top: 10px;
+  margin-bottom: 20px;
   input {
     margin-left: 20px;
     margin-right: 20px;
@@ -263,6 +264,9 @@ form {
   }
   #cmt {
     p {
+      font-size: 12px;
+      font-family: $fuente;
+      color: white;
       margin-left: 40px;
     }
   }
@@ -304,7 +308,7 @@ footer {
     
   }
   .content {
-    width: 80%;
+    width: 90%;
   }
 }
 
