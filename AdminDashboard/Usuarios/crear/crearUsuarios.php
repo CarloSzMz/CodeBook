@@ -11,10 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Recibe los datos del formulario
-    $nombre = $_POST["nombre"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $tipo = $_POST["tipo"];
+    $nombre = $_POST["NombreUsuario"];
+    $email = $_POST["Correo"];
+    $password = $_POST["Contrasenya"];
+    $tipo = $_POST["Tipo"];
 
 
     $hashContrasenya = password_hash($password, PASSWORD_DEFAULT);

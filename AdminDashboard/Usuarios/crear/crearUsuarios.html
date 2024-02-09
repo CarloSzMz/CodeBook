@@ -4,22 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrearUser</title>
+    <title>Crear Usuarios</title>
+    <!-- Bootstrap 5.0.2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/0265a14cdb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-    <!-- FALTA COMPROBAR FORM CON JS-->
-
-
     <div class="caja mt-2 mb-5">
-        <form class="form_edicion" action="./crearUsuarios.php" method="POST">
+        <form class="form_edicion" action="./crearUsuarios.php" method="POST" onsubmit="return validarFormulario()">
             <section class="d-flex justify-content-center align-items-center">
                 <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4">
                     <div class="row">
@@ -37,7 +30,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
                                 <strong>Nombre:</strong>
-                                <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                                <input type="text" id="NombreUsuario" name="NombreUsuario" minlength="4" class="form-control" placeholder="Nombre">
                             </div>
                         </div>
 
@@ -45,7 +38,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
                                 <strong>E-mail:</strong>
-                                <input type="email" name="email" class="form-control" placeholder="E-mail">
+                                <input type="email" id="Correo" name="Correo" class="form-control" placeholder="E-mail">
                             </div>
                         </div>
 
@@ -53,7 +46,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
                                 <strong>Password:</strong>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" id="Contrasenya" name="Contrasenya" class="form-control">
                             </div>
                         </div>
 
@@ -62,7 +55,7 @@
                             <div class="form-group">
                                 <strong>Tipo:</strong>
 
-                                <select name="tipo" class="form-control">
+                                <select name="Tipo" class="form-control">
                                     <option selected disabled>Seleccione Tipo:</option>
                                     <option value="0">Usuario</option>
                                     <option value="1">Admin</option>
@@ -84,6 +77,16 @@
             </section>
         </form>
     </div>
+    <!-- Bootstrap 5.0.2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/0265a14cdb.js" crossorigin="anonymous"></script>
+    <!-- Funcionalidad y validación de la página -->
+    <script src="./crearUsuarios.js"></script>
 </body>
 
 </html>

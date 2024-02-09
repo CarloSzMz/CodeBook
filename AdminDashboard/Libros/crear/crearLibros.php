@@ -11,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Recibe los datos del formulario
-    $nombre = $_POST["nombre"];
-    $desc = $_POST["descripcion"];
+    $nombre = $_POST["NombreLibro"];
+    $desc = $_POST["Descripcion"];
     $fichero = $_POST["Fichero"];
     $categoria = $_POST["Categoria"];
     $miniatura = $_POST["Miniatura"];

@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $nombre = $_POST["nombre"];
-    $desc = $_POST["descripcion"];
+    $nombre = $_POST["NombreCurso"];
+    $desc = $_POST["Descripcion"];
     $categoria = $_POST["Categoria"];
     $miniatura = $_POST["Miniatura"];
 
