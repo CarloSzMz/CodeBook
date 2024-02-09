@@ -1,4 +1,3 @@
-
 //Leer carpeta Ficheros
 document.addEventListener('DOMContentLoaded', function () {
     // Obtener referencia al elemento select
@@ -64,3 +63,59 @@ fetch('../../Queries/GetCategorias.php')
     .catch(error => {
         console.error('Error al realizar la solicitud:', error);
     });
+
+    // Validación del formulario
+    function validarFormulario() {
+    
+        if (!validarLibro()) {
+            return false;
+        }
+        
+        if (!validarDescripcion()) {
+            return false;
+        }
+        
+        if (!validarUrl()) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    function validarLibro() {
+        var libro = document.querySelector("input#NombreLibro");
+        var regex = /^[a-zA-ZñÑ0-9\s]+$/
+        
+        if (regex.test(libro.value)) {
+            return true
+        } else {
+            alert(libro.value + " no es un libro válido.");
+            return false
+        }
+        
+    }
+    
+    function validarDescripcion() {
+        var descripcion = document.querySelector("input#Descripcion");
+        var regex = /^[a-zA-ZñÑ0-9\s]*$/
+        
+        if (regex.test(descripcion.value)) {
+            return true
+        } else {
+            alert(descripcion.value + " no es una descripción válida.");
+            return false
+        }
+    }
+    
+
+    function validarUrl() {
+        var url = document.querySelector("input#Url");
+        var regex = /^(https?|ftp):\/\/.*$/
+        
+        if (regex.test(url.value)) {
+            return true
+        } else {
+            alert(url.value + " no es una URL válida.");
+            return false
+        }
+    }
