@@ -3,8 +3,9 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreEditado = $_POST["nombre"];
-    $tipoEditado = $_POST["tipo"];
-    $id_usuario = $_POST["id"];
+    $descripcionEditado = $_POST["descripcion"];
+    $miniaturaEditado = $_POST["miniatura"];
+    $id_libros = $_POST["id"];
 
 
     $servername = "localhost";
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "UPDATE usuarios SET Nombre = '$nombreEditado', Admin = '$tipoEditado'  WHERE Id = '$id_usuario'";
+    $query = "UPDATE libros SET Nombre = '$nombreEditado', Descripcion = '$descripcionEditado', Miniatura = '$miniaturaEditado'  WHERE Id = '$id_libros'";
 
     if ($conn->query($query) === TRUE) {
         echo "Datos guardados correctamente.";

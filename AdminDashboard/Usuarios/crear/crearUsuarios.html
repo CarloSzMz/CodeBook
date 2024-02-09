@@ -19,14 +19,14 @@
 
 
     <div class="caja mt-2 mb-5">
-        <form class="form_edicion" action="./crearEpisodios.php" method="POST">
+        <form class="form_edicion" action="./crearUsuarios.php" method="POST">
             <section class="d-flex justify-content-center align-items-center">
                 <div class="card shadow col-xs-12 col-sm-6 col-md-6 col-lg-4   p-4">
                     <div class="row">
 
                         <div class="col-lg-12">
 
-                            <h2 class="text-center">Crear Episodio</h2>
+                            <h2 class="text-center">Crear Usuario</h2>
 
                         </div>
                     </div>
@@ -41,37 +41,40 @@
                             </div>
                         </div>
 
-                        <!-- Descripción -->
+                        <!-- E-mail -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <strong>Descripción:</strong>
-                                <input type="text" name="descripcion" class="form-control" placeholder="Descripción">
+                                <strong>E-mail:</strong>
+                                <input type="email" name="email" class="form-control" placeholder="E-mail">
                             </div>
                         </div>
 
-                        <!-- Cursos -->
+                        <!-- Password -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <label for="Curso" class="col-form-label"><strong>Curso:</strong> </label> <br>
-                                <select name="curso" class="form-control" id="select_Curso"></select>
+                                <strong>Password:</strong>
+                                <input type="password" name="password" class="form-control">
                             </div>
                         </div>
 
-
-                        <!-- URL -->
+                        <!-- Tipo -->
                         <div class="col-xs-12 col-sm-12 col-md-12 p-3">
                             <div class="form-group">
-                                <strong>URL:</strong>
-                                <input type="text" name="URL" class="form-control" placeholder="URL">
+                                <strong>Tipo:</strong>
+
+                                <select name="tipo" class="form-control">
+                                    <option selected disabled>Seleccione Tipo:</option>
+                                    <option value="0">Usuario</option>
+                                    <option value="1">Admin</option>
+                                </select>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2">
-                            <button type="submit" class="btn btn-success float-left">Crear Episodio</button>
-                            <a class="btn btn-danger float-right" href="../../AdminDashboard.html" title="Volver">
+                            <button type="submit" class="btn btn-success float-left">Crear Usuario</button>
+                            <a class="btn btn-danger float-right" href="../../AdminDashboard.html" title="Ver Usuarios">
                                 Volver
                             </a>
                         </div>
@@ -81,10 +84,6 @@
             </section>
         </form>
     </div>
-
-    <script src="./crearEpisodios.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 </body>
 
 </html>

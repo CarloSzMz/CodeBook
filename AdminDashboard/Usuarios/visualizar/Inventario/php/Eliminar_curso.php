@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombreEditado = $_POST["nombre"];
-    $tipoEditado = $_POST["tipo"];
-    $id_usuario = $_POST["id"];
+    $id_relacion = $_GET["id"];
+    $user = $_GET["user"];
 
 
     $servername = "localhost";
@@ -14,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $conn = new mysqli($servername, $username, $password, $database);
 
-    $query = "UPDATE usuarios SET Nombre = '$nombreEditado', Admin = '$tipoEditado'  WHERE Id = '$id_usuario'";
+    $query = "DELETE FROM inventario_curso WHERE Id = $id_relacion;";
 
     if ($conn->query($query) === TRUE) {
-        echo "Datos guardados correctamente.";
+        echo "Datos eliminados correctamente.";
         $_SESSION["nombreUsuario"] = $nombreUsuario;
-        header("Location: ../../AdminDashboard.html");
+        header("Location: ../../verUsuario.html?id=$user");
         exit();
     } else {
         echo "Error al insertar datos: " . $conn->error;
@@ -27,4 +25,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
     session_destroy();
 }
-?>

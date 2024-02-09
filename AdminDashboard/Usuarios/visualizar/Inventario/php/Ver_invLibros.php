@@ -9,18 +9,15 @@ $database = "codebook";
 $conn = new mysqli($servername, $username, $password, $database);
 
 
-$idCurso = $_GET['id'];
+$idUser = $_GET['id'];
 
-$queryCheckUser = "SELECT  
-comentarios.*
-,usuarios.Nombre
-FROM comentarios
-LEFT JOIN usuarios
-ON comentarios.Id_Usuario = usuarios.Id
-WHERE comentarios.Id_Curso = $idCurso
-
-
-;";
+$queryCheckUser = "SELECT libros.* 
+,IL.Id AS Relacion
+FROM libros
+LEFT JOIN inventario_libros IL
+ON libros.Id = IL.Id_Libro
+WHERE IL.Id_Usuario = $idUser;
+";
 
 $resultCheckUser = $conn->query($queryCheckUser);
 
