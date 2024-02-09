@@ -44,24 +44,29 @@
       <div id="maingrid">
         <div id="temas"></div>
         <aside id="aside">
-          <div id="sms_box">
-            <form method="get" action="../PHP/insertarComentarios.php">
-              <input type="hidden" name="id_curso" id="inputIdCurso" />
-              <div id="bntsChat">
-                <textarea
-                  name="textareaChat"
-                  id="textareaChat"
-                  maxlength="255"
-                ></textarea>
-                <button type="submit">
-                  <img src="../img/img/enviar.png" alt="Enviar" />
-                </button>
-              </div>
+          <div id="comment">
+            <form action="">
+              <input
+                type="text"
+                name="comentarios"
+                id="comentarios"
+                placeholder="Insert Your Comment"
+              />
             </form>
+            <div id="allcmt">
+              <div id="infocmt">
+                <p>@nombreUsuario</p>
+                <p>09/02/24</p>
+              </div>
+              <div id="cmt">
+                <p>Hola este Curso esta to guapo</p>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
     </main>
+    <footer></footer>
   </body>
   <script src="../../Footer/js/footer.js"></script>
   <script src="../js/index_cursos.js"></script>

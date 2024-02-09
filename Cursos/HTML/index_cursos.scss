@@ -142,6 +142,7 @@ main {
 }
 
 .lineas {
+  display: flex;
   width: 100%;
   @include medio();
   hr {
@@ -154,11 +155,6 @@ main {
     font-family: $fuente;
     margin: 10px;
   }
-}
-
-#t1 {
-  @include medio;
-  flex-wrap: wrap;
 }
 
 .content {
@@ -210,138 +206,75 @@ main {
   width: 100%;
 }
 #temas {
-  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   min-width: 70%;
+  margin-bottom: 20px;
   @include medio();
   & > div {
     flex-wrap: wrap;
-    img{
+    img {
       margin: 20px;
-      border: 1px solid red;
     }
   }
 }
 
 //ASIDE PARA EL CHAT
-aside {
-  overflow-y: scroll;
-  scrollbar-width: thin;
+#aside {
+  overflow: scroll;
   border-radius: 5px;
-  max-width: 100%;
+  min-width: 70%;
   min-height: 300px;
   background: #2d2d2d;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 auto;
   padding: 5px;
 }
 
-//MESAGES
-#sms_box {
-  bottom: 5px;
-  height: 50px;
-  border-radius: 30px;
-  margin: 10px;
-  width: 95%;
-  margin-bottom: 10px;
-  background-color: white;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  & img {
-    min-height: 30px;
-    max-width: 30px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 8px;
-  }
-
-  textarea {
+form {
+  margin-top: 10px;
+  input {
+    margin-left: 20px;
+    margin-right: 20px;
     width: 90%;
-    border-radius: 30px;
-    height: 30px;
-    resize: none;
-    padding: 7px;
-    font-family: $fuente;
-    scrollbar-width: thin;
+    background-color: transparent;
     border: none;
+    border-bottom: 1px solid #8e8e8e;
+    outline: none;
+    font-family: $fuente;
     &:focus {
-      outline: none;
+      color: white;
+    }
+  }
+}
+//MESAGES
+#allcmt {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  #infocmt {
+    display: flex;
+    justify-content: space-between;
+    p {
+      color: #8e8e8e;
+    }
+  }
+  #cmt {
+    p {
+      margin-left: 40px;
     }
   }
 }
 
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-.receptor {
-  min-width: 50%;
-  min-height: 30px;
-  max-width: 70%;
-  margin-left: 10px;
-  margin-bottom: 4px;
-  margin-top: 4px;
-  border-radius: 10px;
-  background-color: rgb(138, 6, 6);
-  & p {
-    margin: 3px;
-    font-family: $fuente;
-    color: white;
-    font-size: 15px;
-  }
-}
-
-.enviador {
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 50%;
-  min-height: 30px;
-  max-width: 70%;
-  margin-bottom: 3px;
-  margin-top: 3px;
-  margin-left: 180px;
-  margin-right: 10px;
-  background-color: #32760b;
-  border-radius: 10px;
-  & p {
-    margin: 3px;
-    font-family: $fuente;
-    color: white;
-    font-size: 15px;
-  }
-}
-
-form {
-  border-radius: 30px;
-  width: 100%;
-  button {
-    border-radius: 30px;
-    border: none;
-    background-color: white;
-    margin-right: 5px;
-    height: 40px;
-  }
-}
-
-#bntsChat {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
-  border-radius: 30px;
-  width: 100%;
+//FOOTER
+footer {
+  margin-top: 30px;
 }
 
 //TABLET
 @media screen and (min-width: 600px) and (max-width: s800px) {
-  textarea {
-    min-width: 690px;
-  }
 }
 
 /*//ORDENADOR
@@ -366,9 +299,14 @@ form {
   }
 }*/
 
-@media screen and (min-width: 1300px) {
-  aside{
-    margin: 0 auto;
-    width: 70%;
+@media screen and (min-width: 450px) and (max-width: 450px) {
+  #maingrid {
+    
   }
+  .content {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 1300px) {
 }
