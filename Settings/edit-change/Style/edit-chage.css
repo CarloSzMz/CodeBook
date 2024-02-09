@@ -77,6 +77,49 @@ nav {
   font-size: 20px;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80%;
+}
+main form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+main form input {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  margin: 20px;
+  font-family: "Poppins";
+  color: white;
+}
+main form input:focus {
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+}
+main form input::-moz-placeholder {
+  font-family: "Poppins";
+  color: white;
+}
+main form input::placeholder {
+  font-family: "Poppins";
+  color: white;
+}
+main form button {
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  margin: 0 auto;
+  font-family: "Poppins";
+  border-radius: 20px;
+  border: none;
+  background-color: #824603;
+}
+
 #menu_open {
   display: none;
 }/*# sourceMappingURL=edit-chage.css.map */

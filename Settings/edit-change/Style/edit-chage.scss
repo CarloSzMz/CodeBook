@@ -82,6 +82,43 @@ header {
     font-size: 20px;
   }
 
+  main{
+     @include medio();
+     min-height: 80%;
+     form{
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      input{
+      border: none;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        margin: 20px;
+        font-family: $fuente;
+            color: white;
+        &:focus {
+          border: none;
+          border-bottom: 1px solid white;
+          outline: none;
+        }
+        &::placeholder{
+          font-family: $fuente;
+            color: white;
+        }
+      }
+      button{
+        text-align: center;
+        width: 80px;
+        height: 40px;
+        margin: 0 auto;
+        font-family: $fuente;
+        border-radius: 20px;
+        border: none;
+        background-color: #824603;
+      }
+     }
+  }
+
   //QUITAR EL MENU
   #menu_open{
     display: none;

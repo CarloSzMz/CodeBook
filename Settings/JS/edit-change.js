@@ -33,7 +33,7 @@ function editar() {
 
 if (
   location.href ==
-  "http://localhost/codebook/Settings/edit-change/HTML/edit-phone.html"
+  "http://localhost/Codebook/Settings/edit-change/HTML/edit-phone.html"
 ) {
   console.log("entro");
 
