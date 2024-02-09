@@ -6,40 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="shortcut icon" href="../Images/logo.png" type="png">
+    <!-- Estilos de la página -->
+    <link rel="stylesheet" href="Estilos/Registro.css">
+    <!-- Bootstrap 5.0.2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/0265a14cdb.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <form method="post" action="./Registro.php" onsubmit="return validarFormulario()">
         <label>Nombre de Usuario</label>
-        <input type="text" id="NombreUsuario" name="NombreUsuario" required><br>
+        <input type="text" id="NombreUsuario" name="NombreUsuario" minlength="4" required><br>
         <label>Correo Electronico</label>
         <input type="text" id="Correo" name="Correo" required><br>
         <label>Contraseña</label>
-        <input type="password" id="Contrasenya1" name="Contrasenya1" required><br>
+        <input type="password" id="Contrasenya1" name="Contrasenya1" minlength="6" required><br>
         <label>Repite la contraseña</label>
-        <input type="password" id="Contrasenya2" name="Contrasenya2" required><br>
+        <input type="password" id="Contrasenya2" name="Contrasenya2" minlength="6" required><br>
         <input type="submit" id="enviarForm">
     </form>
     <button id="btnIniciarSesion">Ya tienes cuenta? Inicia sesion</button>
-
+    <!-- Bootstrap 5.0.2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Fontawesome  -->
+    <script src="https://kit.fontawesome.com/0265a14cdb.js" crossorigin="anonymous"></script>
+    <!-- Validación de la página -->
+    <script src="Registro.js"></script>
     <script>
-        function validarFormulario() {
-            var contrasenya1 = document.getElementById("Contrasenya1").value;
-            var contrasenya2 = document.getElementById("Contrasenya2").value;
-
-            if (contrasenya1 !== contrasenya2) {
-                alert("Las contraseñas no coinciden. Por favor, verifica.");
-                return false;
-            }
-
-            return true;
-        }
         document.getElementById("btnIniciarSesion").addEventListener("click", function () {
 
             window.location.href = "../Login/InicioSesion.html";
