@@ -107,6 +107,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 #category {
@@ -119,7 +120,7 @@ nav {
 }
 #category:focus {
   outline: none;
-  color: black;
+  color: white;
 }
 
 main {
@@ -132,13 +133,15 @@ main {
 }
 
 #desc {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
   font-family: "Poppins";
-  margin: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .lineas {
@@ -223,7 +226,7 @@ main {
   margin: 20px;
 }
 
-#aside {
+#maingrid #aside {
   overflow: scroll;
   border-radius: 5px;
   min-width: 70%;
@@ -248,6 +251,7 @@ form input {
   border-bottom: 1px solid #8e8e8e;
   outline: none;
   font-family: "Poppins";
+  color: white;
 }
 form input:focus {
   color: white;
