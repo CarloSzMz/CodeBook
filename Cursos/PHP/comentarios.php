@@ -18,7 +18,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM comentarios WHERE Id_curso = '$id_curso'";
+$query = "SELECT comentarios.*, usuarios.Nombre FROM comentarios LEFT JOIN usuarios on comentarios.Id_Usuario = usuarios.Id WHERE Id_curso = '$id_curso'";
 $result = $conn->query($query);
 
 
