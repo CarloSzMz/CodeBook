@@ -17,7 +17,7 @@ function validarFormulario() {
 
 function validarUsuario() {
     var usuario = document.querySelector("input#NombreUsuario");
-    var regex = /^[a-zA-ZñÑ0-9]+$/      ;
+    var regex = /^[a-zA-ZñÑ0-9\s]+$/
     
     if (regex.test(usuario.value)) {
         return true
