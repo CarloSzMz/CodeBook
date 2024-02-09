@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Recibe los datos del formulario
-    $lenguaje = $_POST["lenguaje"];
+    $lenguaje = $_POST["Lenguaje"];
 
     $query = "INSERT INTO categorias (Lenguaje) VALUES ('$lenguaje')";
 
