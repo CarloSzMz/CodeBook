@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 
 session_start();
 $id_curso = $_GET['id_curso'];
-$mensaje = $_GET['textareaChat'];
+$mensaje = $_GET['comentarios'];
 $nombre = $_SESSION["nombreUsuario"];
 
 $servername = "localhost";
