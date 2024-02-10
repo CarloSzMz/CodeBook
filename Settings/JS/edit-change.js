@@ -19,14 +19,12 @@ function editar() {
     let sub_header = page.document.getElementById("sub_header");
     sub_header.innerHTML = frase.join(" ");
 
-    //OLD
-    frase[0] = "Old";
-    let viejo = page.document.getElementById("viejo");
-    viejo.setAttribute("placeholder", frase.join(" "));
-
     //NEW
+    let type=queCambiar();
     frase[0] = "New";
+    
     let nuevo = page.document.getElementById("nuevo");
+    nuevo.setAttribute("type",type);
     nuevo.setAttribute("placeholder", frase.join(" "));
   });
 }
@@ -36,7 +34,6 @@ if (
   "http://localhost/Codebook/Settings/edit-change/HTML/edit-phone.html"
 ) {
   console.log("entro");
-
   texto = localStorage.getItem("texto");
 
   //SUBHEADER
@@ -45,20 +42,38 @@ if (
   let subH = document.getElementById("sub_header");
   subH.innerHTML = texto.join(" ");
 
-  //OLD
-  texto[0] = "Old";
-  let v = document.getElementById("viejo");
-  v.setAttribute("placeholder", texto.join(" "));
-
   //NEW
+  let type=queCambiar();
   texto[0] = "New";
   let n = document.getElementById("nuevo");
   n.setAttribute("placeholder", texto.join(" "));
+  n.setAttribute("type",type);
 
   //Boton edit
   let btn_edit = document.getElementById("btn_edit");
   btn_edit.addEventListener("click", () => {
-    window.close();
-    alert("Cambio hecho");
+    
   });
+
+}
+
+
+function queCambiar(){
+  let sub= document.getElementById("sub_header").textContent;
+  if(sub.split(" ")[1] == "Phone"){
+    return "tel";
+  }
+
+  if(sub.split(" ")[1] == "Email"){
+    return "email";
+  }
+
+  if(sub.split(" ")[1] == "Password"){
+    return "password";
+  }
+
+  if(sub.split(" ")[1] == "User"){
+    return "text";
+  }
+  
 }
