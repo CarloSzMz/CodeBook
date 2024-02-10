@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
     $datos = $row["Id"];
 }
 
-$query2 = "SELECT * FROM `inventario_curso` WHERE `Id_Usuario`= '1'";
+$query2 = "SELECT * FROM `inventario_curso` WHERE `Id_Usuario`= '$datos'";
 $result2 = $conn->query($query2);
 
 if ($result2) {
