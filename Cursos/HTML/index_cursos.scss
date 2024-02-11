@@ -176,8 +176,8 @@ main {
 .content {
   float: left;
   margin: 10px;
-  width: 300px;
-  height: 200px;
+  width: 80%;
+  min-height: 200px;
   background-color: #2d2d2d;
   text-align: center;
   img {
@@ -336,7 +336,7 @@ footer {
   .content {
     float: left;
     margin: 10px;
-    width: 600px;
+    max-width: 70%;
     height: 200px;
     background-color: #2d2d2d;
     text-align: center;
