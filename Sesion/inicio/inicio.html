@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="../style/header/header.css" />
-  <link rel="stylesheet" href="./style/inicio.css" />
-</head>
-<body>
-  <header>
-    <div id="nav">
-      <p id="logo">CODE<span style="color: gold">BOOK</span></p>
-      <nav>
-        <img id="menu_open" src="../Component 1.png" />
-        <ul id="desplegable">
-          <img id="menu_close" src="../Component 2.png" />
-          <li>SETTINGS</li>
-          <li>CONTENT</li>
-          <li>FAVOURITES</li>
-          <li>SUPPORT</li>
-          <li>ABOUT US</li>
-          <li>LOG OUT</li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <div id="sub_header">SIGN IN</div>
-  <main>
-    <form id="loginForm">
-      <div id="formulario">
-        <div>
-          <input
-            id="Correo"
-            type="text"
-            name="Correo"
-            required
-            placeholder="Email"
-          />
-        </div>
-        <div>
-          <input
-            id="Contrasenya1"
-            type="password"
-            name="Contrasenya1"
-            required
-            placeholder="Password"
-          />
-        </div>
-        <div id="enviar">
-          <button id="enviarForm" type="submit">LOG IN</button>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/header/header.css" />
+    <link rel="stylesheet" href="./style/inicio.css" />
+  </head>
+  <body>
+    <header>
+      <div id="nav">
+        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <nav>
+          <img id="menu_open" src="../Component 1.png" />
+          <ul id="desplegable">
+            <img id="menu_close" src="../Component 2.png" />
+            <li>SETTINGS</li>
+            <li>CONTENT</li>
+            <li>FAVOURITES</li>
+            <li>SUPPORT</li>
+            <li>ABOUT US</li>
+            <li>LOG OUT</li>
+          </ul>
+        </nav>
       </div>
-    </form>
-    <div class="otros">
-      <a href="../registro/registro.html"><p>Create an account</p></a>
-      <a href="../resetPass/reset.html"><p>Forgot Password</p></a>
-    </div>
-  </main>
-  <footer></footer>
-</body>
-<script src="../js/nav_menu.js"></script>
-<script src="js/InicioSesion.js"></script>
-<script>
-  
-</script>
+    </header>
+    <div id="sub_header">SIGN IN</div>
+    <main>
+      <form method="post" action="./php/InicioSesion.php">
+        <div id="formulario">
+          <div>
+            <input
+              id="Correo"
+              type="text"
+              name="Correo"
+              required
+              placeholder="Email"
+            />
+          </div>
+          <div>
+            <input
+              id="Contrasenya1"
+              type="password"
+              name="Contrasenya1"
+              required
+              placeholder="Password"
+            />
+          </div>
+          <div id="enviar">
+            <button id="enviarForm" type="submit">LOG IN</button>
+          </div>
+        </div>
+      </form>
+      <div class="otros">
+        <a href="../registro/registro.html"><p>Create an account</p></a>
+        <a href="../resetPass/reset.html"><p>Forgot Password</p></a>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="../js/nav_menu.js"></script>
+  <script src="../../Footer/js/footer.js"></script>
 </html>

@@ -21,7 +21,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -32,7 +32,7 @@ main {
 }
 
 form {
-  width: 95%;
+  width: 500px;
   margin-left: 10px;
   display: flex;
   justify-content: center;

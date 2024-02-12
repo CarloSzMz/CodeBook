@@ -44,25 +44,34 @@
       <div id="maingrid">
         <div id="temas"></div>
         <aside id="aside">
-          <div id="sms_box">
-            <form method="get" action="../PHP/insertarComentarios.php">
+          <div id="comment">
+            <form method="get" action="../PHP/insertarComentarios.php" id="form">
               <input type="hidden" name="id_curso" id="inputIdCurso" />
-              <div id="bntsChat">
-                <textarea
-                  name="textareaChat"
-                  id="textareaChat"
-                  maxlength="255"
-                ></textarea>
-                <button type="submit">
-                  <img src="../img/img/enviar.png" alt="Enviar" />
-                </button>
-              </div>
+              <input
+                type="text"
+                name="comentarios"
+                id="comentarios"
+                placeholder="Insert Your Comment"
+              />
             </form>
+            <div id="sectioncmt">
+              <div id="allcmt">
+                <div id="infocmt">
+                  <p>@nombreUsuario</p>
+                  <p>09/02/24</p>
+                </div>
+                <div id="cmt">
+                  <p>Hola este Curso esta to guapo</p>
+                </div>
+              </div>
+            </div>
           </div>
         </aside>
       </div>
     </main>
+    <footer></footer>
   </body>
+  <script src="../../Footer/js/footer.js"></script>
   <script src="../js/index_cursos.js"></script>
   <script src="../js/comentarios.js"></script>
   <script src="../js/nav_menu.js"></script>
@@ -70,4 +79,31 @@
   <script src="../js/idCurso.js"></script>
   <script src="../js/sacarelnombredelcurso.js"></script>
   <script src="../js/comprar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let form = document.getElementById("form");
+    let comentariosInput = document.getElementById("comentarios");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let mensaje = comentariosInput.value;
+        // Supongamos que hay una función para obtener el ID del curso
+
+        fetch("../PHP/insertarComentarios.php?comentarios=" + mensaje + "&id_curso=" + idCurso2, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            comentariosInput.value = ""; // Vaciar el área de mensajes
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+</script>
 </html>

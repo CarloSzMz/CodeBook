@@ -27,7 +27,7 @@ html {
 main {
   @include medio();
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 //FORMULARIO
@@ -35,7 +35,7 @@ main {
     @include medio();
   }
   form {
-    width: 95%;
+    width: 500px;
     margin-left: 10px;
     @include medio();
     div {
