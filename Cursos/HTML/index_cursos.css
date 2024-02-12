@@ -54,6 +54,10 @@ header {
   font-style: italic;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   position: absolute;
   top: 0;
