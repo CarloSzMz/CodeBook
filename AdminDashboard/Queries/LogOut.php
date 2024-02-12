@@ -11,10 +11,10 @@ if (isset($_SESSION['nombreUsuario'])) {
 
     setcookie(session_name(), "", time() - 3600, "/");
 
-    header("Location: ../../Login/IniciarSesion.html");;
+    header("Location: ../../Sesion/inicio/inicio.html");;
     exit();
 } else {
 
-    header("Location: ../../Login/IniciarSesion.html");;
+    header("Location: ../../Sesion/inicio/inicio.html");
     exit();
 }
