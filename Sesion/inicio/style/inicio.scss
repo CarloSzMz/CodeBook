@@ -36,6 +36,8 @@ main {
 form {
   width: 500px;
   margin-left: 10px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
   @include medio();
   div {
     display: flex;
@@ -75,6 +77,7 @@ form {
 }
 #enviar {
   @include medio();
+  margin-bottom: 3%;
 }
 
 //ENLACES A CREAR CUENTA O PERDIDA
