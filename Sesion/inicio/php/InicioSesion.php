@@ -1,5 +1,5 @@
 <?php
-session_start();
+ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST["Correo"];
@@ -20,17 +20,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $conn->query($query);
 
     if ($result->num_rows > 0) {
+
         $row = $result->fetch_assoc();
         $hashContrasenya = $row["Contraseña"];
 
         if (password_verify($contrasenya, $hashContrasenya)) {
+           
+         
             $_SESSION["nombreUsuario"] = $row["Nombre"];
-            echo json_encode(array("success" => true, "message" => "Login exitoso"));
+            header("Location: ../../../Code/content/HTML/content.html");
+            exit();
         } else {
-            echo json_encode(array("success" => false, "message" => "Error: Contraseña incorrecta."));
+            echo "Error: Contraseña incorrecta.";
         }
     } else {
-        echo json_encode(array("success" => false, "message" => "Error: Correo electrónico no encontrado."));
+        echo "Error: Correo electrónico no encontrado.";
     }
 
     $conn->close();
