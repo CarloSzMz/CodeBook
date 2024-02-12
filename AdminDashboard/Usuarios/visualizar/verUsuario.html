@@ -29,17 +29,17 @@
     </style>
 </head>
 
-<body class="bg-secondary">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<body class="bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark border-bottom" id="nav-menu">
         <!-- Navbar Brand-->
-        <a class="navbar-brand fw-bolder ps-3" href="../../AdminDashboard.html">CodeBook</a>
+        <a class="navbar-brand fw-bolder ps-3" href="../../AdminDashboard.html">Code<span style="color: #FFD43B;">Book</span></a>
 
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-expanded="false" style="color: #FFD43B;"><i class="fas fa-user fa-fw" style="color: #FFD43B;"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="../../Queries/LogOut.php" id="logout">Logout</a></li>
                 </ul>
@@ -62,11 +62,11 @@
         </div>
 
         <div class="container mt-4">
-            <h4 class="p-2 border-bottom border-dark mb-2 text-dark fw-bold">Cursos</h4>
+            <h4 class="p-2 border-bottom mb-2 text-white fw-bold">Cursos</h4>
             <div class="card-group mt-3" id="Inventario_Cursos"></div>
         </div>
         <div class="container mt-4">
-            <h4 class="p-2 border-bottom border-dark mb-2 text-dark fw-bold">Libros</h4>
+            <h4 class="p-2 border-bottom mb-2 text-white fw-bold">Libros</h4>
             <div class="card-group mt-3" id="Inventario_Libros"></div>
         </div>
 

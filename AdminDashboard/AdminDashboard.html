@@ -17,19 +17,21 @@
 </head>
 
 <body>
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" id="nav-menu">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark border-bottom" id="nav-menu">
         <!-- Navbar Brand-->
-        <a class="navbar-brand fw-bolder ps-3" href="AdminDashboard.html">CodeBook</a>
+        <a class="navbar-brand fw-bolder ps-3" href="AdminDashboard.html">Code<span
+                style="color: #FFD43B;">Book</span></a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
+                class="fa-solid fa-bars" style="color: #FFD43B;"></i></button>
 
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    aria-expanded="false" style="color: #FFD43B;"><i class="fas fa-user fa-fw"
+                        style="color: #FFD43B;"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="./Queries/LogOut.php">Logout</a></li>
                 </ul>
@@ -39,7 +41,7 @@
     <div id="menuAdmin" class="d-flex min-vh-100 bg-dark">
         <div id="menuAdmin-navbar" class="toggled">
             <nav class="mt-5 sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                <div class="mt-3 container-fluid">
+                <div class="mt-2 pt-3 container-fluid border-end h-100">
                     <div class="row flex-nowrap">
                         <div class="col-auto col-sm-13 col-md-13 col-xl-13 px-sm-5 px-0 bg-dark">
                             <div>
@@ -48,27 +50,31 @@
                                     <li class="nav-item">
                                         <a href="#" onclick="verYesconder('divUsuarios')"
                                             class="nav-link d-flex justify-content-center align-items-center px-2">
-                                            <i class="fas fa-user fa-fw"></i> <span
-                                                class="ms-2 d-none d-sm-inline fs-5">Usuarios</span>
+                                            <i class="fas fa-user fa-fw" style="color: #FFD43B;"></i> <span
+                                                class="ms-2 d-none d-sm-inline fs-5"
+                                                style="color: #FFD43B;">Usuarios</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#" onclick="verYesconder('divCategorias')"
                                             class="nav-link d-flex justify-content-center align-items-center px-2">
-                                            <i class="fa-sharp fa-solid fa-layer-group"></i>
-                                            <span class="ms-2 d-none d-sm-inline fs-5">Categorías</span></a>
+                                            <i class="fa-sharp fa-solid fa-layer-group" style="color: #FFD43B;"></i>
+                                            <span class="ms-2 d-none d-sm-inline fs-5"
+                                                style="color: #FFD43B;">Categorías</span></a>
                                     </li>
                                     <li>
                                         <a href="#" onclick="verYesconder('divLibros')"
                                             class="nav-link d-flex justify-content-center align-items-center px-2">
-                                            <i class="fa-sharp fa-solid fa-book-bookmark"></i>
-                                            <span class="ms-3 d-none d-sm-inline fs-5">Libros</span></a>
+                                            <i class="fa-sharp fa-solid fa-book-bookmark" style="color: #FFD43B;"></i>
+                                            <span class="ms-3 d-none d-sm-inline fs-5"
+                                                style="color: #FFD43B;">Libros</span></a>
                                     </li>
                                     <li>
                                         <a href="#" onclick="verYesconder('divCursos')"
                                             class="nav-link d-flex justify-content-center align-items-center px-2">
-                                            <i class="fa-sharp fa-solid fa-video"></i>
-                                            <span class="ms-2 d-none d-sm-inline fs-5">Cursos</span> </a>
+                                            <i class="fa-sharp fa-solid fa-video" style="color: #FFD43B;"></i>
+                                            <span class="ms-2 d-none d-sm-inline fs-5"
+                                                style="color: #FFD43B;">Cursos</span> </a>
                                     </li>
                                 </ul>
                             </div>
@@ -78,20 +84,20 @@
             </nav>
         </div>
 
-        <div id="menuAdmin-content" class="mt-5 col bg-secondary d-flex flex-column">
+        <div id="menuAdmin-content" class="mt-5 col bg-dark d-flex flex-column">
             <main>
 
                 <!-- APARTADO DE USUARIOS-->
                 <div id="divUsuarios" class="d-flex flex-column container mt-5 mb-5">
-                    <h5 class="p-2 border-bottom border-white mb-0 bg-dark text-light fw-bold">Usuarios</h5>
-                    <div id="Usuarios"></div>
-                    <div id="btnUsuarios">
+                    <h5 class="p-2 mb-0 bg-dark text-light fw-bold border">Usuarios</h5>
+                    <div class="border-start border-end border-bottom" id="Usuarios"></div>
+                    <div id="btnUsuarios" class="mt-3">
                         <button class="btn btn-success"><a class="text-decoration-none text-light"
                                 href="./Usuarios/crear/crearUsuarios.html">Crear Usuario</a></button>
-                        <button class='btn btn-light' id="editusu" onclick=editarUsuario()>
+                        <button class='btn btn-light border' id="editusu" onclick=editarUsuario()>
                             <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
                         </button>
-                        <button class='btn btn-light' id="deleteusu" onclick=eliminarUsuario()>
+                        <button class='btn btn-light border' id="deleteusu" onclick=eliminarUsuario()>
                             <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                         </button>
                         <button class="btn btn-primary" onclick="verUsuario()">Ver Usuario</button>
@@ -135,9 +141,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
+                                <button type="submit" class="btn btn-success" id="confirmarEditUsuarios">Editar</button>
+                                <button type="button" class="btn btn-danger"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="confirmarEditUsuarios">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -161,10 +167,10 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-success"
                                     id="confirmarBorradoUsuarios">Eliminar</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -188,9 +194,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary" id="confirmarVerUsuarios">Ver</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -200,15 +206,15 @@
                 <!-- APARTADO DE CATEGORIAS-->
 
                 <div id="divCategorias" class="d-flex flex-column container mt-5 mb-5">
-                    <h5 class="p-2 border-bottom border-white mb-0 bg-dark text-light fw-bold"
+                    <h5 class="p-2 mb-0 bg-dark text-light fw-bold border"
                         style="width: 50%; margin-left: 20%;">Categorías</h5>
-                    <div id="Categorias" style="width: 50%; text-align: center; margin-left: 20%;"></div>
-                    <div id="btnCategorias">
+                    <div id="Categorias" class="border-start border-end border-bottom" style="width: 50%; text-align: center; margin-left: 20%;"></div>
+                    <div id="btnCategorias" class="mt-3">
                         <button class="btn btn-success" style="margin-left: 20%;"><a
                                 class="text-decoration-none text-light"
                                 href="./Categorias/crear/crearCategorias.html">Crear
                                 Categoría</a></button>
-                        <button class='btn btn-light' onclick=eliminarCategoria()>
+                        <button class='btn btn-light border' onclick=eliminarCategoria()>
                             <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                         </button>
                     </div>
@@ -232,10 +238,10 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-success"
                                     id="confirmarBorradoCategorias">Eliminar</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -244,16 +250,16 @@
                 <!-- APARTADO DE LIBROS-->
 
                 <div id="divLibros" class="d-flex flex-column container mt-5 mb-5">
-                    <h5 class="p-2 border-bottom border-white mb-0 bg-dark text-light fw-bold">Libros</h5>
-                    <div id="Libros"></div>
-                    <div id="btnLibros">
+                    <h5 class="p-2 mb-0 bg-dark text-light fw-bold border">Libros</h5>
+                    <div id="Libros" class="border-start border-end border-bottom"></div>
+                    <div id="btnLibros" class="mt-3">
                         <button class="btn btn-success"><a class="text-decoration-none text-light"
                                 href="./Libros/crear/crearLibros.html">Crear Libro</a>
                         </button>
-                        <button class='btn btn-light' id="editlib" onclick=editarLibro()>
+                        <button class='btn btn-light border' id="editlib" onclick=editarLibro()>
                             <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
                         </button>
-                        <button class='btn btn-light' onclick=eliminarLibro()>
+                        <button class='btn btn-light border' onclick=eliminarLibro()>
                             <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                         </button>
                     </div>
@@ -291,9 +297,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
+                                <button type="submit" class="btn btn-success" id="confirmarEditLibros">Editar</button>
+                                <button type="button" class="btn btn-danger"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="confirmarEditLibros">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -317,10 +323,10 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-success"
                                     id="confirmarBorradoLibros">Eliminar</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -330,15 +336,15 @@
                 <!-- APARTADO DE CURSOS-->
 
                 <div id="divCursos" class="d-flex flex-column container mt-5 mb-5">
-                    <h5 class="p-2 border-bottom border-white mb-0 bg-dark text-light fw-bold">Cursos</h5>
-                    <div id="Cursos"></div>
-                    <div id="btnCursos">
+                    <h5 class="p-2 mb-0 bg-dark text-light fw-bold border">Cursos</h5>
+                    <div id="Cursos" class="border-start border-end border-bottom"></div>
+                    <div id="btnCursos" class="mt-3">
                         <button class="btn btn-success"><a class="text-decoration-none text-light"
                                 href="./Cursos/crear/crearCursos.html">Crear Cursos</a></button>
-                        <button class='btn btn-light' id="editusu" onclick=editarCurso()>
+                        <button class='btn btn-light border' id="editusu" onclick=editarCurso()>
                             <i class="fa-sharp fa-solid fa-pen" style="color: #005cfa;"></i>
                         </button>
-                        <button class='btn btn-light' onclick=eliminarCurso()>
+                        <button class='btn btn-light border' onclick=eliminarCurso()>
                             <i class="fa fa-sharp fa-solid fa-trash" style="color: #ff0000;"></i>
                         </button>
                         <button class="btn btn-primary" onclick="verCurso()">Ver Curso</button>
@@ -377,9 +383,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
+                                <button type="submit" class="btn btn-success" id="confirmarEditCursos">Editar</button>
+                                <button type="button" class="btn btn-danger"
                                     data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="confirmarEditCursos">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -404,10 +410,10 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-success"
                                     id="confirmarBorradoCursos">Eliminar</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -431,9 +437,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary" id="confirmarVerCursos">Ver</button>
+                                <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
                     </div>
