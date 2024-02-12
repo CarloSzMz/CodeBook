@@ -101,7 +101,6 @@ main {
 }
 
 #cursos {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,7 +109,6 @@ main {
 }
 
 #libros {
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

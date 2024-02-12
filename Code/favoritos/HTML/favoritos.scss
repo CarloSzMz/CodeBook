@@ -104,14 +104,12 @@ main {
 }
 
 #cursos {
-  width: 100%;
   @include medio;
   flex-wrap: wrap;
   min-height: 200px;
 }
 
 #libros {
-  width: 100%;
   @include medio;
   flex-wrap: wrap;
   min-height: 200px;

@@ -15,11 +15,11 @@
           <ul id="desplegable">
             <img id="menu_close" src="../img/Component 2.png" />
             <a href="../../../Code/content/HTML/content.html"><li>CONTENT</li></a>
-            <li id="irFav">FAVOURITES</li>
+            <a href="../../favoritos/HTML/favoritos.html"><li id="irFav">FAVOURITES</li></a>
             <a href="../../../Sesion/support/support.html"><li>SUPPORT</li></a>
-            <li id="mapa">MAP</li>
+            <a href="../../../Mapa/HTML/Mapa.html"><li id="mapa">MAP</li></a>
             <a href="../../../Inventario/HTML/inventario.html"><li>INVENTORY</li></a>
-            <li id="logout">LOG OUT</li>
+            <a href="../PHP/logout.php"><li id="logout">LOG OUT</li></a>
           </ul>
         </nav>
       </div>
@@ -48,10 +48,6 @@
     <footer></footer>
   </body>
   <script>
-    let irMapa = document.getElementById("mapa")
-    irMapa.addEventListener("click", ()=>{
-      window.location.href = "../../../Mapa/HTML/Mapa.html"
-    })
     document.getElementById("logout").addEventListener("click",()=>{
         window.location.href = "../PHP/logout.php"
     })
