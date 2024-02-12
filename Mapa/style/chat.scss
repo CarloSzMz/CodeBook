@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+$fuente: "Poppins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+@mixin medio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  height: 10%;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  color: white;
+  padding: 15px;
+  font-family: $fuente;
+  font-style: italic;
+}
+
+//HOVER DEL MENU DESPLEGABLE
+ul{
+  //border: 2px solid #EA39FF;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #1e1e1e;
+  width: 200px;
+  height: 95%;
+  display: none;
+  img{
+    width: 20px;
+    height: 20px;
+    padding: 15px;
+  }
+}
+li{
+  padding: 15px;
+  list-style: none;
+  font-family: $fuente;
+  color: white;
+  text-align: center;
+  &:hover{
+    color: greenyellow;
+  }
+}
+nav{
+  padding: 15px;
+}
+
+#sub_header {
+  @include medio;
+  text-align: center;
+  position: relative;
+  left: 30%;
+  top: -15px;
+  width: 40%;
+  height: 30px;
+  background-color: gold;
+  font-family: $fuente;
+  font-size: 20px
+}
+
+main {
+    @include medio();
+    flex-direction: column;
+    min-height: 90%;
+    background-color: #1e1e1e;
+  }
+
+  #chatgrid{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #2d2d2d;
+    min-height: 600px;
+    min-width: 90%;
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        justify-content: center;
+        #chatbox{
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            justify-content: center;
+            width: 90%;
+            #mensaje{
+                height: 20px;
+                padding: 30px;
+                width: 80%;
+                border-radius: 20px;
+                padding: 5px;
+                border-radius: 20px;
+                border: none;
+                font-family: $fuente;
+                &:focus{
+                    outline: none;
+                    border: none;
+                }
+            }
+            #enviar{
+                margin-left: 3px;
+                border-radius: 20px;
+                border: none;
+                width: 40px;
+            }
+        }
+        
+    }
+  }
+  .mensaje{
+    width: 80%;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(15, 43, 15);
+    font-family: $fuente;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    display: flex;
+    strong{
+        margin-right: 10px;
+    }
+  }
