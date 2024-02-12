@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,800;1,700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: content-box;
+}
+
+body,
+html {
+  background-color: #1e1e1e;
+  height: 100%;
+  margin: 0;
+}
+
+header {
+  height: 10%;
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#logo {
+  color: white;
+  padding: 15px;
+  font-family: "Poppins";
+  font-style: italic;
+}
+
+ul {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  background-color: #1e1e1e;
+  width: 200px;
+  height: 95%;
+  display: none;
+}
+ul img {
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+}
+
+li {
+  padding: 15px;
+  list-style: none;
+  font-family: "Poppins";
+  color: white;
+  text-align: center;
+}
+li:hover {
+  color: #824603;
+}
+
+nav {
+  padding: 15px;
+}
+
+#sub_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  left: 30%;
+  top: -15px;
+  width: 40%;
+  height: 30px;
+  background-color: gold;
+  font-family: "Poppins";
+  font-size: 20px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80%;
+}
+main form {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+main form input {
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: transparent;
+  margin: 20px;
+  font-family: "Poppins";
+  color: white;
+}
+main form input:focus {
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+}
+main form input::-moz-placeholder {
+  font-family: "Poppins";
+  color: white;
+}
+main form input::placeholder {
+  font-family: "Poppins";
+  color: white;
+}
+main form button {
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  margin: 0 auto;
+  font-family: "Poppins";
+  border-radius: 20px;
+  border: none;
+  background-color: #824603;
+}
+
+#menu_open {
+  display: none;
+}/*# sourceMappingURL=edit-chage.css.map */
