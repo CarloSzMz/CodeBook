@@ -101,6 +101,7 @@ main {
 }
 
 #cursos {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -109,6 +110,7 @@ main {
 }
 
 #libros {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +124,11 @@ main {
   height: 320px;
   background-color: #2d2d2d;
   text-align: center;
+}
+.content img:nth-child(1) {
+  max-width: 280px;
+  max-height: 237px;
+  margin-top: 20px;
 }
 .content div {
   padding: 10px;
