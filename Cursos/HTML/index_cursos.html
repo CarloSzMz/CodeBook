@@ -45,7 +45,7 @@
         <div id="temas"></div>
         <aside id="aside">
           <div id="comment">
-            <form method="get" action="../PHP/insertarComentarios.php">
+            <form method="get" action="../PHP/insertarComentarios.php" id="form">
               <input type="hidden" name="id_curso" id="inputIdCurso" />
               <input
                 type="text"
@@ -79,4 +79,31 @@
   <script src="../js/idCurso.js"></script>
   <script src="../js/sacarelnombredelcurso.js"></script>
   <script src="../js/comprar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let form = document.getElementById("form");
+    let comentariosInput = document.getElementById("comentarios");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let mensaje = comentariosInput.value;
+        // Supongamos que hay una función para obtener el ID del curso
+
+        fetch("../PHP/insertarComentarios.php?comentarios=" + mensaje + "&id_curso=" + idCurso2, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            comentariosInput.value = ""; // Vaciar el área de mensajes
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+</script>
 </html>
