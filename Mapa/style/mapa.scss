@@ -99,8 +99,10 @@ main {
 }
 
 button{
+  border-radius: 20px;
+  border: none;
+  background-color: #824603;
     margin-top: 40px;
-    border: none;
     height: 40px;
     width: 180px;
     font-family: $fuente;
