@@ -57,7 +57,7 @@ li {
 }
 
 li:hover {
-  color: greenyellow;
+  color: #824603;
 }
 
 nav {
@@ -130,7 +130,7 @@ form div button {
   margin-top: 20px;
   width: 20%;
   height: 50px;
-  background-color: greenyellow;
+  background-color: #824603;
   color: black;
   border: none;
   font-family: "Poppins";
