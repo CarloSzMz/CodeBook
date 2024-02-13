@@ -155,14 +155,15 @@ main {
     display: flex;
     flex-direction: row;
     width: 100%;
+    #aside {
+      width: 30%;
+      min-height: 600px;
+    }
   }
   #temas {
     min-width: 70%;
   }
-  aside {
-    width: 30%;
-    min-height: 600px;
-  }
+
 
   #frame{
     margin-right: 0px;

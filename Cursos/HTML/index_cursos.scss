@@ -124,6 +124,12 @@ nav {
   filter: none;
 }
 
+#closepurchase{
+  position: absolute;
+  top: 120px;
+  right: 30px;
+}
+
 #select {
   @include medio;
   color: white;

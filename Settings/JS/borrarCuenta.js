@@ -7,5 +7,5 @@ borrar.addEventListener("click",()=>{
     })
     .catch((error) => console.error("Error:", error));
     alert("Account Deleted");
-    window.location.href= "../../Sesion/inicio/inicio.html";
+    window.location.href= "/codebook/Sesion/inicio/inicio.html";
 });

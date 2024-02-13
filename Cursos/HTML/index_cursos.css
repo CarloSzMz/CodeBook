@@ -120,6 +120,12 @@ nav {
   filter: none;
 }
 
+#closepurchase {
+  position: absolute;
+  top: 120px;
+  right: 30px;
+}
+
 #select {
   display: flex;
   justify-content: center;
