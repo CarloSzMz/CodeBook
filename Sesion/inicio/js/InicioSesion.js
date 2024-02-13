@@ -10,7 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(response => response.json())
     .then(data => {
       if (data.success) {
-        window.location.href = "../../Code/content/HTML/content.html";
+        window.location.href = "/CodeBook/Code/content/HTML/content.html";
       } else {
         alert(data.message);
       }
