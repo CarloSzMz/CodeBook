@@ -40,6 +40,9 @@ header {
 }
 
 //HOVER DEL MENU DESPLEGABLE
+a{
+  text-decoration: none;
+}
 ul{
   //border: 2px solid #EA39FF;
   position: absolute;
@@ -62,7 +65,7 @@ li{
   color: white;
   text-align: center;
   &:hover{
-    color: greenyellow;
+    color: #824603;
   }
 }
 nav{
@@ -120,6 +123,11 @@ main {
   height: 320px;
   background-color: #2d2d2d;
   text-align: center;
+  img:nth-child(1){
+    max-width: 280px;
+    max-height: 237px;
+    margin-top: 20px;
+  }
   div {
     padding: 10px;
     display: flex;

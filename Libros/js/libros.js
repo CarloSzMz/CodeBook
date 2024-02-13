@@ -25,6 +25,7 @@ enlaceDescarga.addEventListener('click', function() {
                 });
 
                 enlace.click();
+                window.location.href = "../../Code/content/HTML/content.html";
             } else {
                 console.error('La propiedad "Fichero" es undefined en la respuesta del servidor.');
             }

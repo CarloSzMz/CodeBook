@@ -36,6 +36,8 @@ main {
 form {
   width: 500px;
   margin-left: 10px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
   @include medio();
   div {
     display: flex;
@@ -65,16 +67,18 @@ form {
       margin-top: 10px;
       width: 30%;
       height: 50px;
-      background-color: greenyellow;
+      background-color: #824603;
       color: black;
       border: none;
       font-family: $fuente;
       font-size: 20px;
+      border-radius: 20px
     }
   }
 }
 #enviar {
   @include medio();
+  margin-bottom: 3%;
 }
 
 //ENLACES A CREAR CUENTA O PERDIDA

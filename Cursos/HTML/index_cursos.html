@@ -14,14 +14,12 @@
           <img id="menu_open" src="../img/Component 1.png" />
           <ul id="desplegable">
             <img id="menu_close" src="../img/Component 2.png" />
-            <a href="#"><li>SETTINGS</li></a>
             <a href="../../Code/content/HTML/content.html"><li>CONTENT</li></a>
-            <a href="../../Code/favoritos/HTML/favoritos.html"
-              ><li id="irFav">FAVOURITES</li></a
-            >
+            <a href="../../Code/favoritos/HTML/favoritos.html"><li id="irFav">FAVOURITES</li></a>
             <a href="../../Sesion/support/support.html"><li>SUPPORT</li></a>
-            <a href="#"><li>ABOUT US</li></a>
-            <a href="../../Code/content/PHP/logout.php"><li>LOG OUT</li></a>
+            <a href="../../Mapa/HTML/Mapa.html"><li id="mapa">MAP</li></a>
+            <a href="../../Inventario/HTML/inventario.html"><li>INVENTORY</li></a>
+            <a href="../../Code/content/PHP/logout.php"><li id="logout">LOG OUT</li></a>
           </ul>
         </nav>
       </div>
@@ -45,7 +43,7 @@
         <div id="temas"></div>
         <aside id="aside">
           <div id="comment">
-            <form method="get" action="../PHP/insertarComentarios.php">
+            <form method="get" action="../PHP/insertarComentarios.php" id="form">
               <input type="hidden" name="id_curso" id="inputIdCurso" />
               <input
                 type="text"
@@ -79,4 +77,31 @@
   <script src="../js/idCurso.js"></script>
   <script src="../js/sacarelnombredelcurso.js"></script>
   <script src="../js/comprar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let form = document.getElementById("form");
+    let comentariosInput = document.getElementById("comentarios");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let mensaje = comentariosInput.value;
+        // Supongamos que hay una función para obtener el ID del curso
+
+        fetch("../PHP/insertarComentarios.php?comentarios=" + mensaje + "&id_curso=" + idCurso2, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            comentariosInput.value = ""; // Vaciar el área de mensajes
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
+
+</script>
 </html>

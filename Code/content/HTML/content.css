@@ -32,6 +32,10 @@ header {
   font-style: italic;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   position: absolute;
   top: 0;
@@ -55,7 +59,7 @@ li {
   text-align: center;
 }
 li:hover {
-  color: greenyellow;
+  color: #824603;
 }
 
 nav {

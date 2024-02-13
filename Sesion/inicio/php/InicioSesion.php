@@ -28,7 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
          
             $_SESSION["nombreUsuario"] = $row["Nombre"];
-            header("Location: ../../../Code/content/HTML/content.html");
+            if ($row["Admin"] == 1) {
+                header("Location: ../../../AdminDashboard/AdminDashboard.html");
+                exit();
+            } else {
+                header("Location: ../../../Code/content/HTML/content.html");
+                exit();
+            }
             exit();
         } else {
             echo "Error: Contraseña incorrecta.";
