@@ -5,8 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_cursos = $_POST["id"];
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "CodeBookAdmin";
+    $password = "1234Z";
     $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);

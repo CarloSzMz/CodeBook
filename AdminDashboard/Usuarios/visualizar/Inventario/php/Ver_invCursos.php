@@ -2,8 +2,8 @@
 // Lógica para conectarse a la base de datos y realizar la consulta
 // ...
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);

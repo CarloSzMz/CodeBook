@@ -6,8 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasenya = $_POST["Contrasenya1"];
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "CodeBookAdmin";
+    $password = "1234Z";
     $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);

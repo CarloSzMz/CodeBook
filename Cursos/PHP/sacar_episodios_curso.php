@@ -3,8 +3,8 @@ session_start();
 $id_curso = $_GET['id_curso'];
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);

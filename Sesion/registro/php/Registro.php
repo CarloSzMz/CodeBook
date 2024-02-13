@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $hashContrasenya = password_hash($contrasenya, PASSWORD_DEFAULT);
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "CodeBookAdmin";
+    $password = "1234Z";
     $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif ($resultCheckEmail->num_rows > 0) {
         echo json_encode(array("success" => false, "message" => "Error: El correo electrónico ya está en uso."));
     } else {
-        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin, Telefono) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0, $numero)";
+        $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0)";
 
         if ($conn->query($query) === TRUE) {
             $_SESSION["nombreUsuario"] = $nombreUsuario;

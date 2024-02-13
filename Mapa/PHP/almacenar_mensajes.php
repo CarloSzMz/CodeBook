@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 $remitente = $_SESSION["nombreUsuario"];
-$conexion = new mysqli("localhost", "root", "", "codebook");
+$conexion = new mysqli("localhost", "CodeBookAdmin", "1234Z", "codebook");
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
