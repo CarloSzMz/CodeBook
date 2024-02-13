@@ -4,8 +4,8 @@ session_start();
 
 $nombre = $_SESSION["nombreUsuario"];
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);

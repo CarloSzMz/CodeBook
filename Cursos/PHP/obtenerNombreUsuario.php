@@ -6,8 +6,8 @@ ini_set('display_errors', '1');
 $id_usuario = $_GET['id_usuario'];
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
