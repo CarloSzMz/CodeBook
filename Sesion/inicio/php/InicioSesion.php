@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          
             $_SESSION["nombreUsuario"] = $row["Nombre"];
             if ($row["Admin"] == 1) {
-                header("Location: CodeBook/AdminDashboard/AdminDashboard.html");
+                header("Location: ../../../AdminDashboard/AdminDashboard.html");
                 exit();
             } else {
-                header("Location: CodeBook/Code/content/HTML/content.html");
+                header("Location: ../../../Code/content/HTML/content.html");
                 exit();
             }
             exit();
