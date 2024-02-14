@@ -29,6 +29,7 @@ header {
 #nav{
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -37,6 +38,9 @@ header {
   padding: 15px;
   font-family: $fuente;
   font-style: italic;
+  img{
+    width: 50px;
+  }
 }
 
 //HOVER DEL MENU DESPLEGABLE
