@@ -29,6 +29,7 @@ header {
 #nav{
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -37,9 +38,15 @@ header {
   padding: 15px;
   font-family: $fuente;
   font-style: italic;
+  img{
+    width: 50px;
+  }
 }
 
 //HOVER DEL MENU DESPLEGABLE
+a{
+  text-decoration: none;
+}
 ul{
   //border: 2px solid #EA39FF;
   position: absolute;
@@ -62,7 +69,7 @@ li{
   color: white;
   text-align: center;
   &:hover{
-    color: greenyellow;
+    color: #824603;
   }
 }
 nav{

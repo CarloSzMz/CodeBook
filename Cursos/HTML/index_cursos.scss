@@ -62,6 +62,9 @@ header {
 }
 
 //HOVER DEL MENU DESPLEGABLE
+a{
+  text-decoration: none;
+}
 ul {
   //border: 2px solid #EA39FF;
   position: absolute;
@@ -84,7 +87,7 @@ li {
   color: white;
   text-align: center;
   &:hover {
-    color: greenyellow;
+    color: #824603;
   }
 }
 nav {
@@ -119,6 +122,12 @@ nav {
   transform: translate(-50%, -50%);
   filter: blur(0);
   filter: none;
+}
+
+#closepurchase{
+  position: absolute;
+  top: 120px;
+  right: 30px;
 }
 
 #select {

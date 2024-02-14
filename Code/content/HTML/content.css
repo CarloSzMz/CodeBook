@@ -22,6 +22,7 @@ header {
 #nav {
   width: 100%;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -30,6 +31,13 @@ header {
   padding: 15px;
   font-family: "Poppins";
   font-style: italic;
+}
+#logo img {
+  width: 50px;
+}
+
+a {
+  text-decoration: none;
 }
 
 ul {
@@ -55,7 +63,7 @@ li {
   text-align: center;
 }
 li:hover {
-  color: greenyellow;
+  color: #824603;
 }
 
 nav {

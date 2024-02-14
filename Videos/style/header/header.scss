@@ -27,6 +27,9 @@ header {
   }
   
   //HOVER DEL MENU DESPLEGABLE
+  a{
+    text-decoration: none;
+  }
   ul{
     //border: 2px solid #EA39FF;
     position: absolute;
@@ -49,7 +52,7 @@ header {
     color: white;
     text-align: center;
     &:hover{
-      color: greenyellow;
+      color: #824603;
     }
   }
   nav{

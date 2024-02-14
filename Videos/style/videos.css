@@ -90,7 +90,7 @@ main {
   min-width: 70%;
 }
 
-aside {
+#maingrid #aside {
   border-radius: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -140,12 +140,12 @@ aside {
     flex-direction: row;
     width: 100%;
   }
-  #temas {
-    min-width: 70%;
-  }
-  aside {
+  #maingrid #aside {
     width: 30%;
     min-height: 600px;
+  }
+  #temas {
+    min-width: 70%;
   }
   #frame {
     margin-right: 0px;

@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <a href="#" id="descargarPdf">Descargar PDF</a>
-    <button id="comprar">Comprar</button>
-</body>
-<script src="../js/idLibro.js"></script>
-<script src="../js/libros.js"></script>
-<script src="../js/comprarLibro.js"></script>
+    <link rel="stylesheet" href="../style/libro.css" />
+  </head>
+  <body>
+    <header>
+        <div id="nav">
+          <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+          <nav>
+            <img id="menu_open" src="../img/Component 1.png" />
+            <ul id="desplegable">
+              <img id="menu_close" src="../img/Component 2.png" />
+              <a href="../../../Code/content/HTML/content.html"><li>CONTENT</li></a>
+              <a href="../../favoritos/HTML/favoritos.html"><li id="irFav">FAVOURITES</li></a>
+              <a href="../../../Sesion/support/support.html"><li>SUPPORT</li></a>
+              <a href="../../../Mapa/HTML/Mapa.html"><li id="mapa">MAP</li></a>
+              <a href="../../../Inventario/HTML/inventario.html"><li>INVENTORY</li></a>
+              <a href="../PHP/logout.php"><li id="logout">LOG OUT</li></a>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    <div id="sub_header">PURCHASES COURSES</div>
+    <main>
+      <a href="#" id="descargarPdf">Descargar PDF</a>
+      <button id="comprar">Comprar</button>
+    </main>
+  </body>
+  <script src="../js/idLibro.js"></script>
+  <script src="../js/libros.js"></script>
+  <script src="../js/comprarLibro.js"></script>
 </html>
