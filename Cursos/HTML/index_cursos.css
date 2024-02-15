@@ -371,4 +371,9 @@ footer {
     margin-top: 15px;
     font-size: 15px;
   }
+}
+@media screen and (min-width: 0px) and (max-width: 470px) {
+  #sub_header {
+    height: 50px;
+  }
 }/*# sourceMappingURL=index_cursos.css.map */

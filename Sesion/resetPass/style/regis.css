@@ -25,10 +25,6 @@ main {
   background-color: #1e1e1e;
 }
 
-#content {
-  border: 1px solid red;
-}
-
 #formulario {
   display: flex;
   justify-content: center;
@@ -78,6 +74,7 @@ form div button {
   margin-top: 20px;
   width: 40%;
   height: 60px;
+  border-radius: 20px;
   background-color: #824603;
   color: black;
   border: none;

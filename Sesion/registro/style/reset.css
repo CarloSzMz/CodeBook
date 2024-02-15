@@ -21,7 +21,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 90%;
+  min-height: 80%;
   background-color: #1e1e1e;
 }
 
@@ -72,6 +72,7 @@ form div button {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  border-radius: 20px;
   width: 40%;
   height: 60px;
   background-color: #824603;
@@ -106,4 +107,10 @@ form div button {
   padding: 5px;
   margin-left: 50px;
   margin-right: 60px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 470px) {
+  #sub_header {
+    height: 50px;
+  }
 }/*# sourceMappingURL=reset.css.map */

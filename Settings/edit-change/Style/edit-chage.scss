@@ -123,3 +123,9 @@ header {
   #menu_open{
     display: none;
   }
+
+  @media screen and (min-width:0px) and (max-width:470px) {
+    #sub_header{
+      height: 50px;
+    }
+  }
