@@ -1,5 +1,5 @@
 let peticion = new XMLHttpRequest();
-peticion.open("GET", "/codebook/Footer/HTML/footer.html", true);
+peticion.open("GET", "/CodeBook/Footer/HTML/footer.html", true);
 peticion.send(null);
 peticion.onreadystatechange = function () {
   let footer = document.querySelector("footer") || "no hay footer";
