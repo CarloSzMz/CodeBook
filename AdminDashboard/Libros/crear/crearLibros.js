@@ -67,9 +67,6 @@ fetch('../../Queries/GetCategorias.php')
     // Validación del formulario
     function validarFormulario() {
     
-        if (!validarLibro()) {
-            return false;
-        }
         
         if (!validarUrl()) {
             return false;
@@ -77,20 +74,6 @@ fetch('../../Queries/GetCategorias.php')
         
         return true;
     }
-    
-    function validarLibro() {
-        var libro = document.querySelector("input#NombreLibro");
-        var regex = /^[a-zA-ZñÑ0-9\s]+$/
-        
-        if (regex.test(libro.value)) {
-            return true
-        } else {
-            alert(libro.value + " no es un libro válido.");
-            return false
-        }
-        
-    }
-    
 
     function validarUrl() {
         var url = document.querySelector("input#Url");
