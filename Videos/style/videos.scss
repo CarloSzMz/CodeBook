@@ -24,7 +24,7 @@ main {
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -99,17 +99,20 @@ main {
 }
 
 //ASIDE PARA EL CHAT
-aside {
-  border-radius: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
-  min-width: 20%;
-  min-height: 300px;
-  background: #2d2d2d;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+#maingrid{
+  #aside {
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 20%;
+    min-height: 300px;
+    background: #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
 }
+
 
 // LADO DE VIDEO
 #frame {
@@ -152,16 +155,23 @@ aside {
     display: flex;
     flex-direction: row;
     width: 100%;
+    #aside {
+      width: 30%;
+      min-height: 600px;
+    }
   }
   #temas {
     min-width: 70%;
   }
-  aside {
-    width: 30%;
-    min-height: 600px;
-  }
+
 
   #frame{
     margin-right: 0px;
+  }
+}
+
+@media screen and (min-width:0px) and (max-width:470px) {
+  #sub_header{
+    height: 50px;
   }
 }

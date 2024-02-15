@@ -11,7 +11,7 @@
     <body>
       <header>
         <div id="nav">
-          <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+          <p id="logo"><a href="#"><img src="../../Logo/logo1.png" alt="Logo"></a></p>
           <nav>
             <img id="menu_open" src="../Component 1.png" />
             <ul id="desplegable">
@@ -30,7 +30,7 @@
           <div id="sub_header">CREATE ACCOUNT</div>
           <main>
             <div></div>
-            <form method="post" action="./php/Registro.php" onsubmit="return validarFormulario()">
+            <form method="post" action="./php/Registro.php" onsubmit="return validarFormulario()" id="registroForm">
                 <div id="formulario">
                     <div>
                         <input
@@ -92,5 +92,7 @@
       return true;
   };
 </script>
+<script src="../../Footer/js/footer.js"></script>
 <script src="../js/nav_menu.js"></script>
+<script src="js/Registro.js"></script>
 </html>

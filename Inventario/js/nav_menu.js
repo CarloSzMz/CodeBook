@@ -22,3 +22,94 @@ function menu() {
     }
     
 }
+
+fetch("../PHP/sacar_inventario_cursos.php")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+
+        const contenedorCursos = document.getElementById("cursos");
+
+        data.forEach((curso) => {
+          const divContent = document.createElement("div");
+          divContent.className = "content";
+          divContent.id = curso.Id;
+
+          const imgMiniatura = document.createElement("img");
+          imgMiniatura.src = curso.Miniatura;
+
+          const divDescripcion = document.createElement("div");
+          const pNombre = document.createElement("p");
+          pNombre.textContent = curso.Nombre;
+
+          const imgOtro = document.createElement("img");
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
+
+          divDescripcion.appendChild(pNombre);
+          divDescripcion.appendChild(imgOtro);
+
+          divContent.appendChild(imgMiniatura);
+          divContent.appendChild(divDescripcion);
+
+          contenedorCursos.appendChild(divContent);
+          clicar();
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = curso.Id;
+              let nuevaURL = `../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
+          }
+        });
+      })
+      .catch((error) => console.error("Error al obtener los datos:", error));
+
+      fetch("../PHP/sacar_inventario_libros.php")
+      .then((response) => response.json())
+      .then((data) => {
+        const contenedorlibros = document.getElementById("libros");
+
+        data.forEach((libro) => {
+          const divContent = document.createElement("div");
+          divContent.className = "content";
+          divContent.id = libro.Id;
+
+          const imgMiniatura = document.createElement("img");
+          imgMiniatura.src = libro.Miniatura;
+
+          const divDescripcion = document.createElement("div");
+          const pNombre = document.createElement("p");
+          pNombre.textContent = libro.Nombre;
+
+          const imgOtro = document.createElement("img");
+          imgOtro.src = "../img/corazon.png";
+          imgOtro.style.maxHeight = "30px";
+          imgOtro.style.maxWidth = "30px";
+          imgOtro.setAttribute("id", "corazonImagen");
+
+          divDescripcion.appendChild(pNombre);
+          divDescripcion.appendChild(imgOtro);
+
+          divContent.appendChild(imgMiniatura);
+          divContent.appendChild(divDescripcion);
+
+          contenedorlibros.appendChild(divContent);
+
+          clicar();
+          function clicar() {
+            divContent.addEventListener("click", () => {
+              let variableAEnviar = libro.Id;
+              let nuevaURL = `../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
+                variableAEnviar
+              )}`;
+              window.location.href = nuevaURL;
+            });
+          }
+        });
+      })
+      .catch((error) => console.error("Error al obtener los datos:", error));

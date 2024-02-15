@@ -18,6 +18,14 @@ async function obtenerComentariosCursos(idCurso) {
   try {
       const idUsuario = await obtenerIdUsuario();
 
+       // Fetch user's name based on their ID
+       const nombreResponse = await fetch(`../PHP/obtenerNombreUsuario.php?id_usuario=${idUsuario}`);
+       if (!nombreResponse.ok) {
+           throw new Error(`Error al obtener el nombre del usuario. Status: ${nombreResponse.status}`);
+       }
+       const nombreData = await nombreResponse.json();
+       const nombreUsuario = nombreData.nombre;
+
       const response = await fetch(
           `../PHP/comentarios.php?id_curso=${idCurso}`
       );
@@ -30,40 +38,39 @@ async function obtenerComentariosCursos(idCurso) {
 
       const comentarios = await response.json();
 
-      // Asignar clase diferente a los comentarios según el Id_Usuario
       comentarios.forEach(comentario => {
-          if (comentario.Id_Usuario == idUsuario) {
-              // Asignar una clase específica para los comentarios del usuario actual
-              comentario.clase = 'comentario-usuario-actual';
-              let divEnviador = document.createElement("div")
-              divEnviador.setAttribute("class", "enviador")
-              let texto = document.createElement("p")
-              texto.textContent = comentario.Mensaje;
-              divEnviador.appendChild(texto)
-              aside.insertBefore(divEnviador, divMensaje)
+         let divSect = document.getElementById("sectioncmt");
+      let divTodo = document.createElement("div");
+      let divInfo = document.createElement("div");
+      let divCmt = document.createElement("div");
 
-          } else {
-              // Asignar una clase diferente para otros comentarios
-              comentario.clase = 'otro-comentario';
-              let divEnviador = document.createElement("div")
-              divEnviador.setAttribute("class", "receptor")
-              let texto = document.createElement("p")
-              texto.textContent = comentario.Mensaje;
-              divEnviador.appendChild(texto)
-              aside.insertBefore(divEnviador, divMensaje)
-          }
+      let p1 = document.createElement("p");
+      let p2 = document.createElement("p");
+      let p3 = document.createElement("p");
+
+      p1.innerHTML = "@" +  nombreUsuario;
+      p2.innerHTML = comentario.created_at;
+      p3.innerHTML = comentario.Mensaje;
+
+      divInfo.appendChild(p1);
+      divInfo.appendChild(p2);
+      divCmt.appendChild(p3);
+
+      divTodo.id = "allcmt";
+      divInfo.id = "infocmt";
+      divCmt.id = "cmt";
+
+      divTodo.appendChild(divInfo);
+      divTodo.appendChild(divCmt);
+      divSect.appendChild(divTodo);
       });
 
-      // Hacer algo con los comentarios, por ejemplo, mostrarlos en la consola
       console.log(comentarios);
       
-      // Puedes manipular el DOM para mostrar los comentarios con las clases asignadas
-      // Ejemplo: renderizarComentarios(comentarios);
 
   } catch (error) {
       console.error("Error:", error);
   }
 }
 
-// Llamada inicial para obtener los comentarios
 obtenerComentariosCursos(idCurso);

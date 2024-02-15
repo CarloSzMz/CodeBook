@@ -1,5 +1,6 @@
 let html = document.getElementsByTagName("html")[0];
 let botonComprar = document.getElementById("comprar");
+let botonCerrarCompra = document.getElementById("closepurchase");
 fetch("../PHP/estaComprado.php?id_curso=" + idCurso2)
   .then((response) => response.json())
   .then((data) => {
@@ -14,9 +15,11 @@ fetch("../PHP/estaComprado.php?id_curso=" + idCurso2)
       });
       divMensaje.style.pointerEvents = "none";
     } else {
+      botonCerrarCompra.style.display = "none";
       botonComprar.style.display = "none";
       document.body.classList.remove("difuminar");
       html.classList.remove("difuminar");
+      botonCerrarCompra.classList.toggle("ocultar");
       botonComprar.classList.toggle("ocultar");
     }
   })

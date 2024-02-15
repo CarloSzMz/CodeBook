@@ -23,6 +23,17 @@ html {
   display: none;
 }
 
+#logo{
+  img{
+    width: 50px;
+  }
+}
+
+#nav{
+  display: flex;
+  align-items: center;
+}
+
 
 main {
   @include medio();
@@ -35,7 +46,7 @@ main {
     @include medio();
   }
   form {
-    width: 95%;
+    width: 500px;
     margin-left: 10px;
     @include medio();
     div {
@@ -64,6 +75,7 @@ main {
       button {
         @include medio;
         margin-top: 20px;
+        border-radius: 20px;
         width: 40%;
         height: 60px;
         background-color: #824603;
@@ -95,5 +107,11 @@ main {
         padding: 5px;
         margin-left: 50px;
         margin-right: 60px;
+    }
+  }
+
+  @media screen and (min-width:0px) and (max-width:470px) {
+    #sub_header{
+      height: 50px;
     }
   }

@@ -17,7 +17,7 @@ main {
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -90,7 +90,7 @@ main {
   min-width: 70%;
 }
 
-aside {
+#maingrid #aside {
   border-radius: 20px;
   margin-left: 20px;
   margin-right: 20px;
@@ -140,14 +140,19 @@ aside {
     flex-direction: row;
     width: 100%;
   }
-  #temas {
-    min-width: 70%;
-  }
-  aside {
+  #maingrid #aside {
     width: 30%;
     min-height: 600px;
   }
+  #temas {
+    min-width: 70%;
+  }
   #frame {
     margin-right: 0px;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 470px) {
+  #sub_header {
+    height: 50px;
   }
 }/*# sourceMappingURL=videos.css.map */

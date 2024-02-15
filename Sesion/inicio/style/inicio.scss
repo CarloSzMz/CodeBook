@@ -13,86 +13,101 @@ html {
   margin: 0;
 }
 
+#nav{
+  align-items: center;
+}
+
+#logo{
+  img{
+    width: 50px;
+  }
+}
+
 @mixin medio {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#menu_open{
+#menu_open {
   display: none;
 }
 
 main {
   @include medio();
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 //FORMULARIO
 #formulario {
-    @include medio();
-  }
-  form {
-    width: 95%;
-    margin-left: 10px;
-    @include medio();
-    div {
-      display: flex;
-      flex-direction: column;
-      margin-top:50px;
-      width: 80%;
-      input,
-      textarea {
+  @include medio();
+}
+form {
+  width: 500px;
+  margin-left: 10px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
+  @include medio();
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 80%;
+    input,
+    textarea {
+      border: none;
+      border-bottom: 1px solid white;
+      background-color: transparent;
+      color: white;
+      font-family: $fuente;
+      font-size: 20px;
+      padding: 10px;
+      &:focus {
         border: none;
         border-bottom: 1px solid white;
-        background-color: transparent;
-        color: white;
-        font-family: $fuente;
-        font-size: 20px;
-        padding: 10px;
-        &:focus {
-          border: none;
-          border-bottom: 1px solid white;
-          outline: none;
-        }
-        &::placeholder{
-            color: white;
-        }
+        outline: none;
       }
-      button {
-        @include medio;
-        margin-top: 20px;
-        width: 30%;
-        height: 50px;
-        background-color: #824603;
-        color: black;
-        border: none;
-        font-family: $fuente;
-        font-size: 20px
+      &::placeholder {
+        color: white;
       }
     }
+    button {
+      @include medio;
+      margin-top: 10px;
+      width: 30%;
+      height: 50px;
+      background-color: #824603;
+      color: black;
+      border: none;
+      font-family: $fuente;
+      font-size: 20px;
+      border-radius: 20px
+    }
   }
-  #enviar{
-    @include medio();
-  }
+}
+#enviar {
+  @include medio();
+  margin-bottom: 3%;
+}
 
-  //ENLACES A CREAR CUENTA O PERDIDA
-  .otros{
-    @include medio();
-    width: 95%;
-    margin-left: 10px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    font-family: $fuente;
-    a{
-        font-size: 20px;
-        text-decoration: none;
-        color: white;
-    }
-    p{
-        padding: 5px;
-        margin-left: 50px;
-        margin-right: 60px;
-    }
+//ENLACES A CREAR CUENTA O PERDIDA
+.otros {
+  @include medio();
+  width: 95%;
+  margin-left: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  font-family: $fuente;
+  a {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
   }
+  p {
+    padding: 5px;
+    margin-left: 50px;
+    margin-right: 60px;
+  }
+}

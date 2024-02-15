@@ -75,5 +75,4 @@ let select = document.getElementById("category");
       }
     }
 
-    // Llama a la función para obtener los episodios
     obtenerEpisodios(idCurso);

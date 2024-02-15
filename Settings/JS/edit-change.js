@@ -20,7 +20,7 @@ function editar() {
     sub_header.innerHTML = frase.join(" ");
 
     //NEW
-    let type=queCambiar();
+    let type=mitipo();
     frase[0] = "New";
     
     let nuevo = page.document.getElementById("nuevo");
@@ -43,7 +43,7 @@ if (
   subH.innerHTML = texto.join(" ");
 
   //NEW
-  let type=queCambiar();
+  let type=mitipo();
   texto[0] = "New";
   let n = document.getElementById("nuevo");
   n.setAttribute("placeholder", texto.join(" "));
@@ -58,7 +58,7 @@ if (
 }
 
 
-function queCambiar(){
+function mitipo(){
   let sub= document.getElementById("sub_header").textContent;
   if(sub.split(" ")[1] == "Phone"){
     return "tel";

@@ -8,8 +8,8 @@ $id_curso = $_GET['id_curso'];
 $nombre = $_SESSION["nombreUsuario"];
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -18,7 +18,7 @@ if ($conn->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
 }
 
-$query = "SELECT * FROM comentarios WHERE Id_curso = '$id_curso'";
+$query = "SELECT comentarios.*, usuarios.Nombre FROM comentarios LEFT JOIN usuarios on comentarios.Id_Usuario = usuarios.Id WHERE Id_curso = '$id_curso'";
 $result = $conn->query($query);
 
 

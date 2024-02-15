@@ -9,19 +9,17 @@
   <body>
     <header>
       <div id="nav">
-        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <p id="logo"><a href="/CodeBook/Code/content/HTML/content.html"><img src="../../../Logo/logo1.png" alt="Logo"></a></p>
         <nav>
           <img id="menu_open" src="../img/Component 1.png" />
           <ul id="desplegable">
             <img id="menu_close" src="../img/Component 2.png" />
-            <a href="#"><li>SETTINGS</li></a>
             <a href="../../../Code/content/HTML/content.html"><li>CONTENT</li></a>
-            <a href="../../../Code/favoritos/HTML/favoritos.html"
-              ><li id="irFav">FAVOURITES</li></a
-            >
+            <a href="../../favoritos/HTML/favoritos.html"><li id="irFav">FAVOURITES</li></a>
             <a href="../../../Sesion/support/support.html"><li>SUPPORT</li></a>
-            <a href="#"><li>ABOUT US</li></a>
-            <a href="../../../Code/content/PHP/logout.php"><li>LOG OUT</li></a>
+            <a href="../../../Mapa/HTML/Mapa.html"><li id="mapa">MAP</li></a>
+            <a href="../../../Inventario/HTML/inventario.html"><li>INVENTORY</li></a>
+            <a href="../../content/PHP/logout.php"><li id="logout">LOG OUT</li></a>
           </ul>
         </nav>
       </div>
@@ -68,20 +66,17 @@
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("id", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
 
-          // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
           clicar();
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = curso.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
                 variableAEnviar
               )}`;
@@ -115,21 +110,18 @@
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("id", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
           divContent.appendChild(imgMiniatura);
           divContent.appendChild(divDescripcion);
 
-          // Adjuntar el div de contenido al contenedor general
           contenedorlibros.appendChild(divContent);
 
           clicar();
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = libro.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
                 variableAEnviar
               )}`;
@@ -141,4 +133,5 @@
       .catch((error) => console.error("Error al obtener los datos:", error));
   </script>
   <script src="../js/nav_menu.js"></script>
+  <script src="../../../Footer/js/footer.js"></script>
 </html>

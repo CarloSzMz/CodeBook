@@ -30,6 +30,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -37,9 +38,15 @@ header {
   padding: 15px;
   font-family: $fuente;
   font-style: italic;
+  img{
+    width: 50px;
+  }
 }
 
 //HOVER DEL MENU DESPLEGABLE
+a{
+  text-decoration: none;
+}
 ul {
   //border: 2px solid #EA39FF;
   position: absolute;
@@ -117,4 +124,10 @@ main {
     .ajustes{
         width: 40%;
     }
+}
+
+@media screen and (min-width:0px) and (max-width:470px) {
+  #sub_header{
+    height: 50px;
+  }
 }

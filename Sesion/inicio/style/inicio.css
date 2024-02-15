@@ -12,6 +12,14 @@ html {
   margin: 0;
 }
 
+#nav {
+  align-items: center;
+}
+
+#logo img {
+  width: 50px;
+}
+
 #menu_open {
   display: none;
 }
@@ -21,7 +29,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -32,8 +40,10 @@ main {
 }
 
 form {
-  width: 95%;
+  width: 500px;
   margin-left: 10px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +81,7 @@ form div button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 10px;
   width: 30%;
   height: 50px;
   background-color: #824603;
@@ -79,12 +89,14 @@ form div button {
   border: none;
   font-family: "Poppins";
   font-size: 20px;
+  border-radius: 20px;
 }
 
 #enviar {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3%;
 }
 
 .otros {
@@ -95,6 +107,7 @@ form div button {
   margin-left: 10px;
   margin-top: 20px;
   flex-wrap: wrap;
+  flex-direction: column;
   font-family: "Poppins";
 }
 .otros a {

@@ -16,6 +16,15 @@ html {
   display: none;
 }
 
+#logo img {
+  width: 50px;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+}
+
 main {
   display: flex;
   justify-content: center;
@@ -32,7 +41,7 @@ main {
 }
 
 form {
-  width: 95%;
+  width: 500px;
   margin-left: 10px;
   display: flex;
   justify-content: center;
@@ -72,6 +81,7 @@ form div button {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  border-radius: 20px;
   width: 40%;
   height: 60px;
   background-color: #824603;
@@ -106,4 +116,10 @@ form div button {
   padding: 5px;
   margin-left: 50px;
   margin-right: 60px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 470px) {
+  #sub_header {
+    height: 50px;
+  }
 }/*# sourceMappingURL=reset.css.map */

@@ -1,46 +1,45 @@
 <?php
 session_start();
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombreUsuario = $_POST["NombreUsuario"];
     $contrasenya = $_POST["Contrasenya1"];
     $correo = $_POST["Correo"];
+    $numero = $_POST["numero"];
 
     $hashContrasenya = password_hash($contrasenya, PASSWORD_DEFAULT);
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "CodeBookAdmin";
+    $password = "1234Z";
     $database = "codebook";
 
     $conn = new mysqli($servername, $username, $password, $database);
+
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
+    }
 
     $queryCheckUser = "SELECT * FROM usuarios WHERE Nombre = '$nombreUsuario'";
     $resultCheckUser = $conn->query($queryCheckUser);
     $queryCheckEmail = "SELECT * FROM usuarios WHERE Correo = '$correo'";
     $resultCheckEmail = $conn->query($queryCheckEmail);
 
-
-    if ($conn->connect_error) {
-        die("Conexión fallida: " . $conn->connect_error);
-    }
     if ($resultCheckUser->num_rows > 0) {
-        echo "Error: El nombre de usuario ya está en uso.";
+        echo json_encode(array("success" => false, "message" => "Error: El nombre de usuario ya está en uso."));
     } elseif ($resultCheckEmail->num_rows > 0) {
-        echo "Error: El correo electrónico ya está en uso.";
+        echo json_encode(array("success" => false, "message" => "Error: El correo electrónico ya está en uso."));
     } else {
-
         $query = "INSERT INTO usuarios (Nombre, Correo, Contraseña, Admin) VALUES ('$nombreUsuario', '$correo', '$hashContrasenya', 0)";
 
         if ($conn->query($query) === TRUE) {
-            echo "Datos insertados correctamente.";
             $_SESSION["nombreUsuario"] = $nombreUsuario;
-            header("Location: ../../../Code/content/HTML/content.html");
-            exit();
+            echo json_encode(array("success" => true, "message" => "Registro exitoso"));
         } else {
-            echo "Error al insertar datos: " . $conn->error;
+            echo json_encode(array("success" => false, "message" => "Error al insertar datos: " . $conn->error));
         }
-
-        $conn->close();
     }
+
+    $conn->close();
 }
 ?>

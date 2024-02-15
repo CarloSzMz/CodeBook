@@ -30,6 +30,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -37,6 +38,13 @@ header {
   padding: 15px;
   font-family: "Poppins";
   font-style: italic;
+  img{
+    width: 50px;
+  }
+}
+
+a{
+  text-decoration: none;
 }
 
 ul {
@@ -86,7 +94,7 @@ nav {
 main {
   @include medio();
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -95,7 +103,7 @@ main {
   @include medio();
 }
 form {
-  width: 95%;
+  width: 500px;
   margin-left: 10px;
   @include medio();
   div {
@@ -117,6 +125,9 @@ form {
         border-bottom: 1px solid white;
         outline: none;
       }
+      &::placeholder {
+        color: white;
+      }
     }
     button {
       @include medio;
@@ -128,9 +139,16 @@ form {
       border: none;
       font-family: $fuente;
       font-size: 20px;
+      border-radius: 20px
     }
   }
 }
 #enviar {
   @include medio();
+}
+
+@media screen and (min-width:0px) and (max-width:470px) {
+  #sub_header{
+    height: 50px;
+  }
 }

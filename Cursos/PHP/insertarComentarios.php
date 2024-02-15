@@ -4,12 +4,12 @@ ini_set('display_errors', '1');
 
 session_start();
 $id_curso = $_GET['id_curso'];
-$mensaje = $_GET['textareaChat'];
+$mensaje = $_GET['comentarios'];
 $nombre = $_SESSION["nombreUsuario"];
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "CodeBookAdmin";
+$password = "1234Z";
 $database = "codebook";
 
 $conn = new mysqli($servername, $username, $password, $database);
@@ -25,7 +25,6 @@ if ($resultUsuario->num_rows > 0) {
     $rowUsuario = $resultUsuario->fetch_assoc();
     $id_usuario = $rowUsuario['Id'];
 
-    // Insertar comentario
     $queryInsertar = "INSERT INTO comentarios (Id_Usuario, Id_Curso, Mensaje) VALUES ('$id_usuario', '$id_curso', '$mensaje')";
 
     if ($conn->query($queryInsertar) === TRUE) {

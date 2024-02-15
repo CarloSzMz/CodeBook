@@ -23,6 +23,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -30,6 +31,13 @@ header {
   padding: 15px;
   font-family: "Poppins";
   font-style: italic;
+}
+#logo img {
+  width: 50px;
+}
+
+a {
+  text-decoration: none;
 }
 
 ul {
@@ -96,7 +104,7 @@ main {
   justify-content: start;
   align-items: start;
   flex-direction: column;
-  min-height: 80%;
+  min-height: 90%;
   background-color: #1e1e1e;
 }
 
@@ -115,6 +123,11 @@ main {
   background-color: #2d2d2d;
   text-align: center;
 }
+.content img:nth-child(1) {
+  max-width: 280px;
+  max-height: 237px;
+  margin-top: 20px;
+}
 .content div {
   padding: 10px;
   display: flex;
@@ -123,4 +136,10 @@ main {
 .content div p {
   font-family: "Poppins";
   color: white;
+}
+
+@media screen and (min-width: 0px) and (max-width: 470px) {
+  #sub_header {
+    height: 50px;
+  }
 }/*# sourceMappingURL=inventario.css.map */

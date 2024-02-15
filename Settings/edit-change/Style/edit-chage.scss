@@ -37,6 +37,9 @@ header {
     padding: 15px;
     font-family: $fuente;
     font-style: italic;
+    img{
+      width: 50px;
+    }
   }
   
   //HOVER DEL MENU DESPLEGABLE
@@ -67,6 +70,7 @@ header {
   }
   nav {
     padding: 15px;
+    align-items: center
   }
   
   #sub_header {
@@ -122,4 +126,10 @@ header {
   //QUITAR EL MENU
   #menu_open{
     display: none;
+  }
+
+  @media screen and (min-width:0px) and (max-width:470px) {
+    #sub_header{
+      height: 50px;
+    }
   }

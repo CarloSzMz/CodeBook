@@ -9,17 +9,18 @@
   <body>
     <header>
       <div id="nav">
-        <p id="logo">CODE<span style="color: gold">BOOK</span></p>
+        <p id="logo"><a href="/CodeBook/Code/content/HTML/content.html"><img src="../../../Logo/logo1.png" alt="Logo"></a></p>
         <nav>
           <img id="menu_open" src="../img/Component 1.png" />
           <ul id="desplegable">
             <img id="menu_close" src="../img/Component 2.png" />
-            <li>SETTINGS</li>
             <a href="../../../Code/content/HTML/content.html"><li>CONTENT</li></a>
-            <li id="irFav">FAVOURITES</li>
+            <a href="../../favoritos/HTML/favoritos.html"><li id="irFav">FAVOURITES</li></a>
             <a href="../../../Sesion/support/support.html"><li>SUPPORT</li></a>
-            <li>ABOUT US</li>
-            <li id="logout">LOG OUT</li>
+            <a href="../../../Mapa/HTML/Mapa.html"><li id="mapa">MAP</li></a>
+            <a href="../../../Inventario/HTML/inventario.html"><li>INVENTORY</li></a>
+            <a href="../../../Settings/index_settings/HTML/index_settings.html"><li>SETTINGS</li></a>
+            <a href="../PHP/logout.php"><li id="logout">LOG OUT</li></a>
           </ul>
         </nav>
       </div>
@@ -53,7 +54,6 @@
     })
     let botonFavoritos = document.getElementById("irFav");
     botonFavoritos.addEventListener("click", () => {
-      //la url de el html de los cursos (indice_curso)
       let nuevaURL = `../../favoritos/HTML/favoritos.html`;
       window.location.href = nuevaURL;
     });
@@ -82,11 +82,9 @@
         labelCursos.style.display = "flex";
       }
     });
-    // Utilizar AJAX para obtener los datos de cursos
     fetch("../PHP/sacar_cursos.php")
       .then((response) => response.json())
       .then((data) => {
-        // Insertar los datos en la tabla
        
         const contenedorCursos = document.getElementById("cursos");
 
@@ -108,7 +106,6 @@
           imgOtro.style.maxWidth = "30px";
           imgOtro.setAttribute("class", "corazonImagen");
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
@@ -118,14 +115,12 @@
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = curso.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Cursos/HTML/index_cursos.html?id_curso=${encodeURIComponent(
                 variableAEnviar
               )}`;
               window.location.href = nuevaURL;
             });
           }
-          // Adjuntar el div de contenido al contenedor general
           contenedorCursos.appendChild(divContent);
         });
       })
@@ -134,7 +129,6 @@
     fetch("../PHP/sacar_libros.php")
       .then((response) => response.json())
       .then((data) => {
-        // Insertar los datos en la tabla
         const contenedorLibros = document.getElementById("libros");
 
         data.forEach((libro) => {
@@ -156,7 +150,6 @@
           imgOtro.setAttribute("class", "corazonImagen");
           
 
-          // Adjuntar elementos al div de contenido
           divDescripcion.appendChild(pNombre);
           divDescripcion.appendChild(imgOtro);
 
@@ -167,14 +160,12 @@
           function clicar() {
             divContent.addEventListener("click", () => {
               let variableAEnviar = libro.Id;
-              //la url de el html de los cursos (indice_curso)
               let nuevaURL = `../../../Libros/HTML/libros.html?id_libro=${encodeURIComponent(
                 variableAEnviar
               )}`;
               window.location.href = nuevaURL;
             });
           }
-          // Adjuntar el div de contenido al contenedor general
           contenedorLibros.appendChild(divContent);
         });
       })
@@ -183,4 +174,5 @@
   <script src="../js/nav_menu.js"></script>
   <script src="../js/marcarFavoritos.js"></script>
   <script src="../js/anyadirFavoritos.js"></script>
+  <script src="../../../Footer/js/footer.js"></script>
 </html>

@@ -33,7 +33,9 @@ if ($result->num_rows > 0) {
     $datos = $row["Id"];
 }
 
-$query2 = "UPDATE `usuarios` SET `$campo` = '$newName' WHERE `Id`= '44'";
+echo $datos;
+
+$query2 = "UPDATE `usuarios` SET `$campo` = '$newName' WHERE `Id`= '$datos'";
 $result2 = $conn->query($query2);
 
 $conn->close();
