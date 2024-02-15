@@ -12,6 +12,14 @@ html {
   margin: 0;
 }
 
+#nav {
+  align-items: center;
+}
+
+#logo img {
+  width: 50px;
+}
+
 #menu_open {
   display: none;
 }

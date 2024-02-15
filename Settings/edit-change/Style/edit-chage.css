@@ -31,6 +31,9 @@ header {
   font-family: "Poppins";
   font-style: italic;
 }
+#logo img {
+  width: 50px;
+}
 
 ul {
   position: absolute;
@@ -60,6 +63,7 @@ li:hover {
 
 nav {
   padding: 15px;
+  align-items: center;
 }
 
 #sub_header {

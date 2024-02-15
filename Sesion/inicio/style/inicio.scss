@@ -13,6 +13,16 @@ html {
   margin: 0;
 }
 
+#nav{
+  align-items: center;
+}
+
+#logo{
+  img{
+    width: 50px;
+  }
+}
+
 @mixin medio {
   display: flex;
   justify-content: center;

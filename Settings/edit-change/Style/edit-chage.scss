@@ -37,6 +37,9 @@ header {
     padding: 15px;
     font-family: $fuente;
     font-style: italic;
+    img{
+      width: 50px;
+    }
   }
   
   //HOVER DEL MENU DESPLEGABLE
@@ -67,6 +70,7 @@ header {
   }
   nav {
     padding: 15px;
+    align-items: center
   }
   
   #sub_header {

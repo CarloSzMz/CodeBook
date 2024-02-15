@@ -23,6 +23,17 @@ html {
   display: none;
 }
 
+#logo{
+  img{
+    width: 50px;
+  }
+}
+
+#nav{
+  display: flex;
+  align-items: center;
+}
+
 
 main {
   @include medio();

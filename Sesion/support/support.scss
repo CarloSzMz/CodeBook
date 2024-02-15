@@ -30,6 +30,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -37,6 +38,9 @@ header {
   padding: 15px;
   font-family: "Poppins";
   font-style: italic;
+  img{
+    width: 50px;
+  }
 }
 
 a{

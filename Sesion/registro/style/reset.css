@@ -16,6 +16,15 @@ html {
   display: none;
 }
 
+#logo img {
+  width: 50px;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+}
+
 main {
   display: flex;
   justify-content: center;
