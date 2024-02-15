@@ -30,10 +30,6 @@ fetch('../../Queries/GetCategorias.php')
             return false;
         }
         
-        if (!validarDescripcion()) {
-            return false;
-        }
-        
         if (!validarUrl()) {
             return false;
         }
@@ -54,19 +50,6 @@ fetch('../../Queries/GetCategorias.php')
         
     }
     
-    function validarDescripcion() {
-        var descripcion = document.querySelector("input#Descripcion");
-        var regex = /^[a-zA-ZñÑ0-9\s]*$/
-        
-        if (regex.test(descripcion.value)) {
-            return true
-        } else {
-            alert(descripcion.value + " no es una descripción válida.");
-            return false
-        }
-    }
-    
-
     function validarUrl() {
         var url = document.querySelector("input#Url");
         var regex = /^(https?|ftp):\/\/.*$/
