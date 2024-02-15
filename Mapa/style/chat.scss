@@ -26,10 +26,15 @@ header {
   justify-content: space-between;
 }
 
+a{
+  text-decoration: none;
+}
+
 #nav{
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -37,6 +42,9 @@ header {
   padding: 15px;
   font-family: $fuente;
   font-style: italic;
+  img{
+    width: 50px;
+  }
 }
 
 //HOVER DEL MENU DESPLEGABLE
